@@ -8,10 +8,10 @@
 
 #import "HYHttpCilent.h"
 
-@interface HYHttpCilent ()
+@interface HYHttpCilent () <NSURLSessionDelegate>
 
-@property (strong, nonatomic, readwrite) NSMutableArray *operationQueue;
-@property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
+@property (strong, nonatomic) NSOperationQueue *operationQueue ;
+@property (strong, nonatomic) NSURLSession *session ;
 
 @end
 
@@ -39,28 +39,29 @@
     return _httpMethod;
 }
 
-#pragma mark - Private
-
-- (NSMutableArray *)operationQueue {
+- (NSOperationQueue *)operationQueue {
     if (!_operationQueue) {
-        _operationQueue = [NSMutableArray array];
+        _operationQueue = [[NSOperationQueue alloc] init];
+        _operationQueue.maxConcurrentOperationCount = 10;
     }
-    
     return _operationQueue;
 }
 
-- (AFHTTPRequestOperationManager *)manager {
-    if (!_manager) {
-        _manager = [AFHTTPRequestOperationManager manager];
-        _manager.responseSerializer = [AFJSONResponseSerializer serializer];
-        
-        NSMutableSet *set = [_manager.responseSerializer.acceptableContentTypes mutableCopy] ;
-//        [set addObject:@"application/xml; charset=UTF-8"];
-        _manager.responseSerializer.acceptableContentTypes= set;
+- (NSURLSession *)session {
+    if (!_session) {
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        _session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:self.operationQueue];
     }
-    
-    return _manager;
+    return _session;
 }
+
+- (void)setMaxRequestCount:(NSUInteger)maxRequestCount {
+    _maxRequestCount = maxRequestCount;
+
+    self.operationQueue.maxConcurrentOperationCount = _maxRequestCount;
+}
+
+#pragma mark - Private
 
 #pragma mark - Message
 
@@ -73,46 +74,8 @@
     return urlStr;
 }
 
-+ (NSDictionary *)paramsForSafeInterfaceFromParams:(NSDictionary *)params {
-    
-    return @{};
-//    //TODO: 针对安全性添加的代码
-//    
-//    APP_CURRENT_USER
-//    
-//    NSString *susrnam = user.userId;
-//    long long int time = (long long int)[[NSDate date] timeIntervalSince1970]*1000;
-//    NSString *timestamp = @(time).stringValue;
-//    NSString *appkey = Liems_APPKEY_ID;
-//    NSString *secretkey = Liems_SECRETKEY_ID;
-//    NSString *password = [[user.userId stringByAppendingString:user.pword] hy_md5String];
-//    NSString *signStr = [secretkey stringByAppendingFormat:@"%@%@%@", susrnam, password, timestamp];
-//    signStr = [signStr hy_md5String];
-//    
-//    
-//    NSDictionary *restDic = @{@"susrnam": susrnam,
-//                              @"timestamp": timestamp,
-//                              @"appkey": appkey,
-//                              @"sign": signStr};
-//    
-//    NSMutableDictionary *tempDic = [params mutableCopy];
-//    [tempDic setValuesForKeysWithDictionary:restDic];
-//    
-//    return [tempDic copy];
-}
-
 - (NSURLRequest *)textRequestWithHttpMethod:(NSString *)httpMethod urlString:(NSString *)urlString httpBody:(id)httpBody {
     __block NSString *urlStr = urlString;
-    
-    //    NSString *idSuffix = nil;
-    
-    //TODO: 根据每个项目是否需要添加信息
-    //    if ([urlString rangeOfString:@"?"].length) {
-    //        idSuffix = [@"&" stringByAppendingFormat:@"userID=%@&OrgID=%@", user.USER_ID, user.STORE_ID];
-    //    } else {
-    //        idSuffix = [@"?" stringByAppendingFormat:@"userID=%@&OrgID=%@", user.USER_ID, user.STORE_ID];
-    //    }
-    //    urlStr = [urlStr stringByAppendingString:idSuffix];
     
     __block NSString *bodyStr = @"";
     NSString *method = httpMethod.length? httpMethod:self.httpMethod;
@@ -135,7 +98,7 @@
     } else {
         NSAssert(0, @"设置的method不正确，仅支持GET/POST");
     }
-    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    urlStr = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
     NSURL *url = nil;
     
@@ -152,73 +115,50 @@
     if ([method isEqualToString:@"POST"]) {
         request.HTTPBody = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
     }
-    
-//    if ([httpBody isKindOfClass:[NSDictionary class]]) {
-//        [httpBody enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-//            [request setValue:obj forHTTPHeaderField:key];
-//        }];
-//    } else {
-//        [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//        request.HTTPBody = httpBody;
-//    }
 
     //设置超时时间
     request.timeoutInterval = 30;
     return request;
 }
 
-- (AFHTTPRequestOperation *)HTTPRequestOperationWithRequest:(NSURLRequest *)request success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure {
-    return [self HTTPRequestOperationWithRequest:request success:success failure:failure willFinishBlock:nil didFinishBlock:nil];
+- (NSURLSessionDataTask *)taskWithRequest:(NSURLRequest *)request success:(void (^)(NSURLResponse *response, id responseObject))success failure:(void (^)(NSURLResponse *response, NSError *error))failure {
+    return [self taskWithRequest:request success:success failure:failure willFinishBlock:nil didFinishBlock:nil];
 }
 
-- (AFHTTPRequestOperation *)HTTPRequestOperationWithRequest:(NSURLRequest *)request success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure willFinishBlock:(void (^)(BOOL isSuccess))willFinishBlock didFinishBlock:(void (^)(BOOL isSuccess))didFinishBlock {
-    AFHTTPRequestOperation *operation = [self.manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+- (NSURLSessionDataTask *)taskWithRequest:(NSURLRequest *)request success:(void (^)(NSURLResponse *response, id responseObject))success failure:(void (^)(NSURLResponse *response, NSError *error))failure willFinishBlock:(void (^)(BOOL isSuccess))willFinishBlock didFinishBlock:(void (^)(BOOL isSuccess))didFinishBlock {
+    
+    NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
+        //将要结束调用
         if (willFinishBlock) {
             willFinishBlock(YES);
         }
         
-        success(operation, responseObject);
-
+        if (!error) {
+            
+            NSError *serializaError = nil;
+            id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&serializaError];
+            
+            if (serializaError) {
+                HY_LOG(@"解析失败%@", serializaError);
+                responseObject = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            }
+            
+            success(response, responseObject);
+        } else {
+            NSError *handleError = [NSError errorWithDomain:error.domain code:error.code userInfo:@{NSLocalizedDescriptionKey:@"网络异常，请重试"}];
+            failure(response, handleError);
+        }
+        
+        //已经结束
         if (didFinishBlock) {
             didFinishBlock(YES);
         }
-
-    }  failure:^(AFHTTPRequestOperation *operation, NSError *error){
-        
-        if (willFinishBlock) {
-            willFinishBlock(NO);
-        }
-
-        NSError *handleError = [NSError errorWithDomain:error.domain code:error.code userInfo:@{NSLocalizedDescriptionKey:@"网络异常，请重试"}];
-        failure(operation, handleError);
-        
-        if (didFinishBlock) {
-            didFinishBlock(NO);
-        }
-    }];;
-    [self.manager.operationQueue addOperation:operation];
+    }];
     
-    return operation;
-}
-
-- (AFHTTPRequestOperation *)HTTPRequestOperationCustomFinishBlockWithRequest:(NSURLRequest *)request success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure willFinishBlock:(void (^)(BOOL))willFinishBlock didFinishBlock:(void (^)(BOOL))didFinishBlock {
-    AFHTTPRequestOperation *operation = [self.manager HTTPRequestOperationWithRequest:request success:success failure:^(AFHTTPRequestOperation *operation, NSError *error){
-        
-        if (willFinishBlock) {
-            willFinishBlock(NO);
-        }
-        
-        NSError *handleError = [NSError errorWithDomain:error.domain code:error.code userInfo:@{NSLocalizedDescriptionKey:@"网络异常，请重试"}];
-        failure(operation, handleError);
-        
-        if (didFinishBlock) {
-            didFinishBlock(NO);
-        }
-    }];;
-    [self.manager.operationQueue addOperation:operation];
+    [task resume];
     
-    return operation;
+    return task;
 }
 
 + (NSError *)errorForUnmatchResponse {
@@ -234,20 +174,15 @@
     }
 }
 
-- (void)cancleOperation:(AFHTTPRequestOperation *)operation {
+- (void)cancleOperation:(NSURLSessionDataTask *)task {
     
-    [operation cancel];
-    
-    if ([self.operationQueue containsObject:operation]) {
-        [self.operationQueue removeObject:operation];
-    }
 }
 
 - (void)cancleAllOperations {
-    for (AFHTTPRequestOperation *operation in self.operationQueue) {
-        [operation cancel];
-        [self.operationQueue removeObject:operation];
-    }
+    
 }
+
+#pragma mark - NSURLSessionDataDelegate
+
 
 @end

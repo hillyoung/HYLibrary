@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFNetworking.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>JGActionSheet.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,11 +37,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
 		<dict>
 			<key>primary</key>
@@ -57,7 +47,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>960E0A78F44EAC99C2E879B34214B932</key>
+		<key>8D4A9B2B2F1B8BEF60ACD5B185E92BAA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

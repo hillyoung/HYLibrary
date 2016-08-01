@@ -86,24 +86,38 @@
 }
 
 - (void)headerBeginRefresh {
-    [self.collectionView.header beginRefreshing];
+    [self.collectionView.mj_header beginRefreshing];
 }
 
 - (void)footerBeginRefresh {
-    [self.collectionView.footer beginRefreshing];
+    [self.collectionView.mj_footer beginRefreshing];
 }
 
 /**
  *  结束collectionview上拉或下拉刷新
  */
 - (void)endRefresh {
-    if (self.collectionView.header.isRefreshing) {
-        [self.collectionView.header endRefreshing];
+    if (self.collectionView.mj_header.isRefreshing) {
+        [self.collectionView.mj_header endRefreshing];
     }
     
-    if (self.collectionView.footer.isRefreshing) {
-        [self.collectionView.footer endRefreshing];
+    if (self.collectionView.mj_footer.isRefreshing) {
+        [self.collectionView.mj_footer endRefreshing];
     }
+}
+
+#pragma mark - UICollectionViewDataSource, UICollectionViewDelegate
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 0;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
 }
 
 @end

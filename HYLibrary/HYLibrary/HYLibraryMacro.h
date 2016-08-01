@@ -16,6 +16,16 @@
 #ifndef HYLibraryMacro_h
 #define HYLibraryMacro_h
 
+#if DEBUG
+
+#define HY_LOG(args, ...) NSLog( @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(args), ##__VA_ARGS__] )
+
+#else
+
+#define HY_LOG(args, ...)
+
+#endif
+
 #import "Masonry.h"
 #import "HYGlobalCommon.h"
 #import "MBProgressHUD.h"
@@ -40,6 +50,7 @@
 #pragma mark - Network
 
 #import "HYHttpCilent.h"
+#import "HYHttpCilent+SafeParams.h"
 
 #pragma mark - View
 

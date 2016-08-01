@@ -7,26 +7,31 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFNetworking.h"
 
-typedef void(^success)(AFHTTPRequestOperation *operation, id responseObject);
-typedef void (^failure)(AFHTTPRequestOperation *operation, NSError *error);
 typedef void(^willFinishBlock)(BOOL isSuccess);
 typedef void(^didFinishBlock)(BOOL isSuccess);
-/**
- *  基于AFNetworking2.0封装
- */
+
 @interface HYHttpCilent : NSObject
 
-@property (strong, nonatomic, readonly) NSMutableArray *operationQueue;
-
-@property (strong, nonatomic, readonly) AFHTTPRequestOperationManager *manager;
-
+/**
+ *  基本地址
+ */
 @property (copy, nonatomic) NSString *baseUrlStr ;
+
+/**
+ *  默认为POST
+ */
 @property (copy, nonatomic) NSString *httpMethod ;
 
-+ (instancetype)shareManager;
+/**
+ *  最大并发请求数
+ */
+@property (nonatomic) NSUInteger maxRequestCount ;
 
+/**
+ *  获取单例管理者
+ */
++ (instancetype)shareManager;
 
 /**
  *  返回关于，服务器数据格式不正确的error
@@ -34,7 +39,7 @@ typedef void(^didFinishBlock)(BOOL isSuccess);
  */
 + (NSError *)errorForUnmatchResponse ;
 
-- (void)cancleOperation:(AFHTTPRequestOperation *)operation;
+- (void)cancleOperation:(NSURLSessionDataTask *)task;
 
 - (void)cancleAllOperations;
 
@@ -48,10 +53,6 @@ typedef void(^didFinishBlock)(BOOL isSuccess);
  */
 + (NSString *)absoluteUrlStringForPostParams:(NSDictionary *)params ;
 
-/**
- *  返回，给制定参数加上，安全接口所需的参数
- */
-+ (NSDictionary *)paramsForSafeInterfaceFromParams:(NSDictionary *)params ;
 
 - (NSURLRequest *)textRequestWithHttpMethod:(NSString *)httpMethod urlString:(NSString *)urlString httpBody:(id)httpBody ;
 
@@ -64,21 +65,8 @@ typedef void(^didFinishBlock)(BOOL isSuccess);
  *
  *  @return http请求任务
  */
-- (AFHTTPRequestOperation *)HTTPRequestOperationWithRequest:(NSURLRequest *)request success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure ;
+- (NSURLSessionDataTask *)taskWithRequest:(NSURLRequest *)request success:(void (^)(NSURLResponse *response, id responseObject))success failure:(void (^)(NSURLResponse *response, NSError *error))failure ;
 
-
-/**
- *  开始发起一个http请求
- *
- *  @param request 将要发起的请求
- *  @param success 成功的回调
- *  @param failure 失败的回调
- *  @param willFinishBlock 请求将要完成的时候的回调
- *  @param didFinishBlock 请求完成后的时候的回调
- *
- *  @return http请求任务
- */
-- (AFHTTPRequestOperation *)HTTPRequestOperationWithRequest:(NSURLRequest *)request success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure willFinishBlock:(willFinishBlock)willFinishBlock didFinishBlock:(didFinishBlock)didFinishBlock ;
 
 /**
  *  开始发起一个http请求, 并将finish的执行延迟到指定接口方法中
@@ -91,8 +79,6 @@ typedef void(^didFinishBlock)(BOOL isSuccess);
  *
  *  @return http请求任务
  */
-- (AFHTTPRequestOperation *)HTTPRequestOperationCustomFinishBlockWithRequest:(NSURLRequest *)request success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure willFinishBlock:(willFinishBlock)willFinishBlock didFinishBlock:(didFinishBlock)didFinishBlock ;
-
-
+- (NSURLSessionDataTask *)taskWithRequest:(NSURLRequest *)request success:(void (^)(NSURLResponse *response, id responseObject))success failure:(void (^)(NSURLResponse *response, NSError *error))failure willFinishBlock:(willFinishBlock)willFinishBlock didFinishBlock:(didFinishBlock)didFinishBlock ;
 
 @end

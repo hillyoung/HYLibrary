@@ -164,15 +164,16 @@
     }
 }
 
-//- (void)updateTableViewFooterNoData:(BOOL)noData {
+- (void)updateTableViewFooterNoData:(BOOL)noData {
 //    ShowNoDataView *view = [[ShowNoDataView alloc] initWithFrame:[UIScreen mainScreen].bounds withShowImgName:@"NoPici" withShowLabText:@"暂无数据"];
 //    self.tableView.tableFooterView = noData? view:[[UIView alloc] initWithFrame:CGRectZero];
-//}
+    [self hy_updateTableViewFooterNoData:noData];
+}
 
 - (void)hy_updateTableViewFooterNoData:(BOOL)noData {
     
     HYNoDataView *nodataView = [[HYNoDataView alloc] initWithFrame:self.tableView.frame title:@"没有数据"];
-    self.tableView.tableFooterView = nodataView;
+    self.tableView.tableFooterView = noData? nodataView:[[UIView alloc] initWithFrame:CGRectZero];
 }
 
 #pragma mark - UITableViewDatasource && UITabelViewDelege
@@ -183,6 +184,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
 }
 
 @end
