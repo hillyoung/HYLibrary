@@ -12,6 +12,7 @@
 		E86908A51D4AFF2300E3B32F /* HYProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E86908A41D4AFF2300E3B32F /* HYProgressHUD.m */; };
 		E86908A81D4B00B500E3B32F /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = E86908A71D4B00B500E3B32F /* CustomView.m */; };
 		E86908AB1D4B03B000E3B32F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E86908AA1D4B03B000E3B32F /* SecondViewController.m */; };
+		E871E1EE1D4EE569004CD916 /* NSObject+HYLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = E871E1ED1D4EE569004CD916 /* NSObject+HYLibrary.m */; };
 		E88F53601D49B3EB00FA2E1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E88F535F1D49B3EB00FA2E1C /* main.m */; };
 		E88F53631D49B3EB00FA2E1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E88F53621D49B3EB00FA2E1C /* AppDelegate.m */; };
 		E88F53661D49B3EB00FA2E1C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E88F53651D49B3EB00FA2E1C /* ViewController.m */; };
@@ -60,6 +61,8 @@
 		E86908A71D4B00B500E3B32F /* CustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomView.m; sourceTree = "<group>"; };
 		E86908A91D4B03B000E3B32F /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		E86908AA1D4B03B000E3B32F /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		E871E1EC1D4EE569004CD916 /* NSObject+HYLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HYLibrary.h"; sourceTree = "<group>"; };
+		E871E1ED1D4EE569004CD916 /* NSObject+HYLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HYLibrary.m"; sourceTree = "<group>"; };
 		E88F535B1D49B3EA00FA2E1C /* HYLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HYLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E88F535F1D49B3EB00FA2E1C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E88F53611D49B3EB00FA2E1C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -248,6 +251,8 @@
 		E88F53761D49B3F500FA2E1C /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				E871E1EC1D4EE569004CD916 /* NSObject+HYLibrary.h */,
+				E871E1ED1D4EE569004CD916 /* NSObject+HYLibrary.m */,
 				E88F53791D49B3F500FA2E1C /* NSString+Encrypt.h */,
 				E88F537A1D49B3F500FA2E1C /* NSString+Encrypt.m */,
 				E88F537B1D49B3F500FA2E1C /* UIImage+HYLibrary.h */,
@@ -510,6 +515,7 @@
 			files = (
 				E88F53CA1D49B3F500FA2E1C /* HYRefreshViewController.m in Sources */,
 				E86908A51D4AFF2300E3B32F /* HYProgressHUD.m in Sources */,
+				E871E1EE1D4EE569004CD916 /* NSObject+HYLibrary.m in Sources */,
 				E86908A81D4B00B500E3B32F /* CustomView.m in Sources */,
 				E88F53C71D49B3F500FA2E1C /* HYBaseViewController.m in Sources */,
 				E88F53D81D49B3F500FA2E1C /* HYBaseInfoInputCell.m in Sources */,

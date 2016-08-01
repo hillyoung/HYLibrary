@@ -26,6 +26,7 @@
 
 #endif
 
+
 #import "Masonry.h"
 #import "HYGlobalCommon.h"
 #import "MBProgressHUD.h"
@@ -35,8 +36,11 @@
 #pragma mark - Category
 
 #import "UIView+EffectAnimation.h"
+#import "UIImage+HYLibrary.h"
 #import "UIViewController+HYLibrary.h"
 #import "NSString+Encrypt.h"
+#import "NSObject+HYLibrary.h"
+#import "HYHttpCilent+SafeParams.h"
 
 #pragma mark - Base
 
@@ -50,7 +54,6 @@
 #pragma mark - Network
 
 #import "HYHttpCilent.h"
-#import "HYHttpCilent+SafeParams.h"
 
 #pragma mark - View
 

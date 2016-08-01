@@ -17,6 +17,7 @@
         _title = title;
         _content = content;
         _rows = rows;
+        _sectionHeight = 16;
     }
     
     return self;

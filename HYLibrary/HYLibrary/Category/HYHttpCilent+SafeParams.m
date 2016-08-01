@@ -12,7 +12,7 @@
 
 + (NSDictionary *)paramsForSafeInterfaceFromParams:(NSDictionary *)params {
     
-    return @{};
+    return params;
     //    //TODO: 针对安全性添加的代码
     //
     //    APP_CURRENT_USER
