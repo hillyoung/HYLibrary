@@ -7,6 +7,7 @@
 //
 
 #import "HYHttpCilent.h"
+#import "HYHttpCilent+SafeParams.h"
 
 @interface HYHttpCilent () <NSURLSessionDelegate>
 
@@ -57,7 +58,7 @@
 
 - (void)setMaxRequestCount:(NSUInteger)maxRequestCount {
     _maxRequestCount = maxRequestCount;
-
+    
     self.operationQueue.maxConcurrentOperationCount = _maxRequestCount;
 }
 
@@ -111,11 +112,11 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
     request.HTTPMethod = method;
-
+    
     if ([method isEqualToString:@"POST"]) {
         request.HTTPBody = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
     }
-
+    
     //设置超时时间
     request.timeoutInterval = 30;
     return request;
@@ -129,30 +130,34 @@
     
     NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
-        //将要结束调用
-        if (willFinishBlock) {
-            willFinishBlock(YES);
-        }
-        
-        if (!error) {
-            
-            NSError *serializaError = nil;
-            id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&serializaError];
-            
-            if (serializaError) {
-                responseObject = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //将要结束调用
+            if (willFinishBlock) {
+                willFinishBlock(YES);
             }
             
-            success(response, responseObject);
-        } else {
-            NSError *handleError = [NSError errorWithDomain:error.domain code:error.code userInfo:@{NSLocalizedDescriptionKey:@"网络异常，请重试"}];
-            failure(response, handleError);
-        }
-        
-        //已经结束
-        if (didFinishBlock) {
-            didFinishBlock(YES);
-        }
+            if (!error) {
+                
+                NSError *serializaError = nil;
+                id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&serializaError];
+                
+                if (serializaError) {
+                    responseObject = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                    success(response, responseObject);
+                } else {
+                    success(response, data);
+                }
+                
+            } else {
+                NSError *handleError = [NSError errorWithDomain:error.domain code:error.code userInfo:@{NSLocalizedDescriptionKey:@"网络异常，请重试"}];
+                failure(response, handleError);
+            }
+            
+            //已经结束
+            if (didFinishBlock) {
+                didFinishBlock(YES);
+            }
+        });
     }];
     
     [task resume];
