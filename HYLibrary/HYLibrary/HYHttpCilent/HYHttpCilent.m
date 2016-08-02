@@ -140,7 +140,6 @@
             id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&serializaError];
             
             if (serializaError) {
-                HY_LOG(@"解析失败%@", serializaError);
                 responseObject = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             }
             
