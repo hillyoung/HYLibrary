@@ -16,9 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self initDatasource];
-    [self setupUI];
 }
 
 - (void)didReceiveMemoryWarning {
