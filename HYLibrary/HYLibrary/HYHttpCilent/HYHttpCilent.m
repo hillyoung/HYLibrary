@@ -145,7 +145,7 @@
                     responseObject = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                     success(response, responseObject);
                 } else {
-                    success(response, data);
+                    success(response, responseObject==nil ? data:responseObject);
                 }
                 
             } else {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E84041761D52100F009E6812 /* HYHttpCilent+SafeParams.m in Sources */ = {isa = PBXBuildFile; fileRef = E84041751D52100F009E6812 /* HYHttpCilent+SafeParams.m */; };
 		E869089D1D4AFE2700E3B32F /* HYActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = E869089A1D4AFE2700E3B32F /* HYActionSheet.m */; };
 		E869089E1D4AFE2700E3B32F /* HYAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E869089C1D4AFE2700E3B32F /* HYAlertView.m */; };
 		E86908A51D4AFF2300E3B32F /* HYProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E86908A41D4AFF2300E3B32F /* HYProgressHUD.m */; };
@@ -44,13 +45,14 @@
 		E88F53D81D49B3F500FA2E1C /* HYBaseInfoInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E88F53B71D49B3F500FA2E1C /* HYBaseInfoInputCell.m */; };
 		E88F53D91D49B3F500FA2E1C /* HYBaseInfoCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E88F53BA1D49B3F500FA2E1C /* HYBaseInfoCellModel.m */; };
 		E88F53DA1D49B3F500FA2E1C /* HYPlaceholdTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E88F53BD1D49B3F500FA2E1C /* HYPlaceholdTextView.m */; };
-		E8F4F2E51D4A284300869CF9 /* HYHttpCilent+SafeParams.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F4F2E41D4A284300869CF9 /* HYHttpCilent+SafeParams.m */; };
 		F64C58066FE02BED814EEE6A /* libPods-HYLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC591D1072A66D9D716D245 /* libPods-HYLibrary.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2CC591D1072A66D9D716D245 /* libPods-HYLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HYLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBE912B8A64E1EF7512736F2 /* Pods-HYLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYLibrary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HYLibrary/Pods-HYLibrary.debug.xcconfig"; sourceTree = "<group>"; };
+		E84041741D52100F009E6812 /* HYHttpCilent+SafeParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HYHttpCilent+SafeParams.h"; sourceTree = "<group>"; };
+		E84041751D52100F009E6812 /* HYHttpCilent+SafeParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HYHttpCilent+SafeParams.m"; sourceTree = "<group>"; };
 		E86908991D4AFE2700E3B32F /* HYActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYActionSheet.h; sourceTree = "<group>"; };
 		E869089A1D4AFE2700E3B32F /* HYActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYActionSheet.m; sourceTree = "<group>"; };
 		E869089B1D4AFE2700E3B32F /* HYAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYAlertView.h; sourceTree = "<group>"; };
@@ -127,8 +129,6 @@
 		E88F53BD1D49B3F500FA2E1C /* HYPlaceholdTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYPlaceholdTextView.m; sourceTree = "<group>"; };
 		E88F53BE1D49B3F500FA2E1C /* HYViewMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYViewMacro.h; sourceTree = "<group>"; };
 		E88F53DB1D49B4EE00FA2E1C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		E8F4F2E31D4A284300869CF9 /* HYHttpCilent+SafeParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HYHttpCilent+SafeParams.h"; sourceTree = "<group>"; };
-		E8F4F2E41D4A284300869CF9 /* HYHttpCilent+SafeParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HYHttpCilent+SafeParams.m"; sourceTree = "<group>"; };
 		F25529D557C6AFA6B58DEBC0 /* Pods-HYLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYLibrary.release.xcconfig"; path = "Pods/Target Support Files/Pods-HYLibrary/Pods-HYLibrary.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -259,8 +259,6 @@
 				E88F537C1D49B3F500FA2E1C /* UIImage+HYLibrary.m */,
 				E88F537D1D49B3F500FA2E1C /* UIViewController+HYLibrary.h */,
 				E88F537E1D49B3F500FA2E1C /* UIViewController+HYLibrary.m */,
-				E8F4F2E31D4A284300869CF9 /* HYHttpCilent+SafeParams.h */,
-				E8F4F2E41D4A284300869CF9 /* HYHttpCilent+SafeParams.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -289,6 +287,8 @@
 		E88F53961D49B3F500FA2E1C /* HYHttpCilent */ = {
 			isa = PBXGroup;
 			children = (
+				E84041741D52100F009E6812 /* HYHttpCilent+SafeParams.h */,
+				E84041751D52100F009E6812 /* HYHttpCilent+SafeParams.m */,
 				E88F53971D49B3F500FA2E1C /* HYHttpCilent.h */,
 				E88F53981D49B3F500FA2E1C /* HYHttpCilent.m */,
 			);
@@ -513,6 +513,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E84041761D52100F009E6812 /* HYHttpCilent+SafeParams.m in Sources */,
 				E88F53CA1D49B3F500FA2E1C /* HYRefreshViewController.m in Sources */,
 				E86908A51D4AFF2300E3B32F /* HYProgressHUD.m in Sources */,
 				E871E1EE1D4EE569004CD916 /* NSObject+HYLibrary.m in Sources */,
@@ -540,7 +541,6 @@
 				E869089E1D4AFE2700E3B32F /* HYAlertView.m in Sources */,
 				E88F53D71D49B3F500FA2E1C /* HYBaseHeaderFooter.m in Sources */,
 				E88F53CE1D49B3F500FA2E1C /* HYLRTextField.m in Sources */,
-				E8F4F2E51D4A284300869CF9 /* HYHttpCilent+SafeParams.m in Sources */,
 				E88F53C81D49B3F500FA2E1C /* HYMetadataViewController.m in Sources */,
 				E86908AB1D4B03B000E3B32F /* SecondViewController.m in Sources */,
 				E88F53D91D49B3F500FA2E1C /* HYBaseInfoCellModel.m in Sources */,
