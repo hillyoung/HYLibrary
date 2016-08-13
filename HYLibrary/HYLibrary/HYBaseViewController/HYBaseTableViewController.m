@@ -34,7 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     [self initDatasource];
     
     //此处可能注册观察者可能会存在问题
@@ -43,11 +43,11 @@
     [self setupUI];
     [self.view addSubview:self.tableView];
     [self setupTableView];
-
+    
     if ([self respondsToSelector:@selector(headerRefresheAction)]) {
         [self addHeaderReresh];
     }
-
+    
     if ([self respondsToSelector:@selector(footerRefresheAction)]) {
         [self addFooterReresh];
     }
@@ -82,7 +82,10 @@
     
     if ([keyPath isEqualToString:KVO_HYBaseTableView_dataList]) {
         if (self.tableViewFooterUpdate) {
-            [self updateTableViewFooterNoData:!self.dataList.count];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self updateTableViewFooterNoData:!self.dataList.count];
+            });
         }
     }
 }
@@ -158,15 +161,15 @@
     if (self.tableView.mj_header.isRefreshing) {
         [self.tableView.mj_header endRefreshing];
     }
-
+    
     if (self.tableView.mj_footer.isRefreshing) {
         [self.tableView.mj_footer endRefreshing];
     }
 }
 
 - (void)updateTableViewFooterNoData:(BOOL)noData {
-//    ShowNoDataView *view = [[ShowNoDataView alloc] initWithFrame:[UIScreen mainScreen].bounds withShowImgName:@"NoPici" withShowLabText:@"暂无数据"];
-//    self.tableView.tableFooterView = noData? view:[[UIView alloc] initWithFrame:CGRectZero];
+    //    ShowNoDataView *view = [[ShowNoDataView alloc] initWithFrame:[UIScreen mainScreen].bounds withShowImgName:@"NoPici" withShowLabText:@"暂无数据"];
+    //    self.tableView.tableFooterView = noData? view:[[UIView alloc] initWithFrame:CGRectZero];
     [self hy_updateTableViewFooterNoData:noData];
 }
 

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E84041761D52100F009E6812 /* HYHttpCilent+SafeParams.m in Sources */ = {isa = PBXBuildFile; fileRef = E84041751D52100F009E6812 /* HYHttpCilent+SafeParams.m */; };
+		E82D2E8B1D5F016D0026F308 /* NSObject+StringValue.m in Sources */ = {isa = PBXBuildFile; fileRef = E82D2E8A1D5F016D0026F308 /* NSObject+StringValue.m */; };
+		E84041761D52100F009E6812 /* HYHttpCilent+SafeParams.m in Sources */ = {isa = PBXBuildFile; fileRef = E84041751D52100F009E6812 /* HYHttpCilent+SafeParams.m */; };
+		E85465021D5472980092CE2A /* NSLayoutConstraint+EasyAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E85465011D5472980092CE2A /* NSLayoutConstraint+EasyAutoLayout.m */; };
+		E85465091D547BAD0092CE2A /* UINavigationItem+CustomBackTitleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E85465081D547BAD0092CE2A /* UINavigationItem+CustomBackTitleImage.m */; };
 		E869089D1D4AFE2700E3B32F /* HYActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = E869089A1D4AFE2700E3B32F /* HYActionSheet.m */; };
 		E869089E1D4AFE2700E3B32F /* HYAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E869089C1D4AFE2700E3B32F /* HYAlertView.m */; };
 		E86908A51D4AFF2300E3B32F /* HYProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E86908A41D4AFF2300E3B32F /* HYProgressHUD.m */; };
@@ -51,8 +55,19 @@
 /* Begin PBXFileReference section */
 		2CC591D1072A66D9D716D245 /* libPods-HYLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HYLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBE912B8A64E1EF7512736F2 /* Pods-HYLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYLibrary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HYLibrary/Pods-HYLibrary.debug.xcconfig"; sourceTree = "<group>"; };
+<<<<<<< 6fb6237d38909044c4f3e247ee2a753a50dd3d41
 		E84041741D52100F009E6812 /* HYHttpCilent+SafeParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HYHttpCilent+SafeParams.h"; sourceTree = "<group>"; };
 		E84041751D52100F009E6812 /* HYHttpCilent+SafeParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HYHttpCilent+SafeParams.m"; sourceTree = "<group>"; };
+=======
+		E82D2E891D5F016D0026F308 /* NSObject+StringValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+StringValue.h"; sourceTree = "<group>"; };
+		E82D2E8A1D5F016D0026F308 /* NSObject+StringValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+StringValue.m"; sourceTree = "<group>"; };
+		E84041741D52100F009E6812 /* HYHttpCilent+SafeParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HYHttpCilent+SafeParams.h"; sourceTree = "<group>"; };
+		E84041751D52100F009E6812 /* HYHttpCilent+SafeParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HYHttpCilent+SafeParams.m"; sourceTree = "<group>"; };
+		E85465001D5472980092CE2A /* NSLayoutConstraint+EasyAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+EasyAutoLayout.h"; sourceTree = "<group>"; };
+		E85465011D5472980092CE2A /* NSLayoutConstraint+EasyAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+EasyAutoLayout.m"; sourceTree = "<group>"; };
+		E85465071D547BAD0092CE2A /* UINavigationItem+CustomBackTitleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+CustomBackTitleImage.h"; sourceTree = "<group>"; };
+		E85465081D547BAD0092CE2A /* UINavigationItem+CustomBackTitleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+CustomBackTitleImage.m"; sourceTree = "<group>"; };
+>>>>>>> 修复httpClient中存在的逻辑bug
 		E86908991D4AFE2700E3B32F /* HYActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYActionSheet.h; sourceTree = "<group>"; };
 		E869089A1D4AFE2700E3B32F /* HYActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYActionSheet.m; sourceTree = "<group>"; };
 		E869089B1D4AFE2700E3B32F /* HYAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYAlertView.h; sourceTree = "<group>"; };
@@ -161,6 +176,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E85464FF1D5472980092CE2A /* AutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				E85465001D5472980092CE2A /* NSLayoutConstraint+EasyAutoLayout.h */,
+				E85465011D5472980092CE2A /* NSLayoutConstraint+EasyAutoLayout.m */,
+			);
+			path = AutoLayout;
+			sourceTree = "<group>";
+		};
 		E86908981D4AFE2700E3B32F /* HYAlertSheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +259,7 @@
 				E88F53991D49B3F500FA2E1C /* HYLibraryMacro.h */,
 				E88F53941D49B3F500FA2E1C /* HYGlobalCommon.h */,
 				E88F53951D49B3F500FA2E1C /* HYGlobalCommon.m */,
+				E85464FF1D5472980092CE2A /* AutoLayout */,
 				E88F53761D49B3F500FA2E1C /* Category */,
 				E88F53851D49B3F500FA2E1C /* HYBaseViewController */,
 				E88F53961D49B3F500FA2E1C /* HYHttpCilent */,
@@ -251,6 +276,10 @@
 		E88F53761D49B3F500FA2E1C /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				E82D2E891D5F016D0026F308 /* NSObject+StringValue.h */,
+				E82D2E8A1D5F016D0026F308 /* NSObject+StringValue.m */,
+				E85465071D547BAD0092CE2A /* UINavigationItem+CustomBackTitleImage.h */,
+				E85465081D547BAD0092CE2A /* UINavigationItem+CustomBackTitleImage.m */,
 				E871E1EC1D4EE569004CD916 /* NSObject+HYLibrary.h */,
 				E871E1ED1D4EE569004CD916 /* NSObject+HYLibrary.m */,
 				E88F53791D49B3F500FA2E1C /* NSString+Encrypt.h */,
@@ -523,6 +552,7 @@
 				E88F53661D49B3EB00FA2E1C /* ViewController.m in Sources */,
 				E88F53C91D49B3F500FA2E1C /* HYNoDataView.m in Sources */,
 				E88F53CF1D49B3F500FA2E1C /* HYScanningView.m in Sources */,
+				E85465021D5472980092CE2A /* NSLayoutConstraint+EasyAutoLayout.m in Sources */,
 				E88F53D61D49B3F500FA2E1C /* BaseInfoMultiCell.m in Sources */,
 				E88F53631D49B3EB00FA2E1C /* AppDelegate.m in Sources */,
 				E88F53D41D49B3F500FA2E1C /* UIView+EffectAnimation.m in Sources */,
@@ -536,7 +566,9 @@
 				E88F53C11D49B3F500FA2E1C /* UIImage+HYLibrary.m in Sources */,
 				E88F53601D49B3EB00FA2E1C /* main.m in Sources */,
 				E88F53D11D49B3F500FA2E1C /* HYBaseModel.m in Sources */,
+				E85465091D547BAD0092CE2A /* UINavigationItem+CustomBackTitleImage.m in Sources */,
 				E88F53D21D49B3F500FA2E1C /* HYNetBaseModel.m in Sources */,
+				E82D2E8B1D5F016D0026F308 /* NSObject+StringValue.m in Sources */,
 				E88F53D51D49B3F500FA2E1C /* BaseInfoItemCell.m in Sources */,
 				E869089E1D4AFE2700E3B32F /* HYAlertView.m in Sources */,
 				E88F53D71D49B3F500FA2E1C /* HYBaseHeaderFooter.m in Sources */,
