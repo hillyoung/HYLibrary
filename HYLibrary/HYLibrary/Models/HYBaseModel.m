@@ -41,7 +41,7 @@
 - (UIViewController *)viewController {
     
     if (self.storyName.length) {
-        return [[UIStoryboard storyboardWithName:self.storyName bundle:nil] instantiateViewControllerWithIdentifier:self.viewControllerClass];
+        return self.viewControllerClass.length? [[UIStoryboard storyboardWithName:self.storyName bundle:nil] instantiateViewControllerWithIdentifier:self.viewControllerClass]:[[UIStoryboard storyboardWithName:self.storyName bundle:nil] instantiateInitialViewController];
     } else if (self.viewControllerClass.length) {
        return [[NSClassFromString(self.viewControllerClass) alloc] init];
     }

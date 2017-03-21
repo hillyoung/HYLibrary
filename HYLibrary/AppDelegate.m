@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+//#import "NSDictionary+HYLibrary.h"
+#import "HYSortedMutableDictionary.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+//    [HYSortedMutableDictionary setup];
+//    HYSortedMutableDictionary *dictionary = [[HYSortedMutableDictionary alloc] init];
+//    
+//    [dictionary setObject:@"B" forKey:@"b"];
+//    [dictionary setObject:@"A" forKey:@"a"];
+//    [dictionary setValue:@"C" forKey:@"c"];
+//    [dictionary setValue:@"D" forKey:@"d"];
+//
+//    NSLog(@"%@", dictionary.insertKeyArray);
+//
+//    [dictionary removeObjectForKey:@"c"];
+//    
+//    NSLog(@"%@", dictionary.insertKeyArray);
+//
+//    [dictionary removeAllObjects];
+//    
+//    NSLog(@"%@", dictionary.insertKeyArray);
+    
+//    NSLog(@"%@", dictionary.description);
+
+    
     return YES;
 }
 

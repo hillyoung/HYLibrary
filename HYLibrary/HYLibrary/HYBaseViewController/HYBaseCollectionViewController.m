@@ -58,11 +58,11 @@
 #pragma mark - Private
 
 - (void)addCollectionViewHeaderReresh {
-    self.collectionView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresheAction)];
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresheAction)];
 }
 
 - (void)addCollectionViewFooterReresh {
-    self.collectionView.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefresheAction)];
+    self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefresheAction)];
 }
 
 

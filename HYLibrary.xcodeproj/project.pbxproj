@@ -7,7 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E84041761D52100F009E6812 /* HYHttpCilent+SafeParams.m in Sources */ = {isa = PBXBuildFile; fileRef = E84041751D52100F009E6812 /* HYHttpCilent+SafeParams.m */; };
+		6FA52EC01DCDCA360094D18E /* HYSangForVPNConnecter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA52EAF1DCDCA360094D18E /* HYSangForVPNConnecter.m */; };
+		6FA52EC11DCDCA360094D18E /* AuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA52EB21DCDCA360094D18E /* AuthHelper.m */; };
+		6FA52EC21DCDCA360094D18E /* libSangforSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA52EB31DCDCA360094D18E /* libSangforSdk.a */; };
+		6FA52EC31DCDCA360094D18E /* HYTongTaiVPNConnecter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA52EB81DCDCA360094D18E /* HYTongTaiVPNConnecter.m */; };
+		6FA52EC41DCDCA360094D18E /* libProxy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA52EBD1DCDCA360094D18E /* libProxy.a */; };
+		6FA52EC51DCDCA360094D18E /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA52EBE1DCDCA360094D18E /* openssl.framework */; };
+		6FA52EC71DCDCB4F0094D18E /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA52EC61DCDCB4F0094D18E /* libiconv.tbd */; };
+		6FA52EC91DCDCB6A0094D18E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA52EC81DCDCB6A0094D18E /* SystemConfiguration.framework */; };
+		6FA52ECD1DCDCBAD0094D18E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA52ECC1DCDCBAD0094D18E /* MobileCoreServices.framework */; };
+		6FA52ECE1DCDCBB90094D18E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA52ECA1DCDCB760094D18E /* CFNetwork.framework */; };
+		6FA52ED01DCDCBC20094D18E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA52ECF1DCDCBC20094D18E /* libz.tbd */; };
+		6FA52ED21DCDCBD00094D18E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA52ED11DCDCBD00094D18E /* libc++.tbd */; };
+		6FA52ED41DCDCBDF0094D18E /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA52ED31DCDCBDF0094D18E /* libxml2.tbd */; };
+		6FA52ED61DCDCBF30094D18E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA52ED51DCDCBF30094D18E /* AdSupport.framework */; };
+		E81DB63B1D810E9E004908C4 /* HYCollectionViewStickyLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E81DB63A1D810E9E004908C4 /* HYCollectionViewStickyLayout.m */; };
 		E82D2E8B1D5F016D0026F308 /* NSObject+StringValue.m in Sources */ = {isa = PBXBuildFile; fileRef = E82D2E8A1D5F016D0026F308 /* NSObject+StringValue.m */; };
 		E84041761D52100F009E6812 /* HYHttpCilent+SafeParams.m in Sources */ = {isa = PBXBuildFile; fileRef = E84041751D52100F009E6812 /* HYHttpCilent+SafeParams.m */; };
 		E85465021D5472980092CE2A /* NSLayoutConstraint+EasyAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E85465011D5472980092CE2A /* NSLayoutConstraint+EasyAutoLayout.m */; };
@@ -18,6 +32,8 @@
 		E86908A81D4B00B500E3B32F /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = E86908A71D4B00B500E3B32F /* CustomView.m */; };
 		E86908AB1D4B03B000E3B32F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E86908AA1D4B03B000E3B32F /* SecondViewController.m */; };
 		E871E1EE1D4EE569004CD916 /* NSObject+HYLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = E871E1ED1D4EE569004CD916 /* NSObject+HYLibrary.m */; };
+		E87EA9031D81120F007FEA66 /* TestStickyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E87EA9021D81120F007FEA66 /* TestStickyViewController.m */; };
+		E87EA9091D81571B007FEA66 /* LKCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E87EA9081D81571B007FEA66 /* LKCollectionViewFlowLayout.m */; };
 		E88F53601D49B3EB00FA2E1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E88F535F1D49B3EB00FA2E1C /* main.m */; };
 		E88F53631D49B3EB00FA2E1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E88F53621D49B3EB00FA2E1C /* AppDelegate.m */; };
 		E88F53661D49B3EB00FA2E1C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E88F53651D49B3EB00FA2E1C /* ViewController.m */; };
@@ -49,16 +65,39 @@
 		E88F53D81D49B3F500FA2E1C /* HYBaseInfoInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E88F53B71D49B3F500FA2E1C /* HYBaseInfoInputCell.m */; };
 		E88F53D91D49B3F500FA2E1C /* HYBaseInfoCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E88F53BA1D49B3F500FA2E1C /* HYBaseInfoCellModel.m */; };
 		E88F53DA1D49B3F500FA2E1C /* HYPlaceholdTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E88F53BD1D49B3F500FA2E1C /* HYPlaceholdTextView.m */; };
+		E8EB4BEC1D6E7E9A00869E6E /* NSDictionary+HYLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EB4BEB1D6E7E9A00869E6E /* NSDictionary+HYLibrary.m */; };
+		E8EB4BEF1D6ECBF000869E6E /* HYSortedMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EB4BEE1D6ECBF000869E6E /* HYSortedMutableDictionary.m */; };
 		F64C58066FE02BED814EEE6A /* libPods-HYLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC591D1072A66D9D716D245 /* libPods-HYLibrary.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2CC591D1072A66D9D716D245 /* libPods-HYLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HYLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FA52EAE1DCDCA360094D18E /* HYSangForVPNConnecter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYSangForVPNConnecter.h; sourceTree = "<group>"; };
+		6FA52EAF1DCDCA360094D18E /* HYSangForVPNConnecter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYSangForVPNConnecter.m; sourceTree = "<group>"; };
+		6FA52EB11DCDCA360094D18E /* AuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthHelper.h; sourceTree = "<group>"; };
+		6FA52EB21DCDCA360094D18E /* AuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthHelper.m; sourceTree = "<group>"; };
+		6FA52EB31DCDCA360094D18E /* libSangforSdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSangforSdk.a; sourceTree = "<group>"; };
+		6FA52EB41DCDCA360094D18E /* sdkheader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sdkheader.h; sourceTree = "<group>"; };
+		6FA52EB51DCDCA360094D18E /* sslvpnnb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sslvpnnb.h; sourceTree = "<group>"; };
+		6FA52EB71DCDCA360094D18E /* HYTongTaiVPNConnecter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYTongTaiVPNConnecter.h; sourceTree = "<group>"; };
+		6FA52EB81DCDCA360094D18E /* HYTongTaiVPNConnecter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYTongTaiVPNConnecter.m; sourceTree = "<group>"; };
+		6FA52EBA1DCDCA360094D18E /* CertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertHelper.h; sourceTree = "<group>"; };
+		6FA52EBB1DCDCA360094D18E /* HookEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HookEntry.h; sourceTree = "<group>"; };
+		6FA52EBC1DCDCA360094D18E /* L4Proxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = L4Proxy.h; sourceTree = "<group>"; };
+		6FA52EBD1DCDCA360094D18E /* libProxy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libProxy.a; sourceTree = "<group>"; };
+		6FA52EBE1DCDCA360094D18E /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openssl.framework; sourceTree = "<group>"; };
+		6FA52EBF1DCDCA360094D18E /* SsoAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SsoAuth.h; sourceTree = "<group>"; };
+		6FA52EC61DCDCB4F0094D18E /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		6FA52EC81DCDCB6A0094D18E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6FA52ECA1DCDCB760094D18E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6FA52ECC1DCDCBAD0094D18E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		6FA52ECF1DCDCBC20094D18E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		6FA52ED11DCDCBD00094D18E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		6FA52ED31DCDCBDF0094D18E /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		6FA52ED51DCDCBF30094D18E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		DBE912B8A64E1EF7512736F2 /* Pods-HYLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYLibrary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HYLibrary/Pods-HYLibrary.debug.xcconfig"; sourceTree = "<group>"; };
-<<<<<<< 6fb6237d38909044c4f3e247ee2a753a50dd3d41
-		E84041741D52100F009E6812 /* HYHttpCilent+SafeParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HYHttpCilent+SafeParams.h"; sourceTree = "<group>"; };
-		E84041751D52100F009E6812 /* HYHttpCilent+SafeParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HYHttpCilent+SafeParams.m"; sourceTree = "<group>"; };
-=======
+		E81DB6391D810E9E004908C4 /* HYCollectionViewStickyLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCollectionViewStickyLayout.h; sourceTree = "<group>"; };
+		E81DB63A1D810E9E004908C4 /* HYCollectionViewStickyLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCollectionViewStickyLayout.m; sourceTree = "<group>"; };
 		E82D2E891D5F016D0026F308 /* NSObject+StringValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+StringValue.h"; sourceTree = "<group>"; };
 		E82D2E8A1D5F016D0026F308 /* NSObject+StringValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+StringValue.m"; sourceTree = "<group>"; };
 		E84041741D52100F009E6812 /* HYHttpCilent+SafeParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HYHttpCilent+SafeParams.h"; sourceTree = "<group>"; };
@@ -67,7 +106,6 @@
 		E85465011D5472980092CE2A /* NSLayoutConstraint+EasyAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+EasyAutoLayout.m"; sourceTree = "<group>"; };
 		E85465071D547BAD0092CE2A /* UINavigationItem+CustomBackTitleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+CustomBackTitleImage.h"; sourceTree = "<group>"; };
 		E85465081D547BAD0092CE2A /* UINavigationItem+CustomBackTitleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+CustomBackTitleImage.m"; sourceTree = "<group>"; };
->>>>>>> 修复httpClient中存在的逻辑bug
 		E86908991D4AFE2700E3B32F /* HYActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYActionSheet.h; sourceTree = "<group>"; };
 		E869089A1D4AFE2700E3B32F /* HYActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYActionSheet.m; sourceTree = "<group>"; };
 		E869089B1D4AFE2700E3B32F /* HYAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYAlertView.h; sourceTree = "<group>"; };
@@ -80,6 +118,10 @@
 		E86908AA1D4B03B000E3B32F /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		E871E1EC1D4EE569004CD916 /* NSObject+HYLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HYLibrary.h"; sourceTree = "<group>"; };
 		E871E1ED1D4EE569004CD916 /* NSObject+HYLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HYLibrary.m"; sourceTree = "<group>"; };
+		E87EA9011D81120F007FEA66 /* TestStickyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestStickyViewController.h; sourceTree = "<group>"; };
+		E87EA9021D81120F007FEA66 /* TestStickyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestStickyViewController.m; sourceTree = "<group>"; };
+		E87EA9071D81571B007FEA66 /* LKCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		E87EA9081D81571B007FEA66 /* LKCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		E88F535B1D49B3EA00FA2E1C /* HYLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HYLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E88F535F1D49B3EB00FA2E1C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E88F53611D49B3EB00FA2E1C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -144,6 +186,10 @@
 		E88F53BD1D49B3F500FA2E1C /* HYPlaceholdTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYPlaceholdTextView.m; sourceTree = "<group>"; };
 		E88F53BE1D49B3F500FA2E1C /* HYViewMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYViewMacro.h; sourceTree = "<group>"; };
 		E88F53DB1D49B4EE00FA2E1C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		E8EB4BEA1D6E7E9A00869E6E /* NSDictionary+HYLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HYLibrary.h"; sourceTree = "<group>"; };
+		E8EB4BEB1D6E7E9A00869E6E /* NSDictionary+HYLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+HYLibrary.m"; sourceTree = "<group>"; };
+		E8EB4BED1D6ECBF000869E6E /* HYSortedMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYSortedMutableDictionary.h; sourceTree = "<group>"; };
+		E8EB4BEE1D6ECBF000869E6E /* HYSortedMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYSortedMutableDictionary.m; sourceTree = "<group>"; };
 		F25529D557C6AFA6B58DEBC0 /* Pods-HYLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYLibrary.release.xcconfig"; path = "Pods/Target Support Files/Pods-HYLibrary/Pods-HYLibrary.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,13 +198,69 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FA52ED61DCDCBF30094D18E /* AdSupport.framework in Frameworks */,
+				6FA52ED41DCDCBDF0094D18E /* libxml2.tbd in Frameworks */,
+				6FA52ED21DCDCBD00094D18E /* libc++.tbd in Frameworks */,
+				6FA52ED01DCDCBC20094D18E /* libz.tbd in Frameworks */,
+				6FA52ECE1DCDCBB90094D18E /* CFNetwork.framework in Frameworks */,
+				6FA52ECD1DCDCBAD0094D18E /* MobileCoreServices.framework in Frameworks */,
+				6FA52EC91DCDCB6A0094D18E /* SystemConfiguration.framework in Frameworks */,
+				6FA52EC71DCDCB4F0094D18E /* libiconv.tbd in Frameworks */,
 				F64C58066FE02BED814EEE6A /* libPods-HYLibrary.a in Frameworks */,
+				6FA52EC51DCDCA360094D18E /* openssl.framework in Frameworks */,
+				6FA52EC21DCDCA360094D18E /* libSangforSdk.a in Frameworks */,
+				6FA52EC41DCDCA360094D18E /* libProxy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6FA52EAD1DCDCA360094D18E /* HYSangForVPNConnect */ = {
+			isa = PBXGroup;
+			children = (
+				6FA52EAE1DCDCA360094D18E /* HYSangForVPNConnecter.h */,
+				6FA52EAF1DCDCA360094D18E /* HYSangForVPNConnecter.m */,
+				6FA52EB01DCDCA360094D18E /* lib */,
+			);
+			path = HYSangForVPNConnect;
+			sourceTree = "<group>";
+		};
+		6FA52EB01DCDCA360094D18E /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				6FA52EB11DCDCA360094D18E /* AuthHelper.h */,
+				6FA52EB21DCDCA360094D18E /* AuthHelper.m */,
+				6FA52EB31DCDCA360094D18E /* libSangforSdk.a */,
+				6FA52EB41DCDCA360094D18E /* sdkheader.h */,
+				6FA52EB51DCDCA360094D18E /* sslvpnnb.h */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		6FA52EB61DCDCA360094D18E /* HYTongTaiVPNConnecter */ = {
+			isa = PBXGroup;
+			children = (
+				6FA52EB71DCDCA360094D18E /* HYTongTaiVPNConnecter.h */,
+				6FA52EB81DCDCA360094D18E /* HYTongTaiVPNConnecter.m */,
+				6FA52EB91DCDCA360094D18E /* lib */,
+			);
+			path = HYTongTaiVPNConnecter;
+			sourceTree = "<group>";
+		};
+		6FA52EB91DCDCA360094D18E /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				6FA52EBA1DCDCA360094D18E /* CertHelper.h */,
+				6FA52EBB1DCDCA360094D18E /* HookEntry.h */,
+				6FA52EBC1DCDCA360094D18E /* L4Proxy.h */,
+				6FA52EBD1DCDCA360094D18E /* libProxy.a */,
+				6FA52EBE1DCDCA360094D18E /* openssl.framework */,
+				6FA52EBF1DCDCA360094D18E /* SsoAuth.h */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		9A75B4C325D749B68DC41077 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,9 +273,26 @@
 		D17B156FF41F0FE0DB5C4396 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6FA52ED51DCDCBF30094D18E /* AdSupport.framework */,
+				6FA52ED31DCDCBDF0094D18E /* libxml2.tbd */,
+				6FA52ED11DCDCBD00094D18E /* libc++.tbd */,
+				6FA52ECF1DCDCBC20094D18E /* libz.tbd */,
+				6FA52ECC1DCDCBAD0094D18E /* MobileCoreServices.framework */,
+				6FA52ECA1DCDCB760094D18E /* CFNetwork.framework */,
+				6FA52EC81DCDCB6A0094D18E /* SystemConfiguration.framework */,
+				6FA52EC61DCDCB4F0094D18E /* libiconv.tbd */,
 				2CC591D1072A66D9D716D245 /* libPods-HYLibrary.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E80952E21D6E78DB00C7F895 /* HYSortedDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				E8EB4BED1D6ECBF000869E6E /* HYSortedMutableDictionary.h */,
+				E8EB4BEE1D6ECBF000869E6E /* HYSortedMutableDictionary.m */,
+			);
+			path = HYSortedDictionary;
 			sourceTree = "<group>";
 		};
 		E85464FF1D5472980092CE2A /* AutoLayout */ = {
@@ -235,6 +354,12 @@
 				E88F53651D49B3EB00FA2E1C /* ViewController.m */,
 				E86908A91D4B03B000E3B32F /* SecondViewController.h */,
 				E86908AA1D4B03B000E3B32F /* SecondViewController.m */,
+				E81DB6391D810E9E004908C4 /* HYCollectionViewStickyLayout.h */,
+				E81DB63A1D810E9E004908C4 /* HYCollectionViewStickyLayout.m */,
+				E87EA9011D81120F007FEA66 /* TestStickyViewController.h */,
+				E87EA9021D81120F007FEA66 /* TestStickyViewController.m */,
+				E87EA9071D81571B007FEA66 /* LKCollectionViewFlowLayout.h */,
+				E87EA9081D81571B007FEA66 /* LKCollectionViewFlowLayout.m */,
 				E88F53671D49B3EB00FA2E1C /* Main.storyboard */,
 				E88F536A1D49B3EB00FA2E1C /* Assets.xcassets */,
 				E88F536C1D49B3EB00FA2E1C /* LaunchScreen.storyboard */,
@@ -256,9 +381,12 @@
 		E88F53751D49B3F500FA2E1C /* HYLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				6FA52EAD1DCDCA360094D18E /* HYSangForVPNConnect */,
+				6FA52EB61DCDCA360094D18E /* HYTongTaiVPNConnecter */,
 				E88F53991D49B3F500FA2E1C /* HYLibraryMacro.h */,
 				E88F53941D49B3F500FA2E1C /* HYGlobalCommon.h */,
 				E88F53951D49B3F500FA2E1C /* HYGlobalCommon.m */,
+				E80952E21D6E78DB00C7F895 /* HYSortedDictionary */,
 				E85464FF1D5472980092CE2A /* AutoLayout */,
 				E88F53761D49B3F500FA2E1C /* Category */,
 				E88F53851D49B3F500FA2E1C /* HYBaseViewController */,
@@ -288,6 +416,8 @@
 				E88F537C1D49B3F500FA2E1C /* UIImage+HYLibrary.m */,
 				E88F537D1D49B3F500FA2E1C /* UIViewController+HYLibrary.h */,
 				E88F537E1D49B3F500FA2E1C /* UIViewController+HYLibrary.m */,
+				E8EB4BEA1D6E7E9A00869E6E /* NSDictionary+HYLibrary.h */,
+				E8EB4BEB1D6E7E9A00869E6E /* NSDictionary+HYLibrary.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -554,6 +684,7 @@
 				E88F53CF1D49B3F500FA2E1C /* HYScanningView.m in Sources */,
 				E85465021D5472980092CE2A /* NSLayoutConstraint+EasyAutoLayout.m in Sources */,
 				E88F53D61D49B3F500FA2E1C /* BaseInfoMultiCell.m in Sources */,
+				6FA52EC01DCDCA360094D18E /* HYSangForVPNConnecter.m in Sources */,
 				E88F53631D49B3EB00FA2E1C /* AppDelegate.m in Sources */,
 				E88F53D41D49B3F500FA2E1C /* UIView+EffectAnimation.m in Sources */,
 				E88F53D31D49B3F500FA2E1C /* PHAsset+HYLoadLocalSource.m in Sources */,
@@ -565,17 +696,24 @@
 				E88F53C01D49B3F500FA2E1C /* NSString+Encrypt.m in Sources */,
 				E88F53C11D49B3F500FA2E1C /* UIImage+HYLibrary.m in Sources */,
 				E88F53601D49B3EB00FA2E1C /* main.m in Sources */,
+				E81DB63B1D810E9E004908C4 /* HYCollectionViewStickyLayout.m in Sources */,
 				E88F53D11D49B3F500FA2E1C /* HYBaseModel.m in Sources */,
 				E85465091D547BAD0092CE2A /* UINavigationItem+CustomBackTitleImage.m in Sources */,
 				E88F53D21D49B3F500FA2E1C /* HYNetBaseModel.m in Sources */,
 				E82D2E8B1D5F016D0026F308 /* NSObject+StringValue.m in Sources */,
 				E88F53D51D49B3F500FA2E1C /* BaseInfoItemCell.m in Sources */,
+				6FA52EC11DCDCA360094D18E /* AuthHelper.m in Sources */,
 				E869089E1D4AFE2700E3B32F /* HYAlertView.m in Sources */,
 				E88F53D71D49B3F500FA2E1C /* HYBaseHeaderFooter.m in Sources */,
 				E88F53CE1D49B3F500FA2E1C /* HYLRTextField.m in Sources */,
+				E87EA9091D81571B007FEA66 /* LKCollectionViewFlowLayout.m in Sources */,
 				E88F53C81D49B3F500FA2E1C /* HYMetadataViewController.m in Sources */,
+				E87EA9031D81120F007FEA66 /* TestStickyViewController.m in Sources */,
+				E8EB4BEF1D6ECBF000869E6E /* HYSortedMutableDictionary.m in Sources */,
 				E86908AB1D4B03B000E3B32F /* SecondViewController.m in Sources */,
 				E88F53D91D49B3F500FA2E1C /* HYBaseInfoCellModel.m in Sources */,
+				6FA52EC31DCDCA360094D18E /* HYTongTaiVPNConnecter.m in Sources */,
+				E8EB4BEC1D6E7E9A00869E6E /* NSDictionary+HYLibrary.m in Sources */,
 				E869089D1D4AFE2700E3B32F /* HYActionSheet.m in Sources */,
 				E88F53D01D49B3F500FA2E1C /* UIImage+HYQRCode.m in Sources */,
 				E88F53CD1D49B3F500FA2E1C /* HYHttpCilent.m in Sources */,
@@ -694,10 +832,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HYLibrary/HYLibrary/HYTongTaiVPNConnecter/lib",
+				);
 				GCC_PREFIX_HEADER = HYLibrary/PrefixHeader.pch;
 				INFOPLIST_FILE = HYLibrary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hillyoung.HYLibrary1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HYLibrary/HYLibrary/HYSangForVPNConnect/lib",
+					"$(PROJECT_DIR)/HYLibrary/HYLibrary/HYTongTaiVPNConnecter/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hillyoung.HYLibrary7339;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -710,10 +860,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HYLibrary/HYLibrary/HYTongTaiVPNConnecter/lib",
+				);
 				GCC_PREFIX_HEADER = HYLibrary/PrefixHeader.pch;
 				INFOPLIST_FILE = HYLibrary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hillyoung.HYLibrary1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HYLibrary/HYLibrary/HYSangForVPNConnect/lib",
+					"$(PROJECT_DIR)/HYLibrary/HYLibrary/HYTongTaiVPNConnecter/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hillyoung.HYLibrary7339;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

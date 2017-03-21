@@ -34,12 +34,12 @@ static char kCustomBackItemKey;
         return item;
     }
     item = objc_getAssociatedObject(self, &kCustomBackItemKey);
-    
+
     if (!item) {
         item = [[UIBarButtonItem alloc] initWithTitle:itemTitle style:UIBarButtonItemStylePlain target:nil action:nil];
         objc_setAssociatedObject(self, &kCustomBackItemKey, item, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
-    
+
     return item;
 }
 
