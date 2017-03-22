@@ -85,6 +85,19 @@
     [self.helper loginVpn:SSL_AUTH_TYPE_PASSWORD];
 }
 
+- (void)logout {
+    
+    if (self.initialized) {
+        int status = [self.helper logoutVpn];
+        
+        if (status != 0) {
+            NSLog(@"注销VPN失败");
+        }
+    }
+    
+    self.initialized = NO;
+}
+
 #pragma mark - VPN连接
 
 //- (void)connectVPN:(NSString *)host port:(short)port {

@@ -27,4 +27,9 @@
  */
 - (void)loginVPN:(void(^)(HYSangForVPNConnecter *connecter))loginSuccessBlock loginFailBlock:(void(^)(HYSangForVPNConnecter *connecter))loginFailBlock;
 
+/**
+ 退出VPN登录
+ */
+- (void)logout ;
+
 @end
