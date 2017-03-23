@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AuthHelper.h"
 
 @interface HYSangForVPNConnecter : NSObject
 
@@ -14,7 +15,8 @@
 @property (nonatomic) short port;               //深信服vpn服务器端口号
 @property (copy, nonatomic) NSString *name;     //深信服vpn用户名
 @property (copy, nonatomic) NSString *password; //深信服vpn密码
-@property (nonatomic, readonly, getter=isInitialized) BOOL initialized;     //标志vpn是否完成初始化
+//@property (nonatomic, readonly, getter=isInitialized) BOOL initialized;     //标志vpn是否完成初始化
+@property (nonatomic) VPN_STATUS status;  //VPN状态
 
 + (instancetype)shareConnecter ;
 /**
@@ -30,6 +32,16 @@
 /**
  退出VPN登录
  */
-- (void)logout ;
+- (void)logout:(void(^)(BOOL isSuccess))completion ;
+
+/**
+ 开始关闭与VPN服务器的连接
+ */
+- (void)startQuit:(void(^)(BOOL isSuccess))completion;
+
+/**
+ 关闭与VPN服务器的连接
+ */
+- (void)quit:(void(^)(BOOL isSuccess))completion ;
 
 @end

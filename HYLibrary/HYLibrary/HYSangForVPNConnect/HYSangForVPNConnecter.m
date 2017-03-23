@@ -7,12 +7,11 @@
 //
 
 #import "HYSangForVPNConnecter.h"
-#import "AuthHelper.h"
 
 @interface HYSangForVPNConnecter () <SangforSDKDelegate>
 
 @property (strong, nonatomic) AuthHelper *helper;
-@property (nonatomic) BOOL initialized;     //标志vpn是否完成初始化
+//@property (nonatomic) BOOL initialized;     //标志vpn是否完成初始化
 /**
  初始化成功后的回调
  */
@@ -30,6 +29,7 @@
  */
 @property (copy, nonatomic) void (^loginFailBlock)(HYSangForVPNConnecter *connecter);
 
+@property (nonatomic) void(^logoutCompletion)(BOOL isSuccess);
 
 @end
 
@@ -69,7 +69,7 @@
 - (void)loginVPN:(void (^)(HYSangForVPNConnecter *))loginSuccessBlock loginFailBlock:(void (^)(HYSangForVPNConnecter *))loginFailBlock{
     self.loginSuccessBlock = loginSuccessBlock;
     self.loginFailBlock = loginFailBlock;
-    if (!self.initialized) {
+    if (self.status < VPN_STATUS_INIT_OK) {
         NSLog(@"vpn，初始化未完成，请等待vpn初始化完成");
         return;
     }
@@ -85,17 +85,36 @@
     [self.helper loginVpn:SSL_AUTH_TYPE_PASSWORD];
 }
 
-- (void)logout {
-    
-    if (self.initialized) {
-        int status = [self.helper logoutVpn];
-        
-        if (status != 0) {
-            NSLog(@"注销VPN失败");
-        }
+- (void)logout:(void (^)(BOOL))completion {
+    if (self.status == VPN_STATUS_OK) {
+        [self.helper logoutVpn];
+        _logoutCompletion = completion;
     }
+}
+
+- (void)startQuit:(void (^)(BOOL))completion {
+    if (self.status > VPN_STATUS_INIT_OK &&
+        self.status < VPN_STATUS_EXITING) {
+        
+        __weak typeof(&*self) weakSelf = self;
+        [self logout:^(BOOL isSuccess) {
+            [weakSelf quit:completion];
+        }];
+    } else if (self.status >= VPN_STATUS_INIT_OK) {
+        [self quit:completion];
+    }
+}
+
+- (void)quit:(void (^)(BOOL))completion {
+    int status = [self.helper quitLogin];
     
-    self.initialized = NO;
+    if (completion) {
+        completion(status);
+    }
+}
+
+- (VPN_STATUS)status {
+    return [self.helper queryVpnStatus];
 }
 
 #pragma mark - VPN连接
@@ -136,7 +155,6 @@
         case RESULT_VPN_INIT_SUCCESS:
             NSLog(@"Vpn init success!");
             //            [self loginVPN:(NSString *)userId password:(NSString *)password];
-            self.initialized = YES;
             if (self.initSuccessBlock) {
                 self.initSuccessBlock(self);
             }
@@ -151,6 +169,9 @@
             
             break;
         case RESULT_VPN_AUTH_LOGOUT:
+            if (self.logoutCompletion) {
+                self.logoutCompletion(YES);
+            }
             NSLog(@"Vpn logout success!");
             break;
         case RESULT_VPN_OTHER:
