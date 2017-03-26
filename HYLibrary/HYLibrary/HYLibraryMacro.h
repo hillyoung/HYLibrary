@@ -28,7 +28,6 @@
 
 
 #import "Masonry.h"
-#import "HYGlobalCommon.h"
 #import "MBProgressHUD.h"
 
 #import "HYLRTextField.h"
@@ -39,7 +38,7 @@
 #import "UIImage+HYLibrary.h"
 #import "UIViewController+HYLibrary.h"
 #import "NSString+Encrypt.h"
-#import "NSObject+HYLibrary.h"
+#import "UIColor+HYLibrary.h"
 #import "HYHttpCilent+SafeParams.h"
 #import "NSLayoutConstraint+EasyAutoLayout.h"
 
@@ -50,32 +49,25 @@
 
 #pragma mark - Model
 
-#import "HYModelMacro.h"
 
 #pragma mark - Network
 
 #import "HYHttpCilent.h"
 
+
 #pragma mark - View
 
 #import "HYViewMacro.h"
 
+
 #pragma mark - VC
 
-#import "HYMetadataViewController.h"
+#import "HYMetadataVC.h"
 
 #pragma mark - UIImage
 
-#define HY_IMAGE_NAMEED(name) [UIImage imageNamed:name]
-
-
 #pragma mark - NSNumber
-//封装int
-#define HY_NUMBER_WITH_INT(number) [NSNumber numberWithInteger:number]
-//封装
-#define HY_NUMBER_WITH_FLOAT(number) [NSNumber numberWithFloat:number]
-//封装
-#define HY_NUMBER_WITH_BOOL(number) [NSNumber numberWithBool:number]
+
 //weakself
 #define HY_WEAKSELF(object) __weak typeof(&*object) weakSelf = object
 
@@ -91,8 +83,6 @@
 
 
 #pragma mark - NSString
-
-#define NSStringFromInt(intValue) [NSString stringWithFormat:@"%d",intValue]
 
 #pragma mark - System
 

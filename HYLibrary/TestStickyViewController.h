@@ -6,8 +6,8 @@
 //  Copyright © 2016年 hillyoung. All rights reserved.
 //
 
-#import "HYBaseCollectionViewController.h"
+#import "HYCollectionBaseVC.h"
 
-@interface TestStickyViewController : HYBaseCollectionViewController
+@interface TestStickyViewController : HYCollectionBaseVC
 
 @end
