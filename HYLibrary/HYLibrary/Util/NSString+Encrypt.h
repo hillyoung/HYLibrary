@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ NSSting编码扩展
+ */
 @interface NSString (Encrypt)
 
 
