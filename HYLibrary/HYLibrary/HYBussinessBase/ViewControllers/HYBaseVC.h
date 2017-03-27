@@ -46,6 +46,7 @@
 @end
 
 
+
 @interface HYBaseVC : UIViewController {
     @protected
     //导航栏按钮（目的是防止某些情况下，既需要隐藏又需要显示）
@@ -54,6 +55,14 @@
     UIBarButtonItem *_leftItem;
     NSArray *_leftItems;
 }
+
+@property (strong, nonatomic) NSMutableSet *tasks;    //网络请求的集合
+
+/**
+ 数据源实体对象，针对每个页面，对象类型不同
+ 可以是提交http请求时的实体，也可以是通过http请求从服务端获取的数据转化成的实体
+ */
+@property (nonatomic) id entity;        
 
 /**
  *  初始化数据源
@@ -69,6 +78,11 @@
  *  通过制定数据更新数据源
  */
 - (void)updateDatasource:(id)data ;
+
+/**
+ 加载数据，基类默认未做任何实现
+ */
+- (void)loadData ;
 
 /**
  *  通过title，设置导航栏左侧按钮

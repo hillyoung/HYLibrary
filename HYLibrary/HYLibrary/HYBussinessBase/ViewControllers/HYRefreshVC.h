@@ -7,22 +7,12 @@
 //
 
 #import "HYBaseVC.h"
+#import "HYSectionDescriber.h"
 
-
-
-//分区对象：如tableview中的每个分区（亦有人称为“段落”）
-@interface HYGroupItem : NSObject
-
-@property (copy, nonatomic) NSString *title;    //分区的标题
-@property (copy, nonatomic) id content;     //可以用来持有复杂的数据类型
-@property (strong, nonatomic) NSArray *rows ;   //分区中存在的行对象
-@property (nonatomic) CGFloat sectionHeaderHeight ;   //段落头的高度
-@property (nonatomic) CGFloat sectionFooterHeight ;   //段落头的高度
-@property (copy, nonatomic) NSString *viewIdentifier ;  //重用标识符
-
-- (instancetype)initWithTitle:(NSString *)title content:(id)content rows:(NSArray *)rows ;
-
-@end
+/**
+ 定义列表分页是从哪个数字开始，默认是1；根据实际项目需求可以设置
+ */
+extern NSUInteger startPage ;
 
 //适用于tableview、collectionview的刷新协议
 @protocol HYRefreshActions <NSObject>
@@ -44,6 +34,12 @@
  *  上拉加载更多事件
  */
 - (void)footerRefresheAction ;
+
+/**
+ 加载数据
+ @params shouldCover 是否需要覆盖数据
+ */
+- (void)loadData:(BOOL)shouldCover ;
 
 /**
  *  header开始刷新
@@ -73,10 +69,14 @@
 /**
  *  collectionview或tableview的数据源
  */
-@property (strong, nonatomic) NSArray<HYGroupItem *> *groups;
+@property (strong, nonatomic) NSArray<HYSectionDescriber *> *groups;
 
 @property (strong, nonatomic) NSMutableArray *dataList;  //默认只有一组是的数据源
 
+/**
+ 当前页
+ */
+@property (nonatomic) NSUInteger page;
 
 @end
 

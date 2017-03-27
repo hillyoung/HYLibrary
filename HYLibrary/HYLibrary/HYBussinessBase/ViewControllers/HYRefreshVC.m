@@ -9,24 +9,7 @@
 #import "HYRefreshVC.h"
 #import <objc/runtime.h>
 
-#pragma mark - HYGroupDataSource ---------------------------------
-
-@implementation HYGroupItem
-
-- (instancetype)initWithTitle:(NSString *)title content:(id)content rows:(NSArray *)rows {
-    if (self = [super init]) {
-        _title = title;
-        _content = content;
-        _rows = rows;
-        _sectionHeaderHeight = 16;
-        _sectionFooterHeight = 0;
-    }
-
-    return self;
-}
-
-@end
-
+NSUInteger startPage = 1;
 
 @implementation HYRefreshVC
 @synthesize groups = _groups;
@@ -34,11 +17,11 @@
 #pragma mark - Setter && Getter
 
 const char *HYRefreshViewController_group_key;
-- (void)setGroups:(NSArray<NSArray *> *)groups {
+- (void)setGroups:(NSArray<HYSectionDescriber *> *)groups {
     objc_setAssociatedObject(self, HYRefreshViewController_group_key, groups, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (NSArray<NSArray *> *)groups {
+- (NSArray<HYSectionDescriber *> *)groups {
     NSArray *array = objc_getAssociatedObject(self, HYRefreshViewController_group_key);
     
     if (!array) {
@@ -63,6 +46,22 @@ const char *HYRefreshViewController_dataList_key;
     }
     
     return array;
+}
+
+- (void)headerRefresheAction {
+    self.page = startPage;
+    [self loadData:YES];
+}
+
+- (void)footerRefresheAction {
+    [self loadData:NO];
+}
+
+/**
+ 基类默认未做任何实现
+ */
+- (void)loadData:(BOOL)shouldCover {
+
 }
 
 @end

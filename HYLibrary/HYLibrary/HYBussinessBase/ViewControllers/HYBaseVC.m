@@ -48,6 +48,7 @@
 @end
 
 
+
 @interface HYBaseVC ()
 
 @end
@@ -76,6 +77,17 @@
 
 - (void)updateDatasource:(id)data {
     
+}
+
+- (void)loadData {
+    
+}
+
+- (NSMutableSet *)tasks {
+    if (!_tasks) {
+        _tasks = [NSMutableSet setWithCapacity:3];
+    }
+    return _tasks;
 }
 
 - (void)setupLeftItemWithTitle:(NSString *)title {

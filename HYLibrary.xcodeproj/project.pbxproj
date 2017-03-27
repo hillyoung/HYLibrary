@@ -15,6 +15,9 @@
 		6FA52ED21DCDCBD00094D18E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA52ED11DCDCBD00094D18E /* libc++.tbd */; };
 		6FA52ED41DCDCBDF0094D18E /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA52ED31DCDCBDF0094D18E /* libxml2.tbd */; };
 		6FA52ED61DCDCBF30094D18E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA52ED51DCDCBF30094D18E /* AdSupport.framework */; };
+		9E1F1BC71E89448C005774FD /* HYRowDescriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F1BC61E89448C005774FD /* HYRowDescriber.m */; };
+		9E1F1BCD1E894607005774FD /* HYSectionDescriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F1BCC1E894607005774FD /* HYSectionDescriber.m */; };
+		9E1F1BD01E8951CA005774FD /* HYSearchConditionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F1BCF1E8951CA005774FD /* HYSearchConditionVC.m */; };
 		9ED5CF201E87FF610001B9E3 /* NSLayoutConstraint+EasyAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5CEB71E87FF610001B9E3 /* NSLayoutConstraint+EasyAutoLayout.m */; };
 		9ED5CF211E87FF610001B9E3 /* HYHttpCilent+SafeParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5CEBA1E87FF610001B9E3 /* HYHttpCilent+SafeParams.m */; };
 		9ED5CF221E87FF610001B9E3 /* HYHttpCilent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5CEBC1E87FF610001B9E3 /* HYHttpCilent.m */; };
@@ -80,6 +83,12 @@
 		6FA52ED11DCDCBD00094D18E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		6FA52ED31DCDCBDF0094D18E /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		6FA52ED51DCDCBF30094D18E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		9E1F1BC51E89448C005774FD /* HYRowDescriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYRowDescriber.h; sourceTree = "<group>"; };
+		9E1F1BC61E89448C005774FD /* HYRowDescriber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYRowDescriber.m; sourceTree = "<group>"; };
+		9E1F1BCB1E894607005774FD /* HYSectionDescriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYSectionDescriber.h; sourceTree = "<group>"; };
+		9E1F1BCC1E894607005774FD /* HYSectionDescriber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYSectionDescriber.m; sourceTree = "<group>"; };
+		9E1F1BCE1E8951CA005774FD /* HYSearchConditionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYSearchConditionVC.h; sourceTree = "<group>"; };
+		9E1F1BCF1E8951CA005774FD /* HYSearchConditionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYSearchConditionVC.m; sourceTree = "<group>"; };
 		9ED5CEB61E87FF610001B9E3 /* NSLayoutConstraint+EasyAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+EasyAutoLayout.h"; sourceTree = "<group>"; };
 		9ED5CEB71E87FF610001B9E3 /* NSLayoutConstraint+EasyAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+EasyAutoLayout.m"; sourceTree = "<group>"; };
 		9ED5CEB91E87FF610001B9E3 /* HYHttpCilent+SafeParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HYHttpCilent+SafeParams.h"; sourceTree = "<group>"; };
@@ -222,6 +231,18 @@
 				F25529D557C6AFA6B58DEBC0 /* Pods-HYLibrary.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9E1F1BC41E894478005774FD /* HYRowDescriber */ = {
+			isa = PBXGroup;
+			children = (
+				9E1F1BC51E89448C005774FD /* HYRowDescriber.h */,
+				9E1F1BC61E89448C005774FD /* HYRowDescriber.m */,
+				9E1F1BCB1E894607005774FD /* HYSectionDescriber.h */,
+				9E1F1BCC1E894607005774FD /* HYSectionDescriber.m */,
+			);
+			name = HYRowDescriber;
+			path = Models/HYRowDescriber;
 			sourceTree = "<group>";
 		};
 		9ED5CEB41E87FF610001B9E3 /* Helper */ = {
@@ -405,6 +426,7 @@
 		9ED5CEF81E87FF610001B9E3 /* HYBussinessBase */ = {
 			isa = PBXGroup;
 			children = (
+				9E1F1BC41E894478005774FD /* HYRowDescriber */,
 				9ED5CEF91E87FF610001B9E3 /* ViewControllers */,
 				9ED5CF061E87FF610001B9E3 /* Views */,
 			);
@@ -416,16 +438,18 @@
 			children = (
 				9ED5CEFA1E87FF610001B9E3 /* HYBaseVC.h */,
 				9ED5CEFB1E87FF610001B9E3 /* HYBaseVC.m */,
+				9ED5CF001E87FF610001B9E3 /* HYRefreshVC.h */,
+				9ED5CF011E87FF610001B9E3 /* HYRefreshVC.m */,
+				9ED5CF041E87FF610001B9E3 /* HYTableBaseVC.h */,
+				9ED5CF051E87FF610001B9E3 /* HYTableBaseVC.m */,
 				9ED5CEFC1E87FF610001B9E3 /* HYCollectionBaseVC.h */,
 				9ED5CEFD1E87FF610001B9E3 /* HYCollectionBaseVC.m */,
 				9ED5CEFE1E87FF610001B9E3 /* HYMetadataVC.h */,
 				9ED5CEFF1E87FF610001B9E3 /* HYMetadataVC.m */,
-				9ED5CF001E87FF610001B9E3 /* HYRefreshVC.h */,
-				9ED5CF011E87FF610001B9E3 /* HYRefreshVC.m */,
 				9ED5CF021E87FF610001B9E3 /* HYScanningVC.h */,
 				9ED5CF031E87FF610001B9E3 /* HYScanningVC.m */,
-				9ED5CF041E87FF610001B9E3 /* HYTableBaseVC.h */,
-				9ED5CF051E87FF610001B9E3 /* HYTableBaseVC.m */,
+				9E1F1BCE1E8951CA005774FD /* HYSearchConditionVC.h */,
+				9E1F1BCF1E8951CA005774FD /* HYSearchConditionVC.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -680,6 +704,7 @@
 			files = (
 				9ED5CF371E87FF610001B9E3 /* UIViewController+HYLibrary.m in Sources */,
 				9ED5CF2A1E87FF610001B9E3 /* BaseInfoMultiCell.m in Sources */,
+				9E1F1BCD1E894607005774FD /* HYSectionDescriber.m in Sources */,
 				9ED5CF461E87FF610001B9E3 /* UIDevice+HYLibrary.m in Sources */,
 				9ED5CF261E87FF610001B9E3 /* HYTongTaiVPNConnecter.m in Sources */,
 				9ED5CF211E87FF610001B9E3 /* HYHttpCilent+SafeParams.m in Sources */,
@@ -687,6 +712,8 @@
 				E86908A81D4B00B500E3B32F /* CustomView.m in Sources */,
 				9ED5CF201E87FF610001B9E3 /* NSLayoutConstraint+EasyAutoLayout.m in Sources */,
 				9ED5CF3E1E87FF610001B9E3 /* HYBusinessBaseCell.m in Sources */,
+				9E1F1BC71E89448C005774FD /* HYRowDescriber.m in Sources */,
+				9E1F1BD01E8951CA005774FD /* HYSearchConditionVC.m in Sources */,
 				9ED5CF2F1E87FF610001B9E3 /* HYAlertView.m in Sources */,
 				9ED5CF2B1E87FF610001B9E3 /* HYBaseHeaderFooter.m in Sources */,
 				9ED5CF2E1E87FF610001B9E3 /* HYActionSheet.m in Sources */,
