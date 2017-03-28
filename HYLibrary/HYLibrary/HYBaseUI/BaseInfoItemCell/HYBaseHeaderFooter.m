@@ -27,6 +27,7 @@
         _titleLabel = [[UILabel alloc] init];
 //        _titleLabel.font = [UIFont systemFontOfSize:14];
         _titleLabel.textColor = self.titleColor;
+        _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
 
     return _titleLabel;
@@ -35,6 +36,7 @@
 - (UIButton *)detailButton {
     if (!_detailButton) {
         _detailButton = [[UIButton alloc] init];
+        _detailButton.translatesAutoresizingMaskIntoConstraints = NO;
         _detailButton.backgroundColor = [UIColor clearColor];
         _detailButton.titleLabel.textAlignment = NSTextAlignmentRight;
         _detailButton.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -83,21 +85,20 @@
 }
 
 - (void)updateTitleLabel {
-    [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.mas_centerY);
-        make.height.mas_equalTo(self.titleLabel.font.pointSize);
-        make.leading.equalTo(self.mas_leading).offset(15);
-        make.width.mas_greaterThanOrEqualTo(80);
-    }];
+
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.titleLabel attribute:NSLayoutAttributeCenterY toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.titleLabel attribute:NSLayoutAttributeLeading toItem:self.contentView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:16]];
+    [self.titleLabel addConstraint:[NSLayoutConstraint greaterThanConstraintWithItem:self.titleLabel attribute:NSLayoutAttributeWidth toItem:nil attribute:NSLayoutAttributeWidth multiplier:1.0 constant:80]];
+    [self.titleLabel addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.titleLabel attribute:NSLayoutAttributeHeight toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:16]];
 }
 
 - (void)updateDetailButton {
-    [self.detailButton mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.titleLabel.mas_centerY);
-        make.trailing.mas_equalTo(-15);
-        make.height.mas_equalTo(self.detailButton.titleLabel.font.pointSize);
-        make.width.mas_greaterThanOrEqualTo(60);
-    }];
+
+
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.detailButton attribute:NSLayoutAttributeCenterY toItem:self.titleLabel attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.detailButton attribute:NSLayoutAttributeTrailing toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:-16]];
+    [self.detailButton addConstraint:[NSLayoutConstraint greaterThanConstraintWithItem:self.detailButton attribute:NSLayoutAttributeWidth toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:60]];
+    [self.detailButton addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.detailButton attribute:NSLayoutAttributeHeight toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:16]];
 }
 
 #pragma mark - Action

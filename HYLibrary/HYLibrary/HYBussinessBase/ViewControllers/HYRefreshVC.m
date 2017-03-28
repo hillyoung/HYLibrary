@@ -48,15 +48,6 @@ const char *HYRefreshViewController_dataList_key;
     return array;
 }
 
-- (void)headerRefresheAction {
-    self.page = startPage;
-    [self loadData:YES];
-}
-
-- (void)footerRefresheAction {
-    [self loadData:NO];
-}
-
 /**
  基类默认未做任何实现
  */

@@ -200,6 +200,7 @@
 - (NoDataDrawView *)drawView {
     if (!_drawView) {
         _drawView = [[NoDataDrawView alloc] init];
+        _drawView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     
     return _drawView;

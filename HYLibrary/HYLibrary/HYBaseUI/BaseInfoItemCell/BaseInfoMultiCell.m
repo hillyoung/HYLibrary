@@ -44,6 +44,7 @@
         _nameLabel = [[UILabel alloc] init];
         _nameLabel.textColor = [UIColor lightGrayColor];
         _nameLabel.numberOfLines = 0;
+        _nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
 
     return _nameLabel;
@@ -53,6 +54,7 @@
     if (!_infoLabel) {
         _infoLabel = [[UILabel alloc] init];
         _infoLabel.numberOfLines = 0;
+        _infoLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
     
     return _infoLabel;
@@ -63,20 +65,16 @@
 - (void)setupUI {
     [self.contentView addSubview:self.nameLabel];
     [self.contentView addSubview:self.infoLabel];
-    
-    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top).offset(10);
-        make.leading.equalTo(self.contentView.mas_leading).offset(15);
-        make.width.mas_equalTo(85);
-        make.height.mas_equalTo(17);
-    }];
-    
-    [self.infoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top).offset(10);
-        make.leading.equalTo(self.nameLabel.mas_trailing).offset(5);
-        make.trailing.equalTo(self.contentView.mas_trailing).offset(-15);
-        make.bottom.equalTo(self.contentView.mas_bottom).offset(-10);
-    }];
+
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.nameLabel attribute:NSLayoutAttributeTop toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:10]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.nameLabel attribute:NSLayoutAttributeLeading toItem:self.contentView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:16]];
+    [self.nameLabel addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.nameLabel attribute:NSLayoutAttributeWidth toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:85]];
+    [self.nameLabel addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.nameLabel attribute:NSLayoutAttributeHeight toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:17]];
+
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.infoLabel attribute:NSLayoutAttributeTop toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:10]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.infoLabel attribute:NSLayoutAttributeLeading toItem:self.nameLabel attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:5]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.infoLabel attribute:NSLayoutAttributeTrailing toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:-16]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.infoLabel attribute:NSLayoutAttributeBottom toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-10]];
 }
 
 #pragma mark - Message
@@ -94,19 +92,16 @@
     [self.contentView addSubview:self.nameLabel];
     [self.contentView addSubview:self.infoLabel];
     
-    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top).offset(10);
-        make.leading.equalTo(self.contentView.mas_leading).offset(15);
-        make.width.mas_equalTo(85);
-        make.height.mas_equalTo(17);
-    }];
-    
-    [self.infoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.nameLabel.mas_bottom).offset(10);
-        make.leading.equalTo(self.nameLabel.mas_leading);
-        make.trailing.equalTo(self.contentView.mas_trailing).offset(-15);
-        make.bottom.equalTo(self.contentView.mas_bottom).offset(-10);
-    }];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.nameLabel attribute:NSLayoutAttributeTop toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:10]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.nameLabel attribute:NSLayoutAttributeLeading toItem:self.contentView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:16]];
+    [self.nameLabel addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.nameLabel attribute:NSLayoutAttributeWidth toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:85]];
+    [self.nameLabel addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.nameLabel attribute:NSLayoutAttributeHeight toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:17]];
+
+
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.infoLabel attribute:NSLayoutAttributeTop toItem:self.nameLabel attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.infoLabel attribute:NSLayoutAttributeLeading toItem:self.nameLabel attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.infoLabel attribute:NSLayoutAttributeTrailing toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:-16]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.infoLabel attribute:NSLayoutAttributeBottom toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-10]];
 }
 
 @end

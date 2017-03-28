@@ -10,12 +10,7 @@
 
 //#define HYBaseTableView_NAME tableView
 
-@interface HYTableBaseVC : HYRefreshVC <UITableViewDelegate, UITableViewDataSource> {
-
-    NSUInteger _page ;       //分页,默认设置为0
-    NSUInteger _total ;
-}
-
+@interface HYTableBaseVC : HYRefreshVC <UITableViewDelegate, UITableViewDataSource> 
 
 /**
  *  tableViewFooter是否更新，默认为yes
@@ -43,3 +38,12 @@
 - (void)registerHeaderFooterClass:(Class)headerFooterClass ;
 
 @end
+
+@interface HYDetailBaseVC : HYTableBaseVC
+
+@end
+
+@interface HYListBaseVC : HYTableBaseVC
+
+@end
+

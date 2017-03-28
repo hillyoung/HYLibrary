@@ -18,7 +18,6 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        _page = 0;
         _tableViewFooterUpdate = YES;
     }
     
@@ -28,7 +27,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    _page = 0;
     _tableViewFooterUpdate = YES;
 }
 
@@ -191,6 +189,28 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return nil;
+}
+
+@end
+
+@implementation HYDetailBaseVC
+
+- (void)headerRefresheAction {
+    self.page = startPage;
+    [self loadData:YES];
+}
+
+@end
+
+@implementation HYListBaseVC
+
+- (void)headerRefresheAction {
+    self.page = startPage;
+    [self loadData:YES];
+}
+
+- (void)footerRefresheAction {
+    [self loadData:NO];
 }
 
 @end

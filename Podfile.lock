@@ -1,18 +1,15 @@
 PODS:
   - JGActionSheet (1.0.5)
-  - Masonry (1.0.1)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.10)
 
 DEPENDENCIES:
   - JGActionSheet (~> 1.0.5)
-  - Masonry (= 1.0.1)
   - MBProgressHUD (~> 1.0.0)
   - MJRefresh (~> 3.1.10)
 
 SPEC CHECKSUMS:
   JGActionSheet: 2cfca820b57a11ec4b4a5655d45ee599fbeddc05
-  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: bb72948c985914b0b5cecac573a2c69a8915fb02
 
