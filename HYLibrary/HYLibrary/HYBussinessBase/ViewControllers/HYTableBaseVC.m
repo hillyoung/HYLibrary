@@ -93,6 +93,7 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView.translatesAutoresizingMaskIntoConstraints = NO;
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
@@ -120,12 +121,11 @@
 #pragma mark - Message
 
 - (void)setupTableView {
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top);
-        make.leading.equalTo (self.view.mas_leading);
-        make.trailing.equalTo(self.view.mas_trailing);
-        make.bottom.equalTo(self.view.mas_bottom);
-    }];
+
+    [self.view addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.tableView attribute:NSLayoutAttributeTop toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.tableView attribute:NSLayoutAttributeLeading toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.tableView attribute:NSLayoutAttributeTrailing toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.tableView attribute:NSLayoutAttributeBottom toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
 }
 
 - (void)registerCellClass:(Class)cellClass {

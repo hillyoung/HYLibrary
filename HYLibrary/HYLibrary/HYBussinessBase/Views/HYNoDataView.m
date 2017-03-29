@@ -152,22 +152,18 @@
 - (void)setupUI {
     
     [self addSubview:self.drawView];
-    [self.drawView mas_makeConstraints:^(MASConstraintMaker *make) {
-       
-        make.centerY.equalTo(self.mas_centerY).offset(-20);
-        make.size.mas_equalTo(CGSizeMake(50, 70));
-        make.centerX.equalTo(self.mas_centerX);
-        
-    }];
-    
+
+
+    [self addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.drawView attribute:NSLayoutAttributeCenterY toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
+    [self addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.drawView attribute:NSLayoutAttributeCenterX toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
+    [self.drawView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.drawView attribute:NSLayoutAttributeWidth toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:50]];
+    [self.drawView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.drawView attribute:NSLayoutAttributeHeight toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:70]];
+
     [self addSubview:self.titleLabel];
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.drawView.mas_bottom).offset(10);
-        make.width.equalTo(self.mas_width);
-        make.height.mas_equalTo(14);
-        make.centerX.equalTo(self.mas_centerX);
-    }];
-    
+    [self addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.titleLabel attribute:NSLayoutAttributeTop toItem:self.drawView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10]];
+    [self addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.titleLabel attribute:NSLayoutAttributeCenterX toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
+    [self addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.titleLabel attribute:NSLayoutAttributeWidth toItem:self attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
+    [self.titleLabel addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.titleLabel attribute:NSLayoutAttributeHeight toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:14]];
 }
 
 
@@ -189,6 +185,7 @@
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
+        _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.textColor = [UIColor lightGrayColor];
         _titleLabel.font = [UIFont systemFontOfSize:14];

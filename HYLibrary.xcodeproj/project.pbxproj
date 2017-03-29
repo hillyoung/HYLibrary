@@ -27,7 +27,6 @@
 		9ED5CF261E87FF610001B9E3 /* HYTongTaiVPNConnecter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5CEC81E87FF610001B9E3 /* HYTongTaiVPNConnecter.m */; };
 		9ED5CF271E87FF610001B9E3 /* libProxy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ED5CECD1E87FF610001B9E3 /* libProxy.a */; };
 		9ED5CF281E87FF610001B9E3 /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ED5CECE1E87FF610001B9E3 /* openssl.framework */; };
-		9ED5CF291E87FF610001B9E3 /* BaseInfoItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5CED31E87FF610001B9E3 /* BaseInfoItemCell.m */; };
 		9ED5CF2A1E87FF610001B9E3 /* BaseInfoMultiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5CED51E87FF610001B9E3 /* BaseInfoMultiCell.m */; };
 		9ED5CF2B1E87FF610001B9E3 /* HYBaseHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5CED71E87FF610001B9E3 /* HYBaseHeaderFooter.m */; };
 		9ED5CF2C1E87FF610001B9E3 /* HYBaseInfoInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5CED91E87FF610001B9E3 /* HYBaseInfoInputCell.m */; };
@@ -110,8 +109,6 @@
 		9ED5CECD1E87FF610001B9E3 /* libProxy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libProxy.a; sourceTree = "<group>"; };
 		9ED5CECE1E87FF610001B9E3 /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openssl.framework; sourceTree = "<group>"; };
 		9ED5CECF1E87FF610001B9E3 /* SsoAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SsoAuth.h; sourceTree = "<group>"; };
-		9ED5CED21E87FF610001B9E3 /* BaseInfoItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseInfoItemCell.h; sourceTree = "<group>"; };
-		9ED5CED31E87FF610001B9E3 /* BaseInfoItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseInfoItemCell.m; sourceTree = "<group>"; };
 		9ED5CED41E87FF610001B9E3 /* BaseInfoMultiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseInfoMultiCell.h; sourceTree = "<group>"; };
 		9ED5CED51E87FF610001B9E3 /* BaseInfoMultiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseInfoMultiCell.m; sourceTree = "<group>"; };
 		9ED5CED61E87FF610001B9E3 /* HYBaseHeaderFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBaseHeaderFooter.h; sourceTree = "<group>"; };
@@ -343,8 +340,6 @@
 		9ED5CED11E87FF610001B9E3 /* BaseInfoItemCell */ = {
 			isa = PBXGroup;
 			children = (
-				9ED5CED21E87FF610001B9E3 /* BaseInfoItemCell.h */,
-				9ED5CED31E87FF610001B9E3 /* BaseInfoItemCell.m */,
 				9ED5CED41E87FF610001B9E3 /* BaseInfoMultiCell.h */,
 				9ED5CED51E87FF610001B9E3 /* BaseInfoMultiCell.m */,
 				9ED5CED61E87FF610001B9E3 /* HYBaseHeaderFooter.h */,
@@ -730,7 +725,6 @@
 				9ED5CF2D1E87FF610001B9E3 /* HYBaseInfoCellModel.m in Sources */,
 				9ED5CF331E87FF610001B9E3 /* HYScanningView.m in Sources */,
 				9ED5CF411E87FF610001B9E3 /* NSDate+HYDateFormatter.m in Sources */,
-				9ED5CF291E87FF610001B9E3 /* BaseInfoItemCell.m in Sources */,
 				9ED5CF241E87FF610001B9E3 /* AuthHelper.m in Sources */,
 				E88F53601D49B3EB00FA2E1C /* main.m in Sources */,
 				9ED5CF3C1E87FF610001B9E3 /* HYScanningVC.m in Sources */,

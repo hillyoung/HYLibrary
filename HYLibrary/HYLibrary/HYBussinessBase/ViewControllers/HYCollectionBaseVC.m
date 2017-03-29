@@ -47,6 +47,7 @@
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.flowLayout];
+        _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
@@ -69,12 +70,11 @@
 #pragma mark - Message
 
 - (void)setupCollectionView {
-    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top);
-        make.leading.equalTo (self.view.mas_leading);
-        make.trailing.equalTo(self.view.mas_trailing);
-        make.bottom.equalTo(self.view.mas_bottom);
-    }];
+
+    [self.view addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.collectionView attribute:NSLayoutAttributeTop toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.collectionView attribute:NSLayoutAttributeLeading toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.collectionView attribute:NSLayoutAttributeTrailing toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.collectionView attribute:NSLayoutAttributeBottom toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
 }
 
 - (void)registerCellClass:(Class)cellClass {

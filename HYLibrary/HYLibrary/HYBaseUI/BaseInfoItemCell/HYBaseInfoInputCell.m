@@ -18,6 +18,9 @@
 @interface HYBaseInfoInputCell () <UITextFieldDelegate>
 
 @property (strong, nonatomic) HYLRTitleTextField *infoTextField;
+@property (strong, nonatomic) NSLayoutConstraint *infoTopConstraint;
+@property (strong, nonatomic) NSLayoutConstraint *infoBottomConstraint;
+@property (strong, nonatomic) NSLayoutConstraint *infoTrailingConstraint;
 
 @end
 
@@ -61,6 +64,7 @@
 - (HYLRTitleTextField *)infoTextField {
     if (!_infoTextField) {
         _infoTextField = [[HYLRTitleTextField alloc] init];
+        _infoTextField.translatesAutoresizingMaskIntoConstraints = NO;
         _infoTextField.borderStyle = UITextBorderStyleNone;
         _infoTextField.titleAlignment = NSTextAlignmentLeft;
         _infoTextField.titleColor = self.titleColor;
@@ -74,6 +78,7 @@
 - (UIImageView *)accessoryImageView {
     if (!_accessoryImageView) {
         _accessoryImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetHeight(self.frame), CGRectGetHeight(self.frame))];
+        _accessoryImageView.translatesAutoresizingMaskIntoConstraints = NO;
         _accessoryImageView.contentMode = UIViewContentModeCenter;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAccessoryAction)];
         _accessoryImageView.userInteractionEnabled = YES;
@@ -95,10 +100,8 @@
 
 - (void)setGapToTop:(CGFloat)gapToTop{
     _gapToTop = gapToTop;
-    
-    [self.infoTextField mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top).offset(gapToTop);
-    }];
+
+    self.infoTopConstraint.constant = _gapToTop;
 }
 
 - (CGFloat)gapToTop {
@@ -111,10 +114,8 @@
 
 - (void)setGapToBottom:(CGFloat)gapToBottom {
     _gapToBottom = gapToBottom;
-    
-    [self.infoTextField mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top).offset(_gapToBottom);
-    }];
+
+    self.infoBottomConstraint.constant = _gapToBottom;
 }
 
 - (CGFloat)gapToBottom {
@@ -134,22 +135,23 @@
 
     [self updateAccessoryImageView:HYBaseInfoInputCell_GAP widthMultipliedBy:0.5];
 
-    [self.infoTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top).offset(self.gapToTop);
-        make.bottom.equalTo(self.contentView.mas_bottom).offset(-fabs(self.gapToBottom)).priorityMedium();
-        make.leading.equalTo(self.contentView.mas_leading).offset(HYBaseInfoInputCell_GAP);
-        make.trailing.equalTo(self.accessoryImageView.mas_leading).offset(HYBaseInfoInputCell_GAP_A);
-    }];
+    self.infoTopConstraint = [NSLayoutConstraint equalConstraintWithItem:self.infoTextField attribute:NSLayoutAttributeTop toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:self.gapToTop];
+    [self.contentView addConstraint:self.infoTopConstraint];
 
+    self.infoBottomConstraint = [NSLayoutConstraint equalConstraintWithItem:self.infoTextField attribute:NSLayoutAttributeBottom toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-fabs(self.gapToBottom)];
+    [self.contentView addConstraint:self.infoBottomConstraint];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.infoTextField attribute:NSLayoutAttributeLeading toItem:self.contentView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:HYBaseInfoInputCell_GAP]];
+
+    self.infoTrailingConstraint = [NSLayoutConstraint equalConstraintWithItem:self.infoTextField attribute:NSLayoutAttributeTrailing toItem:self.accessoryImageView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:HYBaseInfoInputCell_GAP_A];
+    [self.contentView addConstraint:self.infoTrailingConstraint];
 }
 
 - (void)updateAccessoryImageView:(CGFloat)gap widthMultipliedBy:(CGFloat)multipliedBy {
-    [self.accessoryImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top);
-        make.trailing.equalTo(self.mas_trailing).offset(-gap);
-        make.bottom.equalTo(self.infoTextField.mas_bottom).offset(HYBaseInfoInputCell_GAP_V);
-        make.width.equalTo(self.accessoryImageView.mas_height).multipliedBy(multipliedBy);
-    }];
+
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.accessoryImageView attribute:NSLayoutAttributeTop toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.accessoryImageView attribute:NSLayoutAttributeTrailing toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:-gap]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.accessoryImageView attribute:NSLayoutAttributeBottom toItem:self.infoTextField attribute:NSLayoutAttributeBottom multiplier:1.0 constant:HYBaseInfoInputCell_GAP_V]];
+    [self.accessoryImageView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.accessoryImageView attribute:NSLayoutAttributeWidth toItem:self.accessoryImageView attribute:NSLayoutAttributeHeight multiplier:multipliedBy constant:0]];
 }
 
 #pragma mark - Action
@@ -177,9 +179,8 @@
 
 - (void)setAccessoryImageViewHidden:(BOOL)hidden {
     self.accessoryImageView.hidden = hidden;
-    [self.infoTextField mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.accessoryImageView.mas_leading).offset(hidden? CGRectGetHeight(self.frame)/2.:HYBaseInfoInputCell_GAP_A);
-    }];
+
+    self.infoTrailingConstraint.constant = hidden? CGRectGetHeight(self.frame)/2.:HYBaseInfoInputCell_GAP_A;
 }
 
 #pragma mark - UITextFieldDelegate
@@ -228,7 +229,7 @@
 
 @end
 
-#define HYAddImage_DeleteButton_W 25   //删除按钮宽度
+float deleteButtonWidth = 25;   //删除按钮宽度
 
 @interface HYAddImageCollectionCell : UICollectionViewCell
 
@@ -254,9 +255,10 @@
 - (UIButton *)deleteButton {
     if (!_deleteButton ) {
         _deleteButton = [[UIButton alloc] init];
+        _deleteButton.translatesAutoresizingMaskIntoConstraints = NO;
         _deleteButton.backgroundColor = [UIColor redColor];
         _deleteButton.layer.masksToBounds = YES;
-        _deleteButton.layer.cornerRadius = HYAddImage_DeleteButton_W/2.;
+        _deleteButton.layer.cornerRadius = deleteButtonWidth/2.;
         [_deleteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_deleteButton setTitle:@"一" forState:UIControlStateNormal];
     }
@@ -267,6 +269,7 @@
 - (UIImageView *)imageView {
     if (!_imageView) {
         _imageView = [[UIImageView alloc] init];
+        _imageView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     
     return _imageView;
@@ -275,6 +278,7 @@
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
+        _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.font = [UIFont systemFontOfSize:10];
         _titleLabel.textColor = [UIColor lightGrayColor];
@@ -286,29 +290,24 @@
 #pragma mark - Private
 
 - (void)setupUI {
+
     [self.contentView addSubview:self.imageView];
-    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top).offset(10);
-        make.leading.equalTo(self.mas_leading).offset(10);
-        make.trailing.equalTo(self.mas_trailing).offset(-10);
-        make.bottom.equalTo(self.mas_bottom).offset(-15);
-    }];
-    
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.imageView attribute:NSLayoutAttributeTop toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:10]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.imageView attribute:NSLayoutAttributeLeading toItem:self.contentView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:10]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.imageView attribute:NSLayoutAttributeTrailing toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:-10]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.imageView attribute:NSLayoutAttributeBottom toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-15]];
+
     [self.contentView addSubview:self.deleteButton];
-    [self.deleteButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.mas_trailing);
-        make.top.equalTo(self.contentView.mas_top);
-        make.width.mas_equalTo(HYAddImage_DeleteButton_W);
-        make.height.mas_equalTo(HYAddImage_DeleteButton_W);
-    }];
-    
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.deleteButton attribute:NSLayoutAttributeTrailing toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.deleteButton attribute:NSLayoutAttributeTop toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
+    [self.deleteButton addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.deleteButton attribute:NSLayoutAttributeWidth toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:deleteButtonWidth]];
+    [self.deleteButton addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.deleteButton attribute:NSLayoutAttributeHeight toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:deleteButtonWidth]];
+
     [self.contentView addSubview:self.titleLabel];
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.imageView.mas_bottom).offset(2);
-        make.width.equalTo(self.mas_width);
-        make.height.mas_equalTo(self.titleLabel.font.pointSize);
-        make.centerX.equalTo(self.mas_centerX);
-    }];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.titleLabel attribute:NSLayoutAttributeTop toItem:self.imageView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:2]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.titleLabel attribute:NSLayoutAttributeCenterX toItem:self.contentView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.titleLabel attribute:NSLayoutAttributeWidth toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
+    [self.titleLabel addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.titleLabel attribute:NSLayoutAttributeHeight toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:16]];
 }
 
 
@@ -339,13 +338,11 @@
     
     [self.collectionView registerClass:[HYAddImageCollectionCell class] forCellWithReuseIdentifier:NSStringFromClass([HYAddImageCollectionCell class])];
     [self.contentView addSubview:self.collectionView];
-    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.infoTextField.mas_bottom);
-        make.leading.equalTo(self.mas_leading);
-        make.trailing.equalTo(self.mas_trailing);
-        make.bottom.equalTo(self.infoTextField.mas_bottom).offset(100);
-//        make.height.mas_equalTo(97);
-    }];
+
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.collectionView attribute:NSLayoutAttributeTop toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.collectionView attribute:NSLayoutAttributeLeading toItem:self.contentView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.collectionView attribute:NSLayoutAttributeTrailing toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.contentView attribute:NSLayoutAttributeBottom toItem:self.infoTextField attribute:NSLayoutAttributeBottom multiplier:1.0 constant:100]];
 }
 
 #pragma mark - Setter && Getter
@@ -359,6 +356,7 @@
         flowLayout.minimumInteritemSpacing = 0;
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
@@ -411,6 +409,8 @@
     _dataList = images;
 
     self.gapToBottom = images.count? 110:HYBaseInfoInputCell_GAP_V;
+
+    
     [self.infoTextField mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top).offset(self.gapToTop);
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-fabs(self.gapToBottom)).priorityMedium();
@@ -539,14 +539,6 @@
 }
 
 - (void)updateTextView:(CGFloat)height {
-    [self.inputTextView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.mas_leading).offset(HYBaseInfoInputCell_GAP+5*self.infoTextField.font.pointSize-3);
-        make.top.equalTo(self.contentView.mas_top).offset(HYBaseInfoInputCell_GAP_V-7);
-        make.trailing.equalTo(self.mas_trailing).offset(-HYBaseInfoInputCell_GAP);
-//        make.height.mas_equalTo(height);
-        make.bottom.equalTo(self.mas_bottom).offset(-5);
-        //        make.bottom.equalTo(self.mas_bottom).offset(-5).priorityMedium();
-    }];
 }
 
 
@@ -610,6 +602,7 @@
 - (UIImageView *)accessoryImageView {
     if (!_accessoryImageView) {
         _accessoryImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetHeight(self.frame), CGRectGetHeight(self.frame))];
+        _accessoryImageView.translatesAutoresizingMaskIntoConstraints = NO;
         _accessoryImageView.contentMode = UIViewContentModeCenter;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAccessoryAction)];
         _accessoryImageView.userInteractionEnabled = YES;

@@ -6,7 +6,7 @@
 //  Copyright © 2016年 hillyoung. All rights reserved.
 //
 
-#import "BaseInfoItemCell.h"
+#import <UIKit/UIKit.h>
 
 @interface BaseInfoMultiCell : UITableViewCell
 
