@@ -15,4 +15,9 @@
  */
 + (UIImage *)imageFromString:(NSString *)thumbnail ;
 
+/**
+ 通过视频的本地地址，获取视频缩略图
+ */
++(UIImage *)thumbImageWithVideoFileUrl:(NSString *)videoURL ;
+
 @end
