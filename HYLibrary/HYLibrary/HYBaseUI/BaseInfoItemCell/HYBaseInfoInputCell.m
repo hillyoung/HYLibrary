@@ -8,9 +8,9 @@
 
 #import "HYBaseInfoInputCell.h"
 
-#define HYBaseInfoInputCell_GAP 15.
-#define HYBaseInfoInputCell_GAP_V 13        //垂直方向的默认间隔
-#define HYBaseInfoInputCell_GAP_A -5.        //到accessory的间隔
+float HYBaseInfoInputCell_GAP = 15.0;
+float HYBaseInfoInputCell_GAP_V = 13;        //垂直方向的默认间隔
+float HYBaseInfoInputCell_GAP_A = -5.0;        //到accessory的间隔
 
 #pragma mark - HYBaseInfoInputCell------------------------------------------
 
@@ -410,13 +410,11 @@ float deleteButtonWidth = 25;   //删除按钮宽度
 
     self.gapToBottom = images.count? 110:HYBaseInfoInputCell_GAP_V;
 
-    
-    [self.infoTextField mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top).offset(self.gapToTop);
-        make.bottom.equalTo(self.contentView.mas_bottom).offset(-fabs(self.gapToBottom)).priorityMedium();
-        make.leading.equalTo(self.contentView.mas_leading).offset(HYBaseInfoInputCell_GAP);
-        make.trailing.equalTo(self.accessoryImageView.mas_leading).offset(HYBaseInfoInputCell_GAP_A);
-    }];
+
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.infoTextField attribute:NSLayoutAttributeTop toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:self.gapToTop]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.infoTextField attribute:NSLayoutAttributeBottom toItem:self.infoTextField attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-fabs(self.gapToBottom)]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.infoTextField attribute:NSLayoutAttributeLeading toItem:self.contentView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:HYBaseInfoInputCell_GAP]];
+    [self.contentView addConstraint:[NSLayoutConstraint equalConstraintWithItem:self.infoTextField attribute:NSLayoutAttributeTrailing toItem:self.accessoryImageView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:HYBaseInfoInputCell_GAP_A]];
 
     [self setNeedsLayout];
     [self layoutIfNeeded];
@@ -570,6 +568,8 @@ float deleteButtonWidth = 25;   //删除按钮宽度
 
 @property (strong, nonatomic) HYLRImageTextField *infoTextField;
 @property (strong, nonatomic) UIImageView *accessoryImageView;
+@property (strong, nonatomic) NSLayoutConstraint *infoTextTopConstraint;        //infotextField的顶部约束
+@property (strong, nonatomic) NSLayoutConstraint *infoTextBottomConstraint;     //infotextField的底部约束
 
 @end
 
@@ -614,10 +614,8 @@ float deleteButtonWidth = 25;   //删除按钮宽度
 
 - (void)setGapToTop:(CGFloat)gapToTop{
     _gapToTop = gapToTop;
-    
-    [self.infoTextField mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top).offset(gapToTop);
-    }];
+
+    self.infoTextTopConstraint.constant = _gapToTop;
 }
 
 - (CGFloat)gapToTop {
@@ -630,10 +628,8 @@ float deleteButtonWidth = 25;   //删除按钮宽度
 
 - (void)setGapToBottom:(CGFloat)gapToBottom {
     _gapToBottom = gapToBottom;
-    
-    [self.infoTextField mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top).offset(_gapToBottom);
-    }];
+
+    self.infoTextBottomConstraint.constant = _gapToBottom;
 }
 
 - (CGFloat)gapToBottom {
@@ -655,21 +651,11 @@ float deleteButtonWidth = 25;   //删除按钮宽度
 }
 
 - (void)updateAccessoryImageView:(CGFloat)gap widthMultipliedBy:(CGFloat)multipliedBy {
-    [self.accessoryImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top);
-        make.trailing.equalTo(self.mas_trailing).offset(-gap);
-        make.bottom.equalTo(self.infoTextField).offset(HYBaseInfoInputCell_GAP_V);
-        make.width.equalTo(self.accessoryImageView.mas_height).multipliedBy(multipliedBy);
-    }];
+
 }
 
 - (void)updateInfoTextField {
-    [self.infoTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.mas_leading).offset(HYBaseInfoInputCell_GAP_V);
-        make.centerY.equalTo(self.mas_centerY);
-        make.trailing.equalTo(self.accessoryImageView.mas_leading).offset(-fabs(self.gapToBottom));
-        make.height.mas_equalTo(self.infoTextField.font.pointSize);
-    }];
+    NSAssert(0, @"请重写约束");
 }
 
 #pragma mark - Action
@@ -794,9 +780,7 @@ float deleteButtonWidth = 25;   //删除按钮宽度
 - (void)setGapToTop:(CGFloat)gapToTop{
     _gapToTop = gapToTop;
     
-    [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top).offset(_gapToTop);
-    }];
+    NSAssert(0, @"请重写约束");
 }
 
 - (CGFloat)gapToTop {
@@ -818,43 +802,11 @@ float deleteButtonWidth = 25;   //删除按钮宽度
 }
 
 - (void)updateTitleLabel {
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.mas_leading).offset(HYBaseInfoInputCell_GAP_V);
-        make.top.equalTo(self.contentView.mas_top).offset(self.gapToTop);
-        make.width.mas_lessThanOrEqualTo(150);
-        make.bottom.equalTo(self.mas_bottom).offset(-self.gapToTop);
-    }];
-
+    NSAssert(0, @"请重写约束");
 }
 
 - (void)updateDateContentView {
-    [self.dateContentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.titleLabel.mas_trailing).offset(fabs(HYBaseInfoInputCell_GAP_A));
-        make.trailing.equalTo(self.mas_trailing).offset(-fabs(HYBaseInfoInputCell_GAP)-5);
-        make.height.mas_equalTo(30);
-        make.centerY.equalTo(self.mas_centerY);
-    }];
-    
-    [self.middleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(30);
-        make.height.equalTo(self.dateContentView.mas_height);
-        make.centerY.equalTo(self.dateContentView.mas_centerY);
-        make.centerX.equalTo(self.dateContentView.mas_centerX);
-    }];
-    
-    [self.leftDateTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.dateContentView.mas_leading);
-        make.height.equalTo(self.dateContentView.mas_height);
-        make.trailing.equalTo(self.middleLabel.mas_leading);
-        make.centerY.equalTo(self.dateContentView.mas_centerY);
-    }];
-    
-    [self.rightDateTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.dateContentView.mas_trailing);
-        make.leading.equalTo(self.middleLabel.mas_trailing);
-        make.centerY.equalTo(self.dateContentView.mas_centerY);
-        make.height.equalTo(self.leftDateTextField.mas_height);
-    }];
+    NSAssert(0, @"请重写约束");
 }
 
 #pragma mark - Action
