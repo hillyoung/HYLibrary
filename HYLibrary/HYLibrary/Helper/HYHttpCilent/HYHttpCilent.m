@@ -9,6 +9,8 @@
 #import "HYHttpCilent.h"
 #import "HYHttpCilent+SafeParams.h"
 
+static const NSDictionary *debugData;
+
 @interface HYHttpCilent () <NSURLSessionDelegate>
 
 @property (strong, nonatomic) NSOperationQueue *operationQueue ;
@@ -38,6 +40,14 @@
     }
     
     return _httpMethod;
+}
+
+- (void)setDebug:(BOOL)debug {
+    _debug = debug;
+
+    if (_debug) {
+        
+    }
 }
 
 - (NSOperationQueue *)operationQueue {
@@ -127,7 +137,7 @@
 }
 
 - (NSURLSessionDataTask *)taskWithRequest:(NSURLRequest *)request success:(void (^)(NSURLResponse *response, id responseObject))success failure:(void (^)(NSURLResponse *response, NSError *error))failure willFinishBlock:(void (^)(BOOL isSuccess))willFinishBlock didFinishBlock:(void (^)(BOOL isSuccess))didFinishBlock {
-    
+
     NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{

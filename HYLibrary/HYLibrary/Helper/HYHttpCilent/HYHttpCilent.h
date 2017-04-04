@@ -13,6 +13,8 @@ typedef void(^didFinishBlock)(BOOL isSuccess);
 
 @interface HYHttpCilent : NSObject
 
+@property (nonatomic) BOOL debug;
+
 /**
  *  基本地址
  */
