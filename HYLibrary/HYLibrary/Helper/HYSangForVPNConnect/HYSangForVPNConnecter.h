@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "AuthHelper.h"
 
+/**
+ *  由于深信服不支持bitcode，集成时需要设置bitcode为NO。
+ *  依赖库：libxml2.tbd、SystemConfiguration.framework、AdSupport.framework。
+ */
 @interface HYSangForVPNConnecter : NSObject
 
 @property (copy, nonatomic) NSString *host;     //深信服vpn服务器域名
@@ -19,6 +23,7 @@
 @property (nonatomic) VPN_STATUS status;  //VPN状态
 
 + (instancetype)shareConnecter ;
+
 /**
  初始化深信服VPN，可以配合initSuccessBlock使用达到初始化后自动登录的功能
  */
@@ -28,6 +33,14 @@
  登录深信服VPN，可以在配合loginSuccessBlock使用，完成登录vpn后调用其他业务
  */
 - (void)loginVPN:(void(^)(HYSangForVPNConnecter *connecter))loginSuccessBlock loginFailBlock:(void(^)(HYSangForVPNConnecter *connecter))loginFailBlock;
+
+/**
+ *  初始化并登陆VPN，可以在initBlock编写初始化VPN完成的相关业务
+ *  可以在配合loginSuccessBlock使用，完成登录vpn后调用其他业务
+ *
+ *  @param initBlock         VPN初始化响应的回调
+ */
+- (void)loginAndInitVPN:(void(^)(HYSangForVPNConnecter *connecter, BOOL isSuccess))initBlock loginSuccessBlock:(void (^)(HYSangForVPNConnecter *))loginSuccessBlock loginFailBlock:(void (^)(HYSangForVPNConnecter *))loginFailBlock;
 
 /**
  退出VPN登录

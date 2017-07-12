@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F7D970E1EE8060500342788 /* config_SangForVPN in Resources */ = {isa = PBXBuildFile; fileRef = 6F7D970D1EE8060500342788 /* config_SangForVPN */; };
 		6FA52EC71DCDCB4F0094D18E /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA52EC61DCDCB4F0094D18E /* libiconv.tbd */; };
 		6FA52EC91DCDCB6A0094D18E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA52EC81DCDCB6A0094D18E /* SystemConfiguration.framework */; };
 		6FA52ECD1DCDCBAD0094D18E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA52ECC1DCDCBAD0094D18E /* MobileCoreServices.framework */; };
@@ -74,6 +75,8 @@
 
 /* Begin PBXFileReference section */
 		2CC591D1072A66D9D716D245 /* libPods-HYLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HYLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F7D970A1EE8042A00342788 /* 深信服EasyApp方案SDK包使用说明.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "深信服EasyApp方案SDK包使用说明.docx"; sourceTree = "<group>"; };
+		6F7D970D1EE8060500342788 /* config_SangForVPN */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config_SangForVPN; sourceTree = "<group>"; };
 		6FA52EC61DCDCB4F0094D18E /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		6FA52EC81DCDCB6A0094D18E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6FA52ECA1DCDCB760094D18E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -276,6 +279,7 @@
 		9ED5CEBD1E87FF610001B9E3 /* HYSangForVPNConnect */ = {
 			isa = PBXGroup;
 			children = (
+				6F7D970D1EE8060500342788 /* config_SangForVPN */,
 				9ED5CEBE1E87FF610001B9E3 /* HYSangForVPNConnecter.h */,
 				9ED5CEBF1E87FF610001B9E3 /* HYSangForVPNConnecter.m */,
 				9ED5CEC01E87FF610001B9E3 /* lib */,
@@ -286,6 +290,7 @@
 		9ED5CEC01E87FF610001B9E3 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				6F7D970A1EE8042A00342788 /* 深信服EasyApp方案SDK包使用说明.docx */,
 				9ED5CEC11E87FF610001B9E3 /* AuthHelper.h */,
 				9ED5CEC21E87FF610001B9E3 /* AuthHelper.m */,
 				9ED5CEC31E87FF610001B9E3 /* libSangforSdk.a */,
@@ -638,6 +643,7 @@
 			files = (
 				E88F536E1D49B3EB00FA2E1C /* LaunchScreen.storyboard in Resources */,
 				E88F536B1D49B3EB00FA2E1C /* Assets.xcassets in Resources */,
+				6F7D970E1EE8060500342788 /* config_SangForVPN in Resources */,
 				E88F53691D49B3EB00FA2E1C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

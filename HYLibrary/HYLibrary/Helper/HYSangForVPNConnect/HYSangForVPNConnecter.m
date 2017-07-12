@@ -85,6 +85,48 @@
     [self.helper loginVpn:SSL_AUTH_TYPE_PASSWORD];
 }
 
+- (void)loginAndInitVPN:(void (^)(HYSangForVPNConnecter *, BOOL))initBlock loginSuccessBlock:(void (^)(HYSangForVPNConnecter *))loginSuccessBlock loginFailBlock:(void (^)(HYSangForVPNConnecter *))loginFailBlock {
+    
+    void(^connectBlock)(HYSangForVPNConnecter *connecter) = ^(HYSangForVPNConnecter *connecter) {
+        
+        if (initBlock) {
+            initBlock(connecter, YES);
+        }
+        [connecter loginVPN:loginSuccessBlock loginFailBlock:loginFailBlock];
+        
+    };
+    
+    /**
+     *  当VPN已经完成init操作，则直接开始登陆VPN
+     */
+    if (self.status >= VPN_STATUS_INIT_OK) {
+        connectBlock(self);
+    } else {
+        
+        /**
+         设置初始化vpn成功的回调，成功初始化时，调用initBlock告诉调用者VPN初始化成功；并自动登录VPN
+         */
+        self.initSuccessBlock = ^(HYSangForVPNConnecter *connecter) {
+            connectBlock(connecter);
+        };
+        
+        /**
+         设置初始化vpn失败的回调，初始化失败时，调用initBlock告诉调用者VPN初始化失败
+         */
+        self.initFailBlock = ^(HYSangForVPNConnecter *connecter) {
+            if (initBlock) {
+                initBlock(connecter, NO);
+            }
+        };
+        
+        /**
+         初始化vpn
+         */
+        self.helper = [[AuthHelper alloc] initWithHostAndPort:self.host port:self.port delegate:self];
+        
+    }
+}
+
 - (void)logout:(void (^)(BOOL))completion {
     if (self.status == VPN_STATUS_OK) {
         [self.helper logoutVpn];

@@ -1,0 +1,7 @@
+
+
+1、直接添加HYSangForVPNConnect到项目中
+
+2、关闭bitcode：选中target->Build Settings->搜索bitcode->将值设置为NO
+
+3、添加依赖库：选中target->Build Settings-Link Binary With Libraries->添加libxml2.tbd、SystemConfiguration.framework、AdSupport.framework
