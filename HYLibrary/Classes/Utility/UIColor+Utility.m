@@ -118,7 +118,6 @@
     
     result = [UIColor colorWithRed:(float)redByte / 0xff green:(float)greenByte / 0xff blue:(float)blueByte / 0xff alpha:alphaValue];
     return result;
-    
 }
 
 @end

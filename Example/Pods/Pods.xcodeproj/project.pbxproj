@@ -17,7 +17,6 @@
 		0C2D2473C35AC21CB69E2393B3F61242 /* UIImage+HYQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DB8F79BDC728BB88D6D59D0C9062B7 /* UIImage+HYQRCode.m */; };
 		10471B2B5A11E1ED805222D2E7801026 /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B32DC82B087A3199F46DEE37F30C42D4 /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		121F0A0833F514A8F16BC712F88A82E1 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 66BA6286FFDDBFEF509A327789F6D690 /* MASConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		15D680DB6D14103A97594B7BA9C889C1 /* UIColor+HYLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DEE83EC16092B3FE8D362DDB96BF91B /* UIColor+HYLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17AB6F4E0333A311050710596F865AE8 /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 25A8E30D4F9F5E4535B69508873FAD12 /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F84FE646CD1D7BAFFB58C243277AFF8 /* FBSnapshotTestCase-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B367BF20EC952AD50F06D3171735002D /* FBSnapshotTestCase-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		23E7BAC02D77D23813EAFB7185D20280 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0FB1357DE7D247BE34CCB29EDCCFAC /* ViewController+MASAdditions.m */; };
@@ -52,7 +51,6 @@
 		59A5BD33283A0EA700CC4586 /* UIViewController+HYLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 59A5BD2F283A0EA700CC4586 /* UIViewController+HYLibrary.h */; };
 		59A5BD34283A0EA700CC4586 /* UIView+EffectAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A5BD30283A0EA700CC4586 /* UIView+EffectAnimation.m */; };
 		5BE525FF6FA14B999ED2CCC0AA4FA0CF /* FBSnapshotTestCase-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B839A35A2BFBEC3479FF1552F569BC /* FBSnapshotTestCase-dummy.m */; };
-		5DFBFB6B5C6E7C981CBABF7A09F04B3A /* UIColor+HYLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = AF49FFAA686A2987D0216F969D141344 /* UIColor+HYLibrary.m */; };
 		5E52A1E51820A156849290FBDFC862C4 /* NSDate+HYDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 098B4014D69E7195134D03ADCA5B3943 /* NSDate+HYDateFormatter.m */; };
 		640CCE9C3A28AA3CA15510899F9140EE /* FBSnapshotTestCasePlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 8940D361FD89F610F4C862B772A33E51 /* FBSnapshotTestCasePlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64DC310594FCE1414DBFD66795CD2FC1 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2A6BCDB8B38970BAAE92CDDEBB3B20 /* MASLayoutConstraint.m */; };
@@ -197,7 +195,6 @@
 		4524A6A3490475FDAD3095840EAAF87A /* HYBasicAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYBasicAlertView.m; sourceTree = "<group>"; };
 		498E8B0053FC9C12650256AC7795C1C6 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
 		4BB9788CC0FAA65C5489C5B40969D981 /* Pods-HYLibrary_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-HYLibrary_Tests"; path = Pods_HYLibrary_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4DEE83EC16092B3FE8D362DDB96BF91B /* UIColor+HYLibrary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+HYLibrary.h"; sourceTree = "<group>"; };
 		51578A1CEE9E9D26C7DF19EE8277B170 /* Masonry-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Masonry-Info.plist"; sourceTree = "<group>"; };
 		53870C08A05C1714B4904D71A9193EEC /* HYLibrary-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HYLibrary-umbrella.h"; sourceTree = "<group>"; };
 		54640D38F0EFEC97E9DFC37DF022072E /* NSString+Encrypt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+Encrypt.h"; sourceTree = "<group>"; };
@@ -255,7 +252,6 @@
 		AA5BF8E40F9CA0796147572E8285FDD6 /* Pods-HYLibrary_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HYLibrary_Tests-umbrella.h"; sourceTree = "<group>"; };
 		AA90FE4100862564E801FA718DCB0FFE /* UIImage+HYQRCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+HYQRCode.h"; sourceTree = "<group>"; };
 		AAA4CDCBF98261BE470C8E2794987382 /* HYLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HYLibrary.debug.xcconfig; sourceTree = "<group>"; };
-		AF49FFAA686A2987D0216F969D141344 /* UIColor+HYLibrary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HYLibrary.m"; sourceTree = "<group>"; };
 		B08DA80BD0D3E562D30FDCB078A4D08A /* Pods-HYLibrary_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HYLibrary_Example-Info.plist"; sourceTree = "<group>"; };
 		B17D6A5548097996EE3796656A32B6D2 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
 		B2A60C855135E8E481B1B95DADC07D39 /* HYLibrary */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HYLibrary; path = HYLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -385,18 +381,12 @@
 		3B6A43F611D327D1136792FD01F0FE47 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				59A5BD2E283A0EA700CC4586 /* UIView+EffectAnimation.h */,
-				59A5BD30283A0EA700CC4586 /* UIView+EffectAnimation.m */,
-				59A5BD2F283A0EA700CC4586 /* UIViewController+HYLibrary.h */,
-				59A5BD2D283A0EA700CC4586 /* UIViewController+HYLibrary.m */,
 				0D84E2CE0F1C5D07CD3EE118F02F1E4B /* NSDate+HYDateFormatter.h */,
 				098B4014D69E7195134D03ADCA5B3943 /* NSDate+HYDateFormatter.m */,
 				234148FC0212605D8A65031E60640EE7 /* NSObject+StringValue.h */,
 				7F83D651BDDC1E412B29EAE55A73FDE6 /* NSObject+StringValue.m */,
 				54640D38F0EFEC97E9DFC37DF022072E /* NSString+Encrypt.h */,
 				066170F6A8AE1BB7409D85E76686D857 /* NSString+Encrypt.m */,
-				4DEE83EC16092B3FE8D362DDB96BF91B /* UIColor+HYLibrary.h */,
-				AF49FFAA686A2987D0216F969D141344 /* UIColor+HYLibrary.m */,
 				6AA971E640DAC131C44C0A3FEFB1EDB1 /* UIDevice+HYLibrary.h */,
 				19F9FABC86E429FFB0B9C6251AC85846 /* UIDevice+HYLibrary.m */,
 				D085A87AACD7D8979C7B8D50CEC1DA4F /* UIImage+HYLibrary.h */,
@@ -407,6 +397,10 @@
 				7935251460565FA10F5E56B10542CA3A /* UILabel+HYUIUtils.m */,
 				B5F9FBAFA62681C943D5E1CD502E5F4F /* UINavigationItem+CustomBackTitleImage.h */,
 				CE354A9906A085B373EFB0D193FC9C64 /* UINavigationItem+CustomBackTitleImage.m */,
+				59A5BD2E283A0EA700CC4586 /* UIView+EffectAnimation.h */,
+				59A5BD30283A0EA700CC4586 /* UIView+EffectAnimation.m */,
+				59A5BD2F283A0EA700CC4586 /* UIViewController+HYLibrary.h */,
+				59A5BD2D283A0EA700CC4586 /* UIViewController+HYLibrary.m */,
 			);
 			name = Category;
 			path = HYLibrary/Classes/Category;
@@ -700,7 +694,6 @@
 				DA5525E8F37D2FAA2A175DC4F389383D /* NSDate+HYDateFormatter.h in Headers */,
 				3575EB8A59E5361A6C52A24C409374C7 /* NSObject+StringValue.h in Headers */,
 				56964897C7D41F50AD9CB51058928555 /* NSString+Encrypt.h in Headers */,
-				15D680DB6D14103A97594B7BA9C889C1 /* UIColor+HYLibrary.h in Headers */,
 				A28372B7B19E4DAD2DB1318B7F723736 /* UIColor+Utility.h in Headers */,
 				54E0FCCD280E051EAFE5ACEE86C0FC5C /* UIDevice+HYLibrary.h in Headers */,
 				261CC96E6A02FF5BA8AC27F2608F540A /* UIImage+HYLibrary.h in Headers */,
@@ -946,7 +939,6 @@
 				DC1E5CAC69B2F3219A0B94FED621B1FD /* NSObject+StringValue.m in Sources */,
 				0A7D246399886556EFF4E51D34F1402E /* NSString+Encrypt.m in Sources */,
 				55E890409B63C30D00B9DFC7DBDF9A5D /* ReplaceMe.m in Sources */,
-				5DFBFB6B5C6E7C981CBABF7A09F04B3A /* UIColor+HYLibrary.m in Sources */,
 				A00EA26ACE20A769A9CC65B176C59522 /* UIColor+Utility.m in Sources */,
 				FC8086BFB5235CC8EB2896942955AF40 /* UIDevice+HYLibrary.m in Sources */,
 				AF3869C8B0797C3ABD560C064A267C65 /* UIImage+HYLibrary.m in Sources */,
