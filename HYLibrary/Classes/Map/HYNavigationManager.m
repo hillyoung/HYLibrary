@@ -47,7 +47,11 @@
     void(^actionBlock)(NSString *urlString) = ^(NSString *urlString) {
         NSString *encodedUrl = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
         NSURL *url = [NSURL URLWithString:encodedUrl ? :@""];
-        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+        if (@available(iOS 10.0, *)) {
+            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+        } else {
+            [[UIApplication sharedApplication] openURL:url];
+        }
     };
 
     // 百度地图

@@ -21,7 +21,9 @@
  通过传入内容获取对应的二维码image， 并设置颜色
  @params qrString 传入内容
  @params length 传入将要生成的image的大小的边长
- @params rgb 为0~255之间的数值
+ @param red 为0~255之间的数值
+ @param green 为0~255之间的数值
+ @param blue 为0~255之间的数值
  */
 + (UIImage *)qrColorImageFromString:(NSString *)qrString sideLength:(CGFloat)length withR:(CGFloat)red G:(CGFloat)green B:(CGFloat)blue;
 /**
