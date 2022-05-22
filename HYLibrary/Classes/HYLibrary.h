@@ -24,4 +24,10 @@
 #import "UIDevice+HYLibrary.h"
 #import "UINavigationItem+CustomBackTitleImage.h"
 
+
+#import "HYBasicVC.h"
+#import "HYBasicNavigationVC.h"
+#import "HYBasicCollectionVC.h"
+
+
 #endif /* HYLibrary_h */
