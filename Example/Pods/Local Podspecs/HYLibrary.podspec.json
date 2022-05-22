@@ -1,7 +1,7 @@
 {
   "name": "HYLibrary",
   "version": "0.1.0",
-  "summary": "A short description of HYLibrary.",
+  "summary": "快速开发库",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/hillyoung/HYLibrary",
   "license": {
@@ -18,9 +18,17 @@
   "platforms": {
     "ios": "9.0"
   },
-  "source_files": "HYLibrary/Classes/**/*",
+  "ios": {
+    "source_files": "HYLibrary/Classes/**/*"
+  },
   "dependencies": {
     "Masonry": [
+
+    ],
+    "YYModel": [
+
+    ],
+    "MGJRouter": [
 
     ]
   }

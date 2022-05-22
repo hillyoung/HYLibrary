@@ -28,9 +28,10 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/hillyoung/HYLibrary.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
+  s.platform = :ios
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'HYLibrary/Classes/**/*'
+  s.ios.source_files = 'HYLibrary/Classes/**/*'
   
   # s.resource_bundles = {
   #   'HYLibrary' => ['HYLibrary/Assets/*.png']
@@ -39,4 +40,7 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
     s.dependency 'Masonry'
+    s.dependency 'YYModel'
+    s.dependency 'MGJRouter'
+
 end

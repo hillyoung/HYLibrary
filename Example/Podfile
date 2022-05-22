@@ -5,6 +5,8 @@ platform :ios, '9.0'
 target 'HYLibrary_Example' do
   pod 'HYLibrary', :path => '../'
 
+  pod 'MGJRouter', :git => 'https://github.com/hillyoung/MGJRouter.git'
+
   target 'HYLibrary_Tests' do
     inherit! :search_paths
 
