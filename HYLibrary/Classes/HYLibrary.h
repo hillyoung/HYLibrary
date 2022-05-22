@@ -18,7 +18,6 @@
 #import "UIImage+HYLibrary.h"
 #import "UIViewController+HYLibrary.h"
 #import "NSString+Encrypt.h"
-#import "UIColor+HYLibrary.h"
 #import "NSDate+HYDateFormatter.h"
 #import "NSObject+StringValue.h"
 #import "UIDevice+HYLibrary.h"
