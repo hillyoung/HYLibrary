@@ -1,0 +1,27 @@
+{
+  "name": "HYLibrary",
+  "version": "0.1.0",
+  "summary": "A short description of HYLibrary.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/hillyoung/HYLibrary",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hillyoung": "1666487339@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/hillyoung/HYLibrary.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "HYLibrary/Classes/**/*",
+  "dependencies": {
+    "Masonry": [
+
+    ]
+  }
+}
