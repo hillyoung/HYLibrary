@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HYBasicCollectionVC : HYBasicVC
+@interface HYBasicCollectionVC : HYBasicVC <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @end
 

@@ -6,26 +6,43 @@
 //
 
 #import "HYBasicCollectionVC.h"
+#import "Masonry.h"
 
 @interface HYBasicCollectionVC ()
-
+@property (strong, nonatomic) UICollectionView *collectionView;
 @end
 
 @implementation HYBasicCollectionVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    UICollectionViewFlowLayout *flowLayout = [UICollectionViewFlowLayout new];
+    flowLayout.minimumLineSpacing = 8;
+    flowLayout.minimumInteritemSpacing = 8;
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    [self.view addSubview:self.collectionView];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        if (@available(iOS 11.0, *)) {
+            make.edges.mas_equalTo(self.view.safeAreaInsets);
+        } else {
+            make.edges.mas_equalTo(CGRectZero);
+        }
+    }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
 }
-*/
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 0;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
 
 @end

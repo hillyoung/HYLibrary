@@ -7,6 +7,7 @@
 
 #import "HYBasicVC.h"
 
+
 @interface HYBasicVC ()
 
 @end
@@ -15,17 +16,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
 }
-*/
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    if (![gestureRecognizer isKindOfClass:[UIScreenEdgePanGestureRecognizer class]]) return YES;
+    
+    UIScreenEdgePanGestureRecognizer *recognizer = (UIScreenEdgePanGestureRecognizer *)gestureRecognizer;
+    if (self.navigationController.viewControllers && self.navigationController.viewControllers.count > 1) {
+        return [self sideGestureEnable:recognizer];
+    }
+    return NO;
+}
+
+// 控制当前页面是否可以策划返回，如果禁止测滑返回，子类重写控制
+- (BOOL)sideGestureEnable:(UIScreenEdgePanGestureRecognizer *)gestureRecognizer
+{
+    return YES;
+}
+
+- (void)dismissViewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)popViewController {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)popToRootViewController {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 @end

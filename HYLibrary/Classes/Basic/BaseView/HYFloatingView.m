@@ -7,6 +7,8 @@
 //
 
 #import "HYFloatingView.h"
+#import "Masonry.h"
+
 
 @implementation HYFloatingView
 

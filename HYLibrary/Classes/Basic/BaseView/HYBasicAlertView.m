@@ -7,6 +7,8 @@
 //
 
 #import "HYBasicAlertView.h"
+#import "Masonry.h"
+
 
 @interface HYBasicAlertView () <CAAnimationDelegate>
 
@@ -63,7 +65,7 @@
     if (animated) {
         __block MASConstraint *constraint = nil;
         [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
-            constraint = make.top.equalTo(self.bottom).priority(101);
+            constraint = make.top.equalTo(self.mas_bottom).priority(101);
         }];
 
         start = CACurrentMediaTime();

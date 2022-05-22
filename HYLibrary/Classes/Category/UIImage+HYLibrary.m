@@ -7,6 +7,7 @@
 //
 
 #import "UIImage+HYLibrary.h"
+@import AVFoundation;
 
 @implementation UIImage (HYLibrary)
 
