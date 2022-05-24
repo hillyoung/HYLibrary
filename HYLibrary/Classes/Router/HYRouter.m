@@ -14,13 +14,14 @@
 
 @implementation HYRouter
 
-+ (void)getMemberOfClass:(Class)class completion:(void (^)(NSArray<Class> * _Nonnull))completion {
-        
+
++ (void)getMemberOfClass:(Class)class address:(const void *)address completion:(void (^)(NSArray<Class> * _Nonnull))completion {
+    
     unsigned int count;
     const char **classes;
     Dl_info info;
 
-    dladdr(&_MH_EXECUTE_SYM, &info);
+    dladdr(address, &info);
     classes = objc_copyClassNamesForImage(info.dli_fname, &count);
     
     // 判断class1是否为class2的子类
@@ -50,6 +51,10 @@
     }
     free(classes);  //解决objc_copyClassNamesForImage导致的内存泄露
     completion ? completion([classArray copy]):nil;
+}
+
++ (void)getMemberOfClass:(Class)class completion:(void (^)(NSArray<Class> * _Nonnull))completion {
+    [self getMemberOfClass:class address:&_MH_EXECUTE_SYM completion:completion];
 }
 
 + (id)objectForPath:(NSString *)path withUserInfo:(NSDictionary *)userInfo {

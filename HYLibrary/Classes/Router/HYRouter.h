@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HYRouter : MGJRouter
 
++ (void)getMemberOfClass:(Class)class address:(const void *)address completion:(void (^)(NSArray<Class> * _Nonnull))completion ;
+
+
 + (void)getMemberOfClass:(Class)aClass completion:(void(^)(NSArray<Class> *classes))completion ;
 
 + (void)openPath:(NSString *)path withUserInfo:(NSDictionary *)userInfo completion:(void (^)(id _Nonnull))completion ;
