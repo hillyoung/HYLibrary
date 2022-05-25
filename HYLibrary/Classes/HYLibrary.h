@@ -8,6 +8,8 @@
 #ifndef HYLibrary_h
 #define HYLibrary_h
 
+#import "HYLibraryUtils.h"
+
 #import "UIColor+Utility.h"
 #import "CALayer+Utility.h"
 #import "UIImage+Utility.h"
