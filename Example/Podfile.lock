@@ -5,6 +5,36 @@ PODS:
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
   - HYLibrary (0.1.0):
+    - HYLibrary/Basic (= 0.1.0)
+    - HYLibrary/Category (= 0.1.0)
+    - HYLibrary/FormProgram (= 0.1.0)
+    - HYLibrary/Map (= 0.1.0)
+    - HYLibrary/Router (= 0.1.0)
+    - HYLibrary/Utility (= 0.1.0)
+    - Masonry
+    - MGJRouter
+    - YYModel
+  - HYLibrary/Basic (0.1.0):
+    - Masonry
+    - MGJRouter
+    - YYModel
+  - HYLibrary/Category (0.1.0):
+    - Masonry
+    - MGJRouter
+    - YYModel
+  - HYLibrary/FormProgram (0.1.0):
+    - Masonry
+    - MGJRouter
+    - YYModel
+  - HYLibrary/Map (0.1.0):
+    - Masonry
+    - MGJRouter
+    - YYModel
+  - HYLibrary/Router (0.1.0):
+    - Masonry
+    - MGJRouter
+    - YYModel
+  - HYLibrary/Utility (0.1.0):
     - Masonry
     - MGJRouter
     - YYModel
@@ -36,7 +66,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  HYLibrary: 8e05154449a686496825bd12a92966ac2647d0c4
+  HYLibrary: 62127675f15d657e5249e85e53dbd0e78fd41b36
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MGJRouter: 271e4899bf4a1a11a677c02e5264725b14f1c896
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30

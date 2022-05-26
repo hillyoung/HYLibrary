@@ -42,7 +42,24 @@ TODO: Add long description of the pod here.
     s.dependency 'Masonry'
     s.dependency 'YYModel'
     s.dependency 'MGJRouter'
+  
+  s.subspec 'Basic' do |ss|
+    ss.source_files = 'HYLibrary/Classes/Basic/**/*'
+  end
+  s.subspec 'Category' do |ss|
+    ss.source_files = 'HYLibrary/Classes/Category/**/*'
+  end
   s.subspec 'FormProgram' do |ss|
     ss.source_files = 'HYLibrary/Classes/FormProgram/**/*'
   end
+  s.subspec 'Map' do |ss|
+    ss.source_files = 'HYLibrary/Classes/Map/**/*'
+  end
+  s.subspec 'Router' do |ss|
+    ss.source_files = 'HYLibrary/Classes/Router/**/*'
+  end
+  s.subspec 'Utility' do |ss|
+    ss.source_files = 'HYLibrary/Classes/Utility/**/*'
+  end
+  
 end
