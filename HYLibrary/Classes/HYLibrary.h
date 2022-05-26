@@ -33,5 +33,6 @@
 #import "HYBasicNavigationVC.h"
 #import "HYBasicCollectionVC.h"
 
+#import "HYFormProgram.h"
 
 #endif /* HYLibrary_h */
