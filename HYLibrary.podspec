@@ -42,4 +42,7 @@ TODO: Add long description of the pod here.
     s.dependency 'Masonry'
     s.dependency 'YYModel'
     s.dependency 'MGJRouter'
+  s.subspec 'FormProgram' do |ss|
+    ss.source_files = 'HYLibrary/Classes/FormProgram/**/*'
+  end
 end
