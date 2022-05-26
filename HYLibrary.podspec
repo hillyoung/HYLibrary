@@ -31,7 +31,7 @@ TODO: Add long description of the pod here.
   s.platform = :ios
   s.ios.deployment_target = '9.0'
 
-  s.ios.source_files = 'HYLibrary/Classes/**/*'
+  s.ios.source_files = 'HYLibrary/Classes/*.h'
   
   # s.resource_bundles = {
   #   'HYLibrary' => ['HYLibrary/Assets/*.png']
