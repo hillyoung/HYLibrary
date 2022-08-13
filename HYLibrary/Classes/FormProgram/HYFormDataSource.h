@@ -50,6 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *title;        /**< 标题 */
 @property (nonatomic, strong) NSMutableArray<HYFormRowDataSource *> *rows;     /**< 分组下所有的行 */
 @property (nonatomic) float height;       /**< 表头、表尾高度：默认是UITableViewAutomaticDimension */
+@property (nonatomic) BOOL folded;       /**< 是否折叠 */
+@property (nonatomic) id userInfo;       /**< 用户自定义消息 */
 /// 添加行
 - (HYFormSectionDataSource *(^)(HYFormRowDataSource *))addRow ;
 
