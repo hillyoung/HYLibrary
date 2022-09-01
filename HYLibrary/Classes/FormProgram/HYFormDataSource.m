@@ -19,7 +19,7 @@
     return self.value;
 }
 
-+ (HYFormRowDataSource *)findDataSourceWithName:(NSString *)field inDataSources:(NSArray<HYFormRowDataSource *> *)dataSources {
++ (HYFormRowDataSource *)findDataSourceWithField:(NSString *)field inDataSources:(NSArray<HYFormRowDataSource *> *)dataSources {
     __block HYFormRowDataSource *datasource = nil;
     [dataSources enumerateObjectsUsingBlock:^(HYFormRowDataSource * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj.field isEqualToString:field]) {
