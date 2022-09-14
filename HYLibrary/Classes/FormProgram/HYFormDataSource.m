@@ -62,6 +62,18 @@
     return result;
 }
 
++ (HYFormRowDataSource *)findRowDataSourceAtIndexPath:(NSIndexPath *)indexPath inSectionDataSources:(NSArray<HYFormSectionDataSource *> *)dataSources {
+    
+    HYFormSectionDataSource *sectionM;
+    if (indexPath.section < dataSources.count) {
+        sectionM = [dataSources objectAtIndex:indexPath.section];
+    }
+    if (indexPath.row < sectionM.rows.count) {
+        return [sectionM.rows objectAtIndex:indexPath.row];
+    }
+    return nil;
+}
+
 - (NSMutableArray<HYFormRowDataSource *> *)rows {
     if (!_rows) {
         _rows = [NSMutableArray array];

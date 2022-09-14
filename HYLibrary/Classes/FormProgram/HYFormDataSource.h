@@ -54,6 +54,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) id userInfo;       /**< 用户自定义消息 */
 /// 添加行
 - (HYFormSectionDataSource *(^)(HYFormRowDataSource *))addRow ;
+/// 获取指定位置的行数据源
+/// @param indexPath 指定位置
+/// @param dataSources 数据源
++ (HYFormRowDataSource *)findRowDataSourceAtIndexPath:(NSIndexPath *)indexPath inSectionDataSources:(NSArray<HYFormSectionDataSource *> *)dataSources ;
 
 @end
 

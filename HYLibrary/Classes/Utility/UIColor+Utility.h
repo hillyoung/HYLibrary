@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)alpha;
 
 + (UIColor *)colorWithARGBHexString:(NSString *)hexColorString;
+/// 随机色
++ (UIColor *)randomColor ;
 
 @end
 
