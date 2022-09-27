@@ -30,6 +30,12 @@
     return cell;;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    HYFormSectionDataSource *sectionM = [self.groups objectAtIndex:indexPath.section];
+    HYFormRowDataSource *rowM = [sectionM.rows objectAtIndex:indexPath.row];
+    return rowM.height;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     HYFormSectionDataSource *sectionM = [self.groups objectAtIndex:section];
     return sectionM.height;
@@ -39,7 +45,12 @@
     HYFormSectionDataSource *sectionM = [self.groups objectAtIndex:section];
     UITableViewHeaderFooterView<HYFormSectionConfigProtocol> *view = [tableView dequeueReusableHeaderFooterViewWithDataSource:sectionM];
     [view update:sectionM];
-    return view ? :[UIView new];
+    if(!view) {
+        UIView *view = [UIView new];
+        view.backgroundColor = [UIColor clearColor];
+        return view;
+    }
+    return view;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

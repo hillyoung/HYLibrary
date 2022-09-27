@@ -10,6 +10,13 @@
 
 @implementation HYFormRowDataSource
 
+- (instancetype)init {
+    if (self = [super init]) {
+        _height = UITableViewAutomaticDimension;
+    }
+    return self;
+}
+
 - (BOOL)isValueValid {
     if ([self.value isKindOfClass:NSString.class]) {
         return [self.value length];

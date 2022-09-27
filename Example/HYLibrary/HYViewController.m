@@ -30,6 +30,7 @@
 }
 
 - (void)setupUI {
+    self.separatorInset = UIEdgeInsetsZero;
     self.titleL = [UILabel new];
     self.tintColor = [UIColor redColor];
     [self.contentView addSubview:self.titleL];
@@ -82,11 +83,19 @@
 }
 
 - (void)setupUI {
+    self.separatorInset = UIEdgeInsetsZero;
     self.titleL = [UILabel new];
     [self.contentView addSubview:self.titleL];
     [self.titleL mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(16);
         make.left.equalTo(self.contentView).offset(16);
+    }];
+    
+    self.detailL = [UILabel new];
+    [self.contentView addSubview:self.detailL];
+    [self.detailL mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.titleL.mas_bottom).offset(4);
+        make.left.equalTo(self.titleL);
         make.bottom.equalTo(self.contentView).offset(-16);
     }];
     
@@ -94,8 +103,8 @@
     [self.switchC addTarget:self action:@selector(changeStatusAction:) forControlEvents:UIControlEventValueChanged];
     [self.contentView addSubview:self.switchC];
     [self.switchC mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.titleL.mas_right).offset(8);
-        make.centerY.equalTo(self.titleL);
+        make.left.equalTo(self.detailL.mas_right).offset(8);
+        make.centerY.equalTo(self.contentView);
         make.right.equalTo(self.contentView).offset(-18);
     }];
 }
@@ -149,6 +158,9 @@
 
     self.navigationItem.title = @"设置";
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    if (@available(iOS 15.0, *)) {
+        self.tableView.sectionHeaderTopPadding = 0;
+    }
     self.tableView.delegate = self.viewDelegate;
     self.tableView.dataSource = self.viewDelegate;
     [self.view addSubview:self.tableView];
@@ -212,7 +224,7 @@
     group1.height = 1;
     HYFormSectionDataSource *group2 = [HYFormSectionDataSource new];
     group2.rows = (id)[NSMutableArray yy_modelArrayWithClass:HYFormRowDataSource.class json:part2Array];
-    group2.height = 1;
+    group2.height = 8;
     self.viewDelegate.groups = @[
         group1,
         group2

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol HYFormCellDelegate;
 @interface HYFormRowDataSource : NSObject
 
+@property (nonatomic) float height;       /**< 表头、表尾高度：默认是UITableViewAutomaticDimension */
 @property (nonatomic, copy) NSString *imageName;        /**< 图片名称 */
 @property (nonatomic, copy) NSString *title;   /**< 单元格标题 */
 @property (nonatomic, copy) NSString *identifier;   /**< cell样式的标识 */
