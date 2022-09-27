@@ -10,6 +10,7 @@
 #import <HYLibrary/HYLibrary.h>
 #import <YYModel/YYModel.h>
 #import <Masonry/Masonry.h>
+#import "HYCollectionVC.h"
 
 
 
@@ -156,7 +157,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    
     self.navigationItem.title = @"设置";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"跳转" style:UIBarButtonItemStylePlain target:self action:@selector(nextPageAction)];
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     if (@available(iOS 15.0, *)) {
         self.tableView.sectionHeaderTopPadding = 0;
@@ -172,6 +175,10 @@
     self.tableView.rowHeight = 56.0;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 16, 0, 0);
     self.tableView.separatorColor = [UIColor colorWithHexString:@"E5E5E5"];
+}
+
+- (void)nextPageAction {
+    [self.navigationController pushViewController:[HYCollectionVC new] animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

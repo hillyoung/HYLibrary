@@ -14,4 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray<HYFormSectionDataSource *> *groups;   /**< 数据源 */
 @end
 
+
+@interface HYCollectionViewFormDelegate : NSObject <UICollectionViewDataSource, UICollectionViewDelegate>
+@property (nonatomic, strong) NSArray<HYFormRowDataSource *> *rows;   /**< 数据源 */
+@end
+
 NS_ASSUME_NONNULL_END

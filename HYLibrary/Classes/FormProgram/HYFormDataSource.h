@@ -33,6 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL selected;        /**< 是否选中：默认NO */
 @property (nonatomic, weak) NSObject<HYFormCellDelegate> *delegate;        /**< 代理对象 */
 
+@property (nonatomic) id userInfo;       /**< 用户自定义消息 */
+
 /// 数据源中的值是否有效
 - (BOOL)isValueValid ;
 /// 通过参数名获取对应的单元格数据源

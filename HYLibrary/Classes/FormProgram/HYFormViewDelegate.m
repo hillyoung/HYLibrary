@@ -65,3 +65,34 @@
 }
 
 @end
+
+
+@implementation HYCollectionViewFormDelegate
+
+#pragma mark -- UICollectionViewDataSource, UICollectionViewDelegate
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.rows.count;
+}
+
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    HYFormRowDataSource *rowM = [self.rows objectAtIndex:indexPath.row];
+    UICollectionViewCell<HYFormCellConfigProtocol> *cell = [collectionView dequeueReusableCellWithReuseIdentifier:rowM.identifier forIndexPath:indexPath];
+    [cell update:rowM];
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    HYFormRowDataSource *rowM = [self.rows objectAtIndex:indexPath.row];
+    SEL selector = rowM.selector;
+    if ([rowM.target respondsToSelector:selector]) {   // 判断是否能响应对应的点击事件
+        [rowM.target performSelector:selector withObject:indexPath afterDelay:0.0];
+    }
+}
+
+@end
