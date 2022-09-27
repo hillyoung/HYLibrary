@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol HYFormCellDelegate;
 @interface HYFormRowDataSource : NSObject
 
 @property (nonatomic, copy) NSString *imageName;        /**< 图片名称 */
@@ -29,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) SEL customSelector;     /**< 自定义点击事件名 */
 
 @property (nonatomic) BOOL selected;        /**< 是否选中：默认NO */
+@property (nonatomic, weak) NSObject<HYFormCellDelegate> *delegate;        /**< 代理对象 */
 
 /// 数据源中的值是否有效
 - (BOOL)isValueValid ;

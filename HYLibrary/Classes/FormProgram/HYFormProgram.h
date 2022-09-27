@@ -16,6 +16,7 @@
 #import "HYFormInputCell.h"
 #import "UITableView+HYFormProgram.h"
 #import "NSString+Form.h"
+#import "HYFormViewDelegate.h"
 
 
 
