@@ -249,3 +249,12 @@ void(^setTitleForLabel)(UILabel *, NSString *) = ^(UILabel *label, NSString *tit
 }
 
 @end
+
+
+@implementation HYEmptyCell
+@synthesize delegate;
+
+- (void)update:(HYFormRowDataSource *)datasource {
+}
+
+@end
