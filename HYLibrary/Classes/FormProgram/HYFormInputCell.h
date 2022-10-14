@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface HYEmptyCell : UITableViewCell <HYFormCellConfigProtocol>
+@interface HYFormEmptyCell : UITableViewCell <HYFormCellConfigProtocol>
 @end
 
 NS_ASSUME_NONNULL_END
