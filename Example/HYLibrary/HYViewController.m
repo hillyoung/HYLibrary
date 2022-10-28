@@ -158,6 +158,10 @@
     [super viewDidLoad];
 
     
+    UIImageView *imageV = [UIImageView new];
+    imageV.image = [UIImage horizontalImageFromColors:@[[UIColor redColor], [UIColor yellowColor]] imgSize:CGSizeMake(100, 40)];
+    self.navigationItem.titleView = imageV;
+    
     self.navigationItem.title = @"设置";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"跳转" style:UIBarButtonItemStylePlain target:self action:@selector(nextPageAction)];
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];

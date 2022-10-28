@@ -25,6 +25,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取指定区域的图片
 /// @param rect 指定区域
 - (UIImage *)imageAtRect:(CGRect)rect ;
+/// 水平方向渐变色的图片
+/// @param colors 颜色数组
+/// @param imgSize 图片尺寸
++ (instancetype)horizontalImageFromColors:(NSArray*)colors imgSize:(CGSize)imgSize ;
 
 @end
 
