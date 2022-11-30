@@ -54,7 +54,7 @@ void(^setTitleForLabel)(UILabel *, NSString *) = ^(UILabel *label, NSString *tit
         make.top.equalTo(self.contentView).offset(16);
         make.height.greaterThanOrEqualTo(@(14));
         make.width.equalTo(@(kTitleLabelWidth));
-        make.leading.equalTo(self.contentView).offset(16);
+        make.left.equalTo(self.contentView);
         make.bottom.equalTo(self.contentView).offset(-16);
     }];
     
@@ -65,8 +65,8 @@ void(^setTitleForLabel)(UILabel *, NSString *) = ^(UILabel *label, NSString *tit
     [self.contentView addSubview:self.inputField];
     [self.inputField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.titleLabel);
-        make.leading.equalTo(self.titleLabel.mas_trailing).offset(8);
-        make.trailing.equalTo(self.contentView).offset(-16);
+        make.left.equalTo(self.titleLabel.mas_right).offset(8);
+        make.right.equalTo(self.contentView);
         make.height.equalTo(self.contentView).offset(-16);
     }];
 }
@@ -116,8 +116,8 @@ void(^setTitleForLabel)(UILabel *, NSString *) = ^(UILabel *label, NSString *tit
     [self.contentView addSubview:self.inputField];
     [self.inputField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(8);
-        make.leading.equalTo(self.contentView).offset(16);
-        make.trailing.equalTo(self.contentView).offset(-16);
+        make.left.equalTo(self.contentView);
+        make.right.equalTo(self.contentView);
         make.bottom.equalTo(self.contentView).offset(-8);
         make.height.greaterThanOrEqualTo(@(28));
     }];
@@ -164,7 +164,7 @@ void(^setTitleForLabel)(UILabel *, NSString *) = ^(UILabel *label, NSString *tit
         make.top.equalTo(self.contentView).offset(16);
         make.height.greaterThanOrEqualTo(@(14));
         make.width.equalTo(@(kTitleLabelWidth));
-        make.leading.equalTo(self.contentView).offset(16);
+        make.left.equalTo(self.contentView);
         make.bottom.equalTo(self.contentView).offset(-16);
     }];
     
@@ -174,7 +174,7 @@ void(^setTitleForLabel)(UILabel *, NSString *) = ^(UILabel *label, NSString *tit
     [self.contentView addSubview:self.inputField];
     [self.inputField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.titleLabel);
-        make.leading.equalTo(self.titleLabel.mas_trailing).offset(8);
+        make.left.equalTo(self.titleLabel.mas_right).offset(8);
         make.height.equalTo(self.contentView).offset(-16);
     }];
     
@@ -186,9 +186,9 @@ void(^setTitleForLabel)(UILabel *, NSString *) = ^(UILabel *label, NSString *tit
     [self.verifyBtn addTarget:self action:@selector(verifyBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:self.verifyBtn];
     [self.verifyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.inputField.mas_trailing).offset(8);
+        make.left.equalTo(self.inputField.mas_right).offset(8);
         make.centerY.equalTo(self.inputField);
-        make.trailing.equalTo(self.contentView).offset(-16);
+        make.right.equalTo(self.contentView);
     }];
 }
 
@@ -232,6 +232,7 @@ void(^setTitleForLabel)(UILabel *, NSString *) = ^(UILabel *label, NSString *tit
 
 
 @implementation HYFormActionCell
+@synthesize delegate;
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
