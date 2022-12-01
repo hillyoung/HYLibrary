@@ -231,6 +231,10 @@ void(^setTitleForLabel)(UILabel *, NSString *) = ^(UILabel *label, NSString *tit
 @end
 
 
+@interface HYFormActionCell ()
+@property (nonatomic, strong) UILabel *titleLabel;          /**< 标题控件 */
+@end
+
 @implementation HYFormActionCell
 @synthesize delegate;
 
@@ -243,10 +247,19 @@ void(^setTitleForLabel)(UILabel *, NSString *) = ^(UILabel *label, NSString *tit
 
 - (void)setupUI {
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    self.titleLabel = [UILabel new];
+    [self.contentView addSubview:self.titleLabel];
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView).offset(14);
+        make.height.greaterThanOrEqualTo(@(14));
+        make.left.equalTo(self.contentView);
+        make.right.equalTo(self.contentView);
+        make.bottom.equalTo(self.contentView).offset(-14);
+    }];
 }
 
 - (void)update:(HYFormRowDataSource *)datasource {
-    self.textLabel.text = datasource.title;
+    self.titleLabel.text = datasource.title;
 }
 
 @end
