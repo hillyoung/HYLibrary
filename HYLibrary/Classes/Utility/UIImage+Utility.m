@@ -56,7 +56,7 @@
     for(UIColor *c in colors) {
         [ar addObject:(id)c.CGColor];
     }
-    UIGraphicsBeginImageContextWithOptions(imgSize, YES, 1);
+    UIGraphicsBeginImageContextWithOptions(imgSize, NO, 1);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSaveGState(context);
     CGColorSpaceRef colorSpace = CGColorGetColorSpace([[colors lastObject] CGColor]);
