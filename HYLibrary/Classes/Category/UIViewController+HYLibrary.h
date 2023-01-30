@@ -21,3 +21,13 @@
 - (void)setupUI ;
 
 @end
+
+
+@interface UIViewController (Adapt)
+/// 设置popover弹框显示位置
+/// - Parameters:
+///   - sourceView: 弹框显示frame的视图
+///   - targetView: 箭头指向的视图
+///   - arrowDirection: 箭头方向
+- (void)setPopoverSourceView:(UIView *)sourceView targetView:(UIView *)targetView arrowDirection:(UIPopoverArrowDirection)arrowDirection ;
+@end

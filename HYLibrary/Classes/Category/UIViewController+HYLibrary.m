@@ -27,3 +27,21 @@
 }
 
 @end
+
+
+@implementation UIViewController (Adapt)
+
+- (void)setPopoverSourceView:(UIView *)sourceView targetView:(UIView *)targetView arrowDirection:(UIPopoverArrowDirection)arrowDirection {
+    CGRect frame;
+    if(targetView.superview == sourceView) {
+        frame = targetView.frame;
+    } else {
+        frame = [targetView convertRect:targetView.frame toView:sourceView];
+    }
+
+    self.popoverPresentationController.permittedArrowDirections = arrowDirection;
+    self.popoverPresentationController.sourceView = sourceView;
+    self.popoverPresentationController.sourceRect = frame;
+}
+
+@end
