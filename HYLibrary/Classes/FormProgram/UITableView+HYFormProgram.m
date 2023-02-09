@@ -16,6 +16,9 @@
     if (!cell) {
         cell = [[NSClassFromString(dataSource.identifier) alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:dataSource.identifier];
     }
+    if([cell respondsToSelector:@selector(setTableView:)]) {
+        [cell setTableView:self];
+    }
     return cell;
 }
 

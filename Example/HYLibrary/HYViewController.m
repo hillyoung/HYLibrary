@@ -63,6 +63,8 @@
     self.valueL.text = datasource.value;
 }
 
+@synthesize tableView;
+
 @end
 
 
@@ -182,7 +184,7 @@
 }
 
 - (void)nextPageAction {
-    [self.navigationController pushViewController:[HYCollectionVC new] animated:YES];
+    [self.navigationController pushViewController:[HYViewController new] animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -265,6 +267,19 @@
     HYFormSectionDataSource *sectionM = [self.viewDelegate.groups objectAtIndex:indexPath.section];
     HYFormRowDataSource *rowM = [sectionM.rows objectAtIndex:indexPath.row];
     rowM.value = value;
+    
+    
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertVC setPopoverSourceView:self.tableView targetView:cell.contentView arrowDirection:UIPopoverArrowDirectionRight];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"拍摄" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
+    }]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alertVC animated:YES completion:nil];
+
+    
 }
 
 
