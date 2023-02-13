@@ -270,7 +270,7 @@
     
     
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    [alertVC setPopoverSourceView:self.tableView targetView:cell.contentView arrowDirection:UIPopoverArrowDirectionRight];
+    [alertVC setPopoverSourceView:self.tableView sourceRect:cell.frame arrowDirection:UIPopoverArrowDirectionUp];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"拍摄" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 
     }]];

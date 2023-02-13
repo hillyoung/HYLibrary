@@ -44,4 +44,10 @@
     self.popoverPresentationController.sourceRect = frame;
 }
 
+- (void)setPopoverSourceView:(UIView *)sourceView sourceRect:(CGRect)sourceRect arrowDirection:(UIPopoverArrowDirection)arrowDirection {
+    self.popoverPresentationController.permittedArrowDirections = arrowDirection;
+    self.popoverPresentationController.sourceView = sourceView;
+    self.popoverPresentationController.sourceRect = sourceRect;
+}
+
 @end
