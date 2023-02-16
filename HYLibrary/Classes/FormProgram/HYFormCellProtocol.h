@@ -20,7 +20,7 @@ extern void(^ _Nonnull setTitleForLabel)(UILabel *_Nullable, NSString *_Nullable
 /// 更新cell
 /// @param datasource cell数据源
 - (void)update:(HYFormRowDataSource *)datasource ;
-
+@optional
 @property (nonatomic, weak) NSObject<HYFormCellDelegate> *delegate;    /**< 触发的事件的代理对象 */
 @property (nonatomic, weak) UITableView *tableView;          /**< 表视图 */
 

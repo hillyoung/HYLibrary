@@ -16,7 +16,7 @@
     NSMutableArray *pairs = [NSMutableArray arrayWithCapacity:self.count];
     [self enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         NSString *value;
-        if ([obj isKindOfClass:NSString.class]) {
+        if ([obj isKindOfClass:NSString.class] || [obj isKindOfClass:NSNumber.class]) {
             value = obj;
         } else {
             value = [obj yy_modelToJSONString];
