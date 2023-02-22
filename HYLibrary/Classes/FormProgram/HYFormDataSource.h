@@ -57,6 +57,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) float height;       /**< 表头、表尾高度：默认是UITableViewAutomaticDimension */
 @property (nonatomic) BOOL folded;       /**< 是否折叠 */
 @property (nonatomic) id userInfo;       /**< 用户自定义消息 */
+@property (nonatomic, copy) NSString *detailTitle;        /**< 副标题 */
+@property (nonatomic, weak) id target;  /**< 响应事件的对象 */
+@property (nonatomic) SEL selector;     /**< 单元格点击事件名 */
 /// 添加行
 - (HYFormSectionDataSource *(^)(HYFormRowDataSource *))addRow ;
 /// 获取指定位置的行数据源

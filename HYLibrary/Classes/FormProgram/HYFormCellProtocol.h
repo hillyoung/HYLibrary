@@ -32,7 +32,7 @@ extern void(^ _Nonnull setTitleForLabel)(UILabel *_Nullable, NSString *_Nullable
 /// 表单对应的value变化后的回调
 /// @param cell 表单单元格
 /// @param value 值
-- (void)cell:(UITableViewCell<HYFormCellConfigProtocol> *)cell didChangeValue:(id)value ;
+- (void)cell:(id<HYFormCellConfigProtocol>)cell didChangeValue:(id)value ;
 /// 结束编辑单元格
 /// @param cell 表单单元格
 - (void)didEndEditingInCell:(UITableViewCell<HYFormCellConfigProtocol> *)cell ;
