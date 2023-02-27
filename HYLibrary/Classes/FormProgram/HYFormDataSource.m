@@ -81,6 +81,17 @@
     return nil;
 }
 
++ (HYFormSectionDataSource *)findSectionDataSourceWithField:(NSString *)field inSectionDataSources:(NSArray<HYFormSectionDataSource *> *)dataSources {
+    __block HYFormSectionDataSource *sectionM = nil;
+    [dataSources enumerateObjectsUsingBlock:^(HYFormSectionDataSource * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if([obj.field isEqualToString:field]) {
+            sectionM = obj;
+            *stop = YES;
+        }
+    }];
+    return sectionM;
+}
+
 - (NSMutableArray<HYFormRowDataSource *> *)rows {
     if (!_rows) {
         _rows = [NSMutableArray array];

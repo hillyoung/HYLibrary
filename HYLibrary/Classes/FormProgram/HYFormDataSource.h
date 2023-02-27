@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *field;     /**< form表单中对应参数名 */
 @property (nonatomic)   id  value;      /**< 单元格对应的值*/
 @property (nonatomic) BOOL required;        /**< 是否必填 */
+@property (nonatomic) BOOL disable;        /**< 是否禁用点击 */
 
 @property (nonatomic, weak) id target;  /**< 响应事件的对象 */
 @property (nonatomic) SEL selector;     /**< 单元格点击事件名 */
@@ -60,12 +61,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *detailTitle;        /**< 副标题 */
 @property (nonatomic, weak) id target;  /**< 响应事件的对象 */
 @property (nonatomic) SEL selector;     /**< 单元格点击事件名 */
+@property (nonatomic, copy) NSString *field;     /**< form表单中对应参数名 */
+
 /// 添加行
 - (HYFormSectionDataSource *(^)(HYFormRowDataSource *))addRow ;
 /// 获取指定位置的行数据源
 /// @param indexPath 指定位置
 /// @param dataSources 数据源
 + (HYFormRowDataSource *)findRowDataSourceAtIndexPath:(NSIndexPath *)indexPath inSectionDataSources:(NSArray<HYFormSectionDataSource *> *)dataSources ;
+/// 通过参数名获取对应的分组数据源
+/// @param field 参数名
+/// @param dataSources 数据源
++ (HYFormSectionDataSource *)findSectionDataSourceWithField:(NSString *)field inSectionDataSources:(NSArray<HYFormSectionDataSource *> *)dataSources ;
 
 @end
 
