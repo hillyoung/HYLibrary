@@ -11,12 +11,12 @@
 
 @implementation UIColor (Utility)
 
-+ (UIColor *)colorWithHexString:(NSString *)hexString
++ (UIColor *)hy_colorWithHexString:(NSString *)hexString
 {
-    return [[self class] colorWithHexString:hexString alpha:1.0];
+    return [[self class] hy_colorWithHexString:hexString alpha:1.0];
 }
 
-+ (UIColor *)colorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha
++ (UIColor *)hy_colorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha
 {
     // Check for hash and add the missing hash
     if('#' != [hexString characterAtIndex:0])

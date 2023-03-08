@@ -180,7 +180,7 @@
     [self.tableView registerClass:CXWSettingPreferenceSwitchCell.class forCellReuseIdentifier:@"HYViewCell"];
     self.tableView.rowHeight = 56.0;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 16, 0, 0);
-    self.tableView.separatorColor = [UIColor colorWithHexString:@"E5E5E5"];
+    self.tableView.separatorColor = [UIColor hy_colorWithHexString:@"E5E5E5"];
 }
 
 - (void)nextPageAction {

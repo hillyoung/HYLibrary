@@ -181,7 +181,7 @@ void(^setTitleForLabel)(UILabel *, NSString *) = ^(UILabel *label, NSString *tit
     self.verifyBtn = [UIButton new];
     self.verifyBtn.layer.cornerRadius = 6.0;
     self.verifyBtn.contentEdgeInsets = UIEdgeInsetsMake(6, 8, 6, 8);
-    self.verifyBtn.backgroundColor = [UIColor colorWithHexString:@"3BA1F5"];
+    self.verifyBtn.backgroundColor = [UIColor hy_colorWithHexString:@"3BA1F5"];
     [self.verifyBtn setTitle:@"发送验证码" forState:UIControlStateNormal];
     [self.verifyBtn addTarget:self action:@selector(verifyBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:self.verifyBtn];
