@@ -35,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) NSObject<HYFormCellDelegate> *delegate;        /**< 代理对象 */
 
 @property (nonatomic) id userInfo;       /**< 用户自定义消息 */
+@property (nonatomic, strong) NSArray *options;     /**< 可选择的选项 */
 
 /// 数据源中的值是否有效
 - (BOOL)isValueValid ;
