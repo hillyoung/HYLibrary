@@ -36,6 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) id userInfo;       /**< 用户自定义消息 */
 @property (nonatomic, strong) NSArray *options;     /**< 可选择的选项 */
+@property (nonatomic) int maxlength;        /**< 文本框或密码框中输入的最大文本数 */
 
 /// 数据源中的值是否有效
 - (BOOL)isValueValid ;
