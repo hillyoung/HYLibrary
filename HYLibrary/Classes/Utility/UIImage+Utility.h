@@ -30,6 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param imgSize 图片尺寸
 + (instancetype)horizontalImageFromColors:(NSArray*)colors imgSize:(CGSize)imgSize ;
 
+/// 垂直方向将变色的图片
+/// @param colors 颜色数组
+/// @param imgSize 图片尺寸
++ (instancetype)verticalImageFromColors:(NSArray*)colors imgSize:(CGSize)imgSize ;
+
 @end
 
 NS_ASSUME_NONNULL_END
