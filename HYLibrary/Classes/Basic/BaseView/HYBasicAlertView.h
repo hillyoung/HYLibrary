@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) void(^backdropDismissBlock)(void);
 /// 如果弹出框的样式不符合需求，可在子类重写此方法
 /// 在制定的视图上显示弹框
-/// @param view 制定的视图：默认keyWindow
+/// @param view 制定的视图：传入nil默认keyWindow
 /// @param animated 是否启用动画
 - (void)showInView:(nullable UIView *)view animated:(BOOL)animated;
 /// 如果弹出框的样式不符合需求，可在子类重写此方法

@@ -62,6 +62,7 @@
         make.edges.equalTo(inView).insets(UIEdgeInsetsZero);
     }];
     
+    [inView endEditing:YES];
     if (animated) {
         __block MASConstraint *constraint = nil;
         [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
