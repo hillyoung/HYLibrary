@@ -32,6 +32,7 @@
 #import "HYBasicVC.h"
 #import "HYBasicNavigationVC.h"
 #import "HYBasicCollectionVC.h"
+#import "HYBasicTabItemVC.h"
 
 #import "HYFormProgram.h"
 

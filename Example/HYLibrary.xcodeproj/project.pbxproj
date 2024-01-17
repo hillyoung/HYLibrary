@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5945D7322B567AAE0048284B /* HYFirstTabItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5945D7312B567AAE0048284B /* HYFirstTabItemVC.m */; };
+		5945D7352B567AC30048284B /* HYSecondTabItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5945D7342B567AC30048284B /* HYSecondTabItemVC.m */; };
+		5945D7382B567AD70048284B /* HYThirdTabItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5945D7372B567AD70048284B /* HYThirdTabItemVC.m */; };
 		59F25E9C28E2D396000AC455 /* HYCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F25E9B28E2D396000AC455 /* HYCollectionVC.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -40,6 +43,12 @@
 /* Begin PBXFileReference section */
 		0C2D0E4E7449B5FDF88674CA /* Pods-HYLibrary_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYLibrary_Tests.debug.xcconfig"; path = "Target Support Files/Pods-HYLibrary_Tests/Pods-HYLibrary_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		0E964BB851ED766C1D685DE2 /* Pods-HYLibrary_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYLibrary_Example.debug.xcconfig"; path = "Target Support Files/Pods-HYLibrary_Example/Pods-HYLibrary_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		5945D7302B567AAE0048284B /* HYFirstTabItemVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYFirstTabItemVC.h; sourceTree = "<group>"; };
+		5945D7312B567AAE0048284B /* HYFirstTabItemVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYFirstTabItemVC.m; sourceTree = "<group>"; };
+		5945D7332B567AC30048284B /* HYSecondTabItemVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYSecondTabItemVC.h; sourceTree = "<group>"; };
+		5945D7342B567AC30048284B /* HYSecondTabItemVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYSecondTabItemVC.m; sourceTree = "<group>"; };
+		5945D7362B567AD70048284B /* HYThirdTabItemVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYThirdTabItemVC.h; sourceTree = "<group>"; };
+		5945D7372B567AD70048284B /* HYThirdTabItemVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYThirdTabItemVC.m; sourceTree = "<group>"; };
 		59F25E9A28E2D396000AC455 /* HYCollectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYCollectionVC.h; sourceTree = "<group>"; };
 		59F25E9B28E2D396000AC455 /* HYCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYCollectionVC.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* HYLibrary_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HYLibrary_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +160,12 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* HYViewController.h */,
 				6003F5A6195388D20070C39A /* HYViewController.m */,
+				5945D7302B567AAE0048284B /* HYFirstTabItemVC.h */,
+				5945D7312B567AAE0048284B /* HYFirstTabItemVC.m */,
+				5945D7332B567AC30048284B /* HYSecondTabItemVC.h */,
+				5945D7342B567AC30048284B /* HYSecondTabItemVC.m */,
+				5945D7362B567AD70048284B /* HYThirdTabItemVC.h */,
+				5945D7372B567AD70048284B /* HYThirdTabItemVC.m */,
 				59F25E9A28E2D396000AC455 /* HYCollectionVC.h */,
 				59F25E9B28E2D396000AC455 /* HYCollectionVC.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
@@ -397,6 +412,9 @@
 				6003F59E195388D20070C39A /* HYAppDelegate.m in Sources */,
 				59F25E9C28E2D396000AC455 /* HYCollectionVC.m in Sources */,
 				6003F5A7195388D20070C39A /* HYViewController.m in Sources */,
+				5945D7322B567AAE0048284B /* HYFirstTabItemVC.m in Sources */,
+				5945D7352B567AC30048284B /* HYSecondTabItemVC.m in Sources */,
+				5945D7382B567AD70048284B /* HYThirdTabItemVC.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
