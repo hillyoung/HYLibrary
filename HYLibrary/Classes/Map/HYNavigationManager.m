@@ -58,7 +58,7 @@
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"baidumap://"]]) {
         item = [[HYNavigateItem alloc] initWithTitle:@"百度地图"];
         [item setActionBlock:^{
-            actionBlock([NSString stringWithFormat:@"baidumap://map/direction?origin={{我的位置}}&destination=latlng:%f,%f|name:%@&mode=driving&coord_type=gcj02",endLocation.latitude,endLocation.longitude, name]);
+            actionBlock([NSString stringWithFormat:@"baidumap://map/direction?origin={{我的位置}}&destination=latlng:%f,%f|name:%@&mode=driving&coord_type=wgs84",endLocation.latitude,endLocation.longitude, name]);
         }];
         [maps addObject:item];
     }
@@ -67,7 +67,7 @@
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]]) {
         item = [[HYNavigateItem alloc] initWithTitle:@"高德地图"];
         [item setActionBlock:^{
-            actionBlock([NSString stringWithFormat:@"iosamap://navi?sourceApplication=%@&backScheme=%@&lat=%f&lon=%f&poiname=%@&dev=0&style=2", appName, urlScheme,endLocation.latitude,endLocation.longitude, name]);
+            actionBlock([NSString stringWithFormat:@"iosamap://navi?sourceApplication=%@&backScheme=%@&lat=%f&lon=%f&poiname=%@&dev=1&style=2", appName, urlScheme,endLocation.latitude,endLocation.longitude, name]);
         }];
         [maps addObject:item];
     }
@@ -128,7 +128,7 @@
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"baidumap://"]]) {
         item = [[HYNavigateItem alloc] initWithTitle:@"百度地图"];
         [item setActionBlock:^{
-            actionBlock([NSString stringWithFormat:@"baidumap://map/marker?location=%f,%f&title=%@&content=%@&src=%@", endLocation.latitude, endLocation.longitude, name, content, bundleIdentifier]);
+            actionBlock([NSString stringWithFormat:@"baidumap://map/marker?location=%f,%f&title=%@&content=%@&src=%@&coord_type=wgs84", endLocation.latitude, endLocation.longitude, name, content, bundleIdentifier]);
         }];
         [maps addObject:item];
     }
@@ -137,7 +137,7 @@
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]]) {
         item = [[HYNavigateItem alloc] initWithTitle:@"高德地图"];
         [item setActionBlock:^{
-            actionBlock([NSString stringWithFormat:@"iosamap://viewMap?sourceApplication=%@&poiname=%@&lat=%f&lon=%f", bundleIdentifier, name, endLocation.latitude, endLocation.longitude]);
+            actionBlock([NSString stringWithFormat:@"iosamap://viewMap?sourceApplication=%@&poiname=%@&lat=%f&lon=%f&dev=1", bundleIdentifier, name, endLocation.latitude, endLocation.longitude]);
         }];
         [maps addObject:item];
     }
