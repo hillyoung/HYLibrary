@@ -37,4 +37,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+
+@interface UIImage (Compress)
+
+/// 压缩图片到指定大小以下
+/// - Parameter maxFileSize: 指定大小
+- (NSData *)compressToMaxFileSizeData:(NSInteger)maxFileSize ;
+
+@end
+
+
 NS_ASSUME_NONNULL_END

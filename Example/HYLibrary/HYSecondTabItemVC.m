@@ -7,7 +7,7 @@
 //
 
 #import "HYSecondTabItemVC.h"
-
+#import <CoreLocation/CoreLocation.h>
 
 @interface HYSecondTabItemVC () <CAAnimationDelegate>
 @property (nonatomic, strong) UIView *dotV; /**< 点 */
@@ -21,7 +21,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor orangeColor];
     
-    
+    [UILabel new].numberOfLines = 2;
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 80, 40)];
     [btn setTitle:@"动画" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(animationFirstAction) forControlEvents:UIControlEventTouchUpInside];

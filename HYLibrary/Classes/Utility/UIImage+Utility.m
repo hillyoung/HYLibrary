@@ -94,3 +94,23 @@
 }
 
 @end
+
+
+@implementation UIImage (Compress)
+
+- (NSData *)compressToMaxFileSizeData:(NSInteger)maxFileSize {
+    CGFloat compression = 1.0f;
+    CGFloat maxCompression = 0.1f;
+    NSData *imageData = UIImageJPEGRepresentation(self, compression);
+    if(!imageData) {
+        imageData = UIImagePNGRepresentation(self);
+    }
+    while ([imageData length] > maxFileSize && compression > maxCompression) {
+        compression -= 0.1;
+        imageData = UIImageJPEGRepresentation(self, compression);
+    }
+    
+    return imageData;
+}
+
+@end
