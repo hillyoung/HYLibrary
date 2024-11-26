@@ -82,6 +82,7 @@
             }];
         }];
     } else {
+        self.layer.opacity = 1;
         completion ? completion():nil;
     }
 }
