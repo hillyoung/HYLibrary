@@ -2,8 +2,11 @@ use_frameworks!
 
 platform :ios, '12.0'
 
+project 'HYLibrary.xcodeproj'
+
 target 'HYLibrary_Example' do
   pod 'HYLibrary', :path => '../'
+#  pod 'HYAppInfo', :path => '../../AppInfo/'
 
   pod 'MGJRouter', :git => 'https://github.com/hillyoung/MGJRouter.git'
   pod 'YYModel'
@@ -12,5 +15,13 @@ target 'HYLibrary_Example' do
     inherit! :search_paths
 
     pod 'FBSnapshotTestCase'
+  end
+  
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+      end
+    end
   end
 end

@@ -35,5 +35,7 @@
 #import "HYBasicTabItemVC.h"
 
 #import "HYFormProgram.h"
+#import "HYEncryptor.h"
+
 
 #endif /* HYLibrary_h */

@@ -23,4 +23,8 @@
 
 - (NSString *)stringFromEncoding:(NSStringEncoding)encoding ;
 
+- (NSString *)encodedBase10String ;
+
+- (NSString *)decodedBase100String ;
+
 @end
