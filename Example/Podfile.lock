@@ -1,5 +1,4 @@
 PODS:
-  - ChromaColorPicker (2.0.2)
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
   - FBSnapshotTestCase/Core (2.1.4)
@@ -11,7 +10,6 @@ PODS:
     - HYLibrary/FormProgram (= 0.1.0)
     - HYLibrary/Map (= 0.1.0)
     - HYLibrary/Router (= 0.1.0)
-    - HYLibrary/UIComponent (= 0.1.0)
     - HYLibrary/Utility (= 0.1.0)
     - Masonry
     - MGJRouter
@@ -36,12 +34,6 @@ PODS:
     - Masonry
     - MGJRouter
     - YYModel
-  - HYLibrary/UIComponent (0.1.0):
-    - ChromaColorPicker
-    - HYLibrary/Basic
-    - Masonry
-    - MGJRouter
-    - YYModel
   - HYLibrary/Utility (0.1.0):
     - Masonry
     - MGJRouter
@@ -58,7 +50,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - ChromaColorPicker
     - FBSnapshotTestCase
     - Masonry
     - YYModel
@@ -75,9 +66,8 @@ CHECKOUT OPTIONS:
     :git: https://github.com/hillyoung/MGJRouter.git
 
 SPEC CHECKSUMS:
-  ChromaColorPicker: 307585f2dc23d4d72f24cad320c1e08825cb5c09
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  HYLibrary: 8ad058c38f24e4980829565ae93945c63319d88b
+  HYLibrary: af547750c0ecde648cdbe6da4678b3a3f883b132
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MGJRouter: 271e4899bf4a1a11a677c02e5264725b14f1c896
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30

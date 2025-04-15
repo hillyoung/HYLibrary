@@ -8,7 +8,6 @@
 
 #import "HYFirstTabItemVC.h"
 #import <objc/runtime.h>
-#import <HYAppInfo.h>
 
 
 @interface NSBundle (Collect)
@@ -51,11 +50,6 @@
     self.imageView.backgroundColor = [UIColor blackColor];
     self.imageView.contentMode = UIViewContentModeCenter;
     [self.view addSubview:self.imageView];
-    
-    
-    [HYAppInfo loadAppInfo:^(NSDictionary *appInfo) {
-        NSLog(@" 本地安装的应用列表 %@", appInfo);
-    }];
     
     NSMutableArray *encodedArr = [NSMutableArray array];
     [@[@"ecapskroWnoitacilppASL", @"ecapskroWtluafed", @"snigulPdellatsni", @"eldnuBgniniatnoc", @"reifitnedIeldnub", @"emaNmeti"] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
