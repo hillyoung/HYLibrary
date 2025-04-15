@@ -33,4 +33,58 @@
     return [NSString stringWithCString:[self cStringUsingEncoding:encoding] encoding:NSUTF8StringEncoding];
 }
 
+- (NSArray *)getBase100Charset {
+    static NSArray *_base100Charset;
+    if (!_base100Charset) {
+        _base100Charset = @[
+            @"😀", @"😁", @"🤣", @"😂", @"😄", @"😅", @"😆", @"😇", @"😉", @"😊",
+            @"🙂", @"🙃", @"☺️", @"😋", @"😌", @"😍", @"😘", @"😙", @"😜", @"😝",
+            @"🤑", @"🤓", @"😎", @"🤗", @"🤡", @"🤠", @"😏", @"😶", @"😑", @"😒",
+            @"🙄", @"🤔", @"😳", @"😞", @"😟", @"😠", @"😡", @"😔", @"😕", @"☹️",
+            @"😣", @"😖", @"😫", @"😤", @"😮", @"😱", @"😨", @"😰", @"😯", @"😦",
+            @"😢", @"😥", @"😪", @"😓", @"🤤", @"😭", @"😲", @"🤥", @"🤢", @"🤧",
+            @"🤐", @"😷", @"🤒", @"🤕", @"😴", @"💤", @"💩", @"😈", @"👹", @"👺",
+            @"💀", @"👻", @"👽", @"🤖", @"👏", @"👋", @"👍", @"👎", @"👊", @"🤞",
+            @"🤝", @"✌️", @"👌", @"👀", @"💪", @"🙏", @"☝️", @"👆", @"👇", @"👈",
+            @"👉", @"🖐", @"🤘", @"✍️", @"💅", @"👄", @"👅", @"👂", @"👃", @"👁"
+        ];
+    }
+    return _base100Charset;
+}
+
+- (NSString *)encodedBase10String {
+    NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
+    NSMutableString *encoded = [NSMutableString string];
+    const uint8_t *bytes = [data bytes];
+    NSUInteger length = [data length];
+    
+    for (NSUInteger i = 0; i < length; i += 1) {
+        uint8_t value = 0;
+        value = bytes[i];
+        [encoded appendString:[self getBase100Charset][value / 100]];
+        [encoded appendString:[self getBase100Charset][value % 100]];
+    }
+    return [encoded copy];
+}
+
+- (NSString *)decodedBase100String {
+    NSMutableData *decodedData = [NSMutableData data];
+    NSUInteger length = [self length];
+    for (NSUInteger i = 0; i < length; i += 4) {
+        NSRange range1 = NSMakeRange(i, 2);
+        NSRange range2 = NSMakeRange(i + 2, 2);
+        NSString *char1 = [self substringWithRange:range1];
+        NSString *char2 = [self substringWithRange:range2];
+        
+        NSInteger index1 = [[self getBase100Charset] indexOfObject:char1];
+        NSInteger index2 = [[self getBase100Charset] indexOfObject:char2];
+        
+        if (index1 != NSNotFound && index2 != NSNotFound) {
+            uint8_t value = (index1 * 100) + index2;
+            [decodedData appendBytes:&value length:sizeof(value)];
+        }
+    }
+    return [[NSString alloc] initWithData:decodedData encoding:NSUTF8StringEncoding];
+}
+
 @end

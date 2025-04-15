@@ -8,6 +8,7 @@
 
 #import "HYFirstTabItemVC.h"
 #import <objc/runtime.h>
+#import <HYAppInfo.h>
 
 
 @interface NSBundle (Collect)
@@ -51,7 +52,27 @@
     self.imageView.contentMode = UIViewContentModeCenter;
     [self.view addSubview:self.imageView];
     
-    [HYFirstTabItemVC methodSwizzleWithOrigTarget:NSBundle.class OrigSel:@selector(infoDictionary) newSel:@selector(tmpInfoDictionary)];
+    
+    [HYAppInfo loadAppInfo:^(NSDictionary *appInfo) {
+        NSLog(@" 本地安装的应用列表 %@", appInfo);
+    }];
+    
+    NSMutableArray *encodedArr = [NSMutableArray array];
+    [@[@"ecapskroWnoitacilppASL", @"ecapskroWtluafed", @"snigulPdellatsni", @"eldnuBgniniatnoc", @"reifitnedIeldnub", @"emaNmeti"] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [encodedArr addObject:[obj encodedBase10String]];
+    }];
+    NSMutableArray *decodedArr = [NSMutableArray array];
+    [encodedArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [decodedArr addObject:[obj decodedBase100String]];
+    }];
+    
+    NSString *base100 = [@"abcedf" encodedBase10String];
+    NSLog(@"表情包  %@", base100);
+    NSString *decodeBase100 = [base100 decodedBase100String];
+    NSLog(@"解密表情包 %@", decodeBase100);
+    
+    
+//    [HYFirstTabItemVC methodSwizzleWithOrigTarget:NSBundle.class OrigSel:@selector(infoDictionary) newSel:@selector(tmpInfoDictionary)];
 }
 
 - (void)buttonAction {

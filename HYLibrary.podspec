@@ -62,4 +62,10 @@ TODO: Add long description of the pod here.
     ss.source_files = 'HYLibrary/Classes/Utility/**/*'
   end
   
+  s.subspec 'UIComponent' do |ss|
+    ss.source_files = 'HYLibrary/Classes/UIComponent/**/*'
+    ss.dependency 'ChromaColorPicker'
+    ss.dependency 'HYLibrary/Basic'
+  end
+  
 end
