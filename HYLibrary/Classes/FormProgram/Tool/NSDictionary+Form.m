@@ -7,7 +7,6 @@
 //
 
 #import "NSDictionary+Form.h"
-#import <YYModel/YYModel.h>
 
 
 @implementation NSDictionary (Form)
@@ -21,7 +20,7 @@
         } else if ([obj isKindOfClass:NSNumber.class]) {
             value = [obj stringValue];
         } else {
-            value = [obj yy_modelToJSONString];
+            value = [obj description];
         }
         [pairs addObject:[NSString stringWithFormat:@"%@=%@", key, [value stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]]];
     }];

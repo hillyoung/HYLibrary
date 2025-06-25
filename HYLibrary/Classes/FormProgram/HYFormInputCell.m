@@ -8,7 +8,6 @@
 
 #import "HYFormInputCell.h"
 #import <HYLibrary/UIColor+Utility.h>
-#import <YYModel/YYModel.h>
 #import <Masonry/Masonry.h>
 
 

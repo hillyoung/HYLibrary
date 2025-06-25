@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HYLibrary'
-  s.version          = '0.1.4'
+  s.version          = '0.1.5'
   s.summary          = '快速开发库'
 
 # This description is used to generate tags and improve search results.
@@ -40,7 +40,7 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'Masonry'
-  s.dependency 'YYModel'
+  # s.dependency 'YYModel'
   # s.dependency 'MGJRouter'
   # s.resources = 'HYLibrary/Resource/*'
 
