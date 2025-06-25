@@ -8,9 +8,11 @@ target 'HYLibrary_Example' do
   pod 'HYLibrary', :path => '../'
 #  pod 'HYAppInfo', :path => '../../AppInfo/'
 
-  pod 'MGJRouter', :git => 'https://github.com/hillyoung/MGJRouter.git'
+#  pod 'MGJRouter', :git => 'https://github.com/hillyoung/MGJRouter.git'
   pod 'YYModel'
+  pod 'OpenSSL-Universal'
 
+  
   target 'HYLibrary_Tests' do
     inherit! :search_paths
 

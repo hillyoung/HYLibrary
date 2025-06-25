@@ -28,3 +28,12 @@
 - (NSString *)decodedBase100String ;
 
 @end
+
+
+@interface NSData (Encrypt)
+
+- (NSData *)encodedDataByEcc ;
+
+- (NSData *)decodedDataByEcc ;
+
+@end

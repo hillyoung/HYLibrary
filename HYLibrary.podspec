@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HYLibrary'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = '快速开发库'
 
 # This description is used to generate tags and improve search results.
@@ -39,10 +39,11 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-    s.dependency 'Masonry'
-    s.dependency 'YYModel'
-    s.dependency 'MGJRouter'
-  
+  s.dependency 'Masonry'
+  s.dependency 'YYModel'
+  # s.dependency 'MGJRouter'
+  s.resources = 'HYLibrary/Resource/*'
+
   s.subspec 'Basic' do |ss|
     ss.source_files = 'HYLibrary/Classes/Basic/**/*'
   end
@@ -55,9 +56,9 @@ TODO: Add long description of the pod here.
   s.subspec 'Map' do |ss|
     ss.source_files = 'HYLibrary/Classes/Map/**/*'
   end
-  s.subspec 'Router' do |ss|
-    ss.source_files = 'HYLibrary/Classes/Router/**/*'
-  end
+  # s.subspec 'Router' do |ss|
+  #   ss.source_files = 'HYLibrary/Classes/Router/**/*'
+  # end
   s.subspec 'Utility' do |ss|
     ss.source_files = 'HYLibrary/Classes/Utility/**/*'
   end

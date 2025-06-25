@@ -9,69 +9,52 @@ PODS:
     - HYLibrary/Category (= 0.1.0)
     - HYLibrary/FormProgram (= 0.1.0)
     - HYLibrary/Map (= 0.1.0)
-    - HYLibrary/Router (= 0.1.0)
     - HYLibrary/Utility (= 0.1.0)
     - Masonry
-    - MGJRouter
     - YYModel
   - HYLibrary/Basic (0.1.0):
     - Masonry
-    - MGJRouter
     - YYModel
   - HYLibrary/Category (0.1.0):
     - Masonry
-    - MGJRouter
     - YYModel
   - HYLibrary/FormProgram (0.1.0):
     - Masonry
-    - MGJRouter
     - YYModel
   - HYLibrary/Map (0.1.0):
     - Masonry
-    - MGJRouter
-    - YYModel
-  - HYLibrary/Router (0.1.0):
-    - Masonry
-    - MGJRouter
     - YYModel
   - HYLibrary/Utility (0.1.0):
     - Masonry
-    - MGJRouter
     - YYModel
   - Masonry (1.1.0)
-  - MGJRouter (0.0.1)
+  - OpenSSL-Universal (3.3.3001)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
   - HYLibrary (from `../`)
-  - MGJRouter (from `https://github.com/hillyoung/MGJRouter.git`)
+  - OpenSSL-Universal
   - YYModel
 
 SPEC REPOS:
   trunk:
     - FBSnapshotTestCase
     - Masonry
+    - OpenSSL-Universal
     - YYModel
 
 EXTERNAL SOURCES:
   HYLibrary:
     :path: "../"
-  MGJRouter:
-    :git: https://github.com/hillyoung/MGJRouter.git
-
-CHECKOUT OPTIONS:
-  MGJRouter:
-    :commit: 9feaeface7248271dd809fe128bafdaa8eee4418
-    :git: https://github.com/hillyoung/MGJRouter.git
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  HYLibrary: af547750c0ecde648cdbe6da4678b3a3f883b132
+  HYLibrary: b4e6c00d647e264dedddaaef3d509cea006d6fd0
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MGJRouter: 271e4899bf4a1a11a677c02e5264725b14f1c896
+  OpenSSL-Universal: 6082b0bf950e5636fe0d78def171184e2b3899c2
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 520dd954794566d9c2de7212a211d50fe107c6d9
+PODFILE CHECKSUM: ebd079920fb76e13169399fbd318d405d2890ab0
 
 COCOAPODS: 1.16.2
