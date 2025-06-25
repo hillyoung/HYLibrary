@@ -8,8 +8,8 @@
 #ifndef HYLibrary_Private_h
 #define HYLibrary_Private_h
 
-#import <Masonry/Masonry.h>
+//#import <Masonry/Masonry.h>
 #import "UIColor+Utility.h"
-#import <YYModel/YYModel.h>
+//#import <YYModel/YYModel.h>
 
 #endif /* HYLibrary_Private_h */
