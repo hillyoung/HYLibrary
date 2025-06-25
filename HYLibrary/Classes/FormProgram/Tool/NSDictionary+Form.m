@@ -7,7 +7,7 @@
 //
 
 #import "NSDictionary+Form.h"
-#import "HYLibrary_Private.h"
+#import <YYModel/YYModel.h>
 
 
 @implementation NSDictionary (Form)

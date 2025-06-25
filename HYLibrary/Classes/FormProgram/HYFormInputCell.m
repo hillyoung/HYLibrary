@@ -7,7 +7,10 @@
 //
 
 #import "HYFormInputCell.h"
-#import "HYLibrary_Private.h"
+#import "UIColor+Utility.h"
+#import <YYModel/YYModel.h>
+#import <Masonry/Masonry.h>
+
 
 void(^setTitleForLabel)(UILabel *, NSString *) = ^(UILabel *label, NSString *title) {
     CGFloat labelWidth = kTitleLabelWidth;
