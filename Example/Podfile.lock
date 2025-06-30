@@ -1,35 +1,43 @@
 PODS:
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
-  - HYLibrary (0.1.6)
+  - HYAppInfo (1.0.3):
+    - HYLibrary
+  - HYLibrary (0.1.7)
+  - MGJRouter (0.0.1)
   - OpenSSL-Universal (3.3.3001)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase
+  - HYAppInfo (from `../../AppInfo/`)
   - HYLibrary (from `../`)
+  - MGJRouter (from `https://github.com/hillyoung/MGJRouter.git`)
   - OpenSSL-Universal
   - YYModel
 
 SPEC REPOS:
   trunk:
-    - FBSnapshotTestCase
     - OpenSSL-Universal
     - YYModel
 
 EXTERNAL SOURCES:
+  HYAppInfo:
+    :path: "../../AppInfo/"
   HYLibrary:
     :path: "../"
+  MGJRouter:
+    :git: https://github.com/hillyoung/MGJRouter.git
+
+CHECKOUT OPTIONS:
+  MGJRouter:
+    :commit: 9feaeface7248271dd809fe128bafdaa8eee4418
+    :git: https://github.com/hillyoung/MGJRouter.git
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  HYLibrary: 88b668fae0c0e8e84ea732930ac99929fe302597
+  HYAppInfo: 00772892f70fb891dbb5354f47737f83e2ef25eb
+  HYLibrary: cc4ed0960fbedada8e738f9b8824ddeb71d0d791
+  MGJRouter: 271e4899bf4a1a11a677c02e5264725b14f1c896
   OpenSSL-Universal: 6082b0bf950e5636fe0d78def171184e2b3899c2
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: ebd079920fb76e13169399fbd318d405d2890ab0
+PODFILE CHECKSUM: 51b366dc82ab256e798f5d6116c9311fed0c2bf9
 
 COCOAPODS: 1.16.2

@@ -6,18 +6,11 @@ project 'HYLibrary.xcodeproj'
 
 target 'HYLibrary_Example' do
   pod 'HYLibrary', :path => '../'
-#  pod 'HYAppInfo', :path => '../../AppInfo/'
+  pod 'HYAppInfo', :path => '../../AppInfo/'
 
-#  pod 'MGJRouter', :git => 'https://github.com/hillyoung/MGJRouter.git'
+  pod 'MGJRouter', :git => 'https://github.com/hillyoung/MGJRouter.git'
   pod 'YYModel'
   pod 'OpenSSL-Universal'
-
-  
-  target 'HYLibrary_Tests' do
-    inherit! :search_paths
-
-    pod 'FBSnapshotTestCase'
-  end
   
   post_install do |installer|
     installer.pods_project.targets.each do |target|
@@ -26,4 +19,9 @@ target 'HYLibrary_Example' do
       end
     end
   end
+end
+
+target 'CleanDemo' do
+  pod 'HYLibrary', :path => '../'
+  pod 'HYAppInfo', :path => '../../AppInfo/'
 end
