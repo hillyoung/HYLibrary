@@ -184,7 +184,7 @@
 }
 
 - (void)nextPageAction {
-    [self.navigationController pushViewController:[HYViewController new] animated:YES];
+    [self.navigationController pushViewController:[HYCollectionVC new] animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

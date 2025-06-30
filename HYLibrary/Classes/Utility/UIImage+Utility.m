@@ -10,6 +10,21 @@
 
 @implementation UIImage (Utility)
 
++ (UIImage *)imageWihtSize:(CGSize)size radius:(CGFloat)radius backColor:(UIColor *)backColor {
+    // 利用绘图建立上下文
+    UIGraphicsBeginImageContextWithOptions(size, false, 0);
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:radius];
+    [path addClip];
+    [backColor setFill];
+    UIRectFill(rect);    
+    // 获取结果
+    UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();
+    // 关闭上下文
+    UIGraphicsEndImageContext();
+    return resultImage;
+}
+
 + (void)imageWihtSize:(CGSize)size radius:(CGFloat)radius backColor:(UIColor *)backColor completion:(void(^)(UIImage *image))completion{
     [self imageWihtSize:size radius:radius title:@"" titleAttribute:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:20], NSForegroundColorAttributeName:[UIColor whiteColor]} backColor:backColor completion:completion];
 }
