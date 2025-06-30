@@ -13,6 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIImage (Utility)
 
 
+/// 通过指定尺寸、颜色生成图片
+/// @param size 尺寸
+/// @param radius 圆角
+/// @param backColor 背景色
++ (UIImage *)imageWihtSize:(CGSize)size radius:(CGFloat)radius backColor:(UIColor *)backColor ;
 /// 通过制定尺寸、颜色生成图片
 /// @param size <#size description#>
 /// @param radius <#radius description#>

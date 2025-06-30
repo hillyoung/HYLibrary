@@ -111,6 +111,7 @@ void(^setTitleForLabel)(UILabel *, NSString *) = ^(UILabel *label, NSString *tit
 - (void)setupUI {
     
     self.inputField = [UITextField new];
+    self.inputField.textContentType = UITextContentTypeOneTimeCode;
     [self.inputField addTarget:self action:@selector(inputChangeText:) forControlEvents:UIControlEventEditingChanged];
     [self.inputField setContentHuggingPriority:199 forAxis:UILayoutConstraintAxisHorizontal];
     [self.contentView addSubview:self.inputField];
