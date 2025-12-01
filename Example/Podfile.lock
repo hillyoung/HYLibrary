@@ -1,20 +1,27 @@
 PODS:
+  - GMEllipticCurveCrypto (1.3)
   - HYAppInfo (1.0.3):
     - HYLibrary
-  - HYLibrary (0.1.7)
+  - HYLibrary (0.1.8)
+  - Masonry (1.1.0)
   - MGJRouter (0.0.1)
   - OpenSSL-Universal (3.3.3001)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
+  - GMEllipticCurveCrypto
   - HYAppInfo (from `../../AppInfo/`)
   - HYLibrary (from `../`)
+  - Masonry
   - MGJRouter (from `https://github.com/hillyoung/MGJRouter.git`)
   - OpenSSL-Universal
   - YYModel
 
 SPEC REPOS:
+  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+    - GMEllipticCurveCrypto
   trunk:
+    - Masonry
     - OpenSSL-Universal
     - YYModel
 
@@ -32,12 +39,14 @@ CHECKOUT OPTIONS:
     :git: https://github.com/hillyoung/MGJRouter.git
 
 SPEC CHECKSUMS:
-  HYAppInfo: 00772892f70fb891dbb5354f47737f83e2ef25eb
-  HYLibrary: cc4ed0960fbedada8e738f9b8824ddeb71d0d791
+  GMEllipticCurveCrypto: dff32bc22d2bfd73d6cbac841faeb40f8d79ce7f
+  HYAppInfo: 423858eb2fc5b68722b8192be7104867048979f9
+  HYLibrary: 40b75a6f3e4a8e6586acf8c4ead1c04bd1a8769f
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MGJRouter: 271e4899bf4a1a11a677c02e5264725b14f1c896
   OpenSSL-Universal: 6082b0bf950e5636fe0d78def171184e2b3899c2
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 51b366dc82ab256e798f5d6116c9311fed0c2bf9
+PODFILE CHECKSUM: 0b6c8397affc5e0e32112da656d37d5de3297d29
 
 COCOAPODS: 1.16.2

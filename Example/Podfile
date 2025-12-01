@@ -1,5 +1,8 @@
 use_frameworks!
 
+source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+
+
 platform :ios, '12.0'
 
 project 'HYLibrary.xcodeproj'
@@ -7,6 +10,7 @@ project 'HYLibrary.xcodeproj'
 target 'HYLibrary_Example' do
   pod 'HYLibrary', :path => '../'
   pod 'HYAppInfo', :path => '../../AppInfo/'
+  pod 'Masonry'
 
   pod 'MGJRouter', :git => 'https://github.com/hillyoung/MGJRouter.git'
   pod 'YYModel'
@@ -22,6 +26,9 @@ target 'HYLibrary_Example' do
 end
 
 target 'CleanDemo' do
-  pod 'HYLibrary', :path => '../'
+#  pod 'HYLibrary', :path => '../'
   pod 'HYAppInfo', :path => '../../AppInfo/'
+  pod 'Masonry'
+#  pod 'openssl'
+  pod 'GMEllipticCurveCrypto'
 end
