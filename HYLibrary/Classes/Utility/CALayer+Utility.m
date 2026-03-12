@@ -8,6 +8,16 @@
 
 #import "CALayer+Utility.h"
 
+
+CGFloat HYCurrentScreenScale(void) {
+    if (@available(iOS 26.0, *)) {
+        return [UITraitCollection currentTraitCollection].displayScale;
+    } else {
+        return [UIScreen mainScreen].scale;
+    }
+}
+
+
 @implementation CALayer (Utility)
 
 - (UIColor *)colorInPoint:(CGPoint)point {
@@ -24,7 +34,7 @@
 }
 
 - (UIImage *)imageAtRect:(CGRect)rect {
-    UIGraphicsBeginImageContextWithOptions(rect.size, NO, [UIScreen mainScreen].scale);
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, HYCurrentScreenScale());
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextTranslateCTM(context, -rect.origin.x, -rect.origin.y);
     [self renderInContext:UIGraphicsGetCurrentContext()];
